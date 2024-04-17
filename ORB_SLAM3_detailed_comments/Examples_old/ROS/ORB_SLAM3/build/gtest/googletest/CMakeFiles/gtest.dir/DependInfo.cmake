@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/usr/src/googletest/googletest/src/gtest-all.cc" "/home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/gtest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o"
+  "/usr/src/googletest/googletest/src/gtest-all.cc" "/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/gtest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -17,7 +17,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/include"
+  "/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/include"
   "/opt/ros/noetic/include"
   "/usr/include/opencv4"
   "/usr/src/googletest/googletest/include"

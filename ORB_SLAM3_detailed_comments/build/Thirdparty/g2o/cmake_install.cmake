@@ -1,4 +1,4 @@
-# Install script for directory: /home/fish/bishe/ORB_SLAM3_detailed_comments/Thirdparty/g2o
+# Install script for directory: /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Thirdparty/g2o
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -6,5 +6,5 @@ CXX_FLAGS = -O3 -DNDEBUG -fPIC   -Wall -Wshadow -Wno-error=dangling-else -DGTEST
 
 CXX_DEFINES = -DGTEST_CREATE_SHARED_LIBRARY=1 -DROS_PACKAGE_NAME=\"ORB_SLAM3\" -Dgmock_main_EXPORTS
 
-CXX_INCLUDES = -I/home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/include -I/opt/ros/noetic/include -I/usr/include/opencv4 -isystem /usr/src/googletest/googlemock/include -isystem /usr/src/googletest/googlemock -isystem /usr/src/googletest/googletest/include -isystem /usr/src/googletest/googletest 
+CXX_INCLUDES = -I/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/include -I/opt/ros/noetic/include -I/usr/include/opencv4 -isystem /usr/src/googletest/googlemock/include -isystem /usr/src/googletest/googlemock -isystem /usr/src/googletest/googletest/include -isystem /usr/src/googletest/googletest 
 

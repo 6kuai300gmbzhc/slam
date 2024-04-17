@@ -67,14 +67,14 @@ set(cloud_to_grid_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(cloud_to_grid_SOURCE_PREFIX /home/fish/catkin_ws/src/cloud_to_grid)
-  set(cloud_to_grid_DEVEL_PREFIX /home/fish/catkin_ws/devel)
+  set(cloud_to_grid_SOURCE_PREFIX /home/wang/bishe/slam/catkin_ws/src/cloud_to_grid)
+  set(cloud_to_grid_DEVEL_PREFIX /home/wang/bishe/slam/catkin_ws/devel)
   set(cloud_to_grid_INSTALL_PREFIX "")
   set(cloud_to_grid_PREFIX ${cloud_to_grid_DEVEL_PREFIX})
 else()
   set(cloud_to_grid_SOURCE_PREFIX "")
   set(cloud_to_grid_DEVEL_PREFIX "")
-  set(cloud_to_grid_INSTALL_PREFIX /home/fish/catkin_ws/install)
+  set(cloud_to_grid_INSTALL_PREFIX /home/wang/bishe/slam/catkin_ws/install)
   set(cloud_to_grid_PREFIX ${cloud_to_grid_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/fish/catkin_ws/install/lib;/home/fish/catkin_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/wang/bishe/slam/catkin_ws/install/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

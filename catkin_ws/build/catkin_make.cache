@@ -1,2 +1,2 @@
 cloud_to_grid:merge_maps:robot_sim_demo:ros_tutorial
--DCATKIN_DEVEL_PREFIX=/home/fish/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/fish/catkin_ws/install -G Unix Makefiles
+-DCATKIN_DEVEL_PREFIX=/home/wang/bishe/slam/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/wang/bishe/slam/catkin_ws/install -G Unix Makefiles

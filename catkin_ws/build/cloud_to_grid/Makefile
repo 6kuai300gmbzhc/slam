@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fish/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/wang/bishe/slam/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fish/catkin_ws/build
+CMAKE_BINARY_DIR = /home/wang/bishe/slam/catkin_ws/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -115,8 +115,8 @@ install/strip/fast: preinstall/fast
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -137,14 +137,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/fish/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/fish/catkin_ws/build/CMakeFiles /home/fish/catkin_ws/build/cloud_to_grid/CMakeFiles/progress.marks
-	cd /home/fish/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 cloud_to_grid/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fish/catkin_ws/build/CMakeFiles 0
+	cd /home/wang/bishe/slam/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/wang/bishe/slam/catkin_ws/build/CMakeFiles /home/wang/bishe/slam/catkin_ws/build/cloud_to_grid/CMakeFiles/progress.marks
+	cd /home/wang/bishe/slam/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 cloud_to_grid/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wang/bishe/slam/catkin_ws/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/fish/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 cloud_to_grid/clean
+	cd /home/wang/bishe/slam/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 cloud_to_grid/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/fish/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 cloud_to_grid/preinstall
+	cd /home/wang/bishe/slam/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 cloud_to_grid/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/fish/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 cloud_to_grid/preinstall
+	cd /home/wang/bishe/slam/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 cloud_to_grid/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/fish/catkin_ws/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/wang/bishe/slam/catkin_ws/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 cloud_to_grid/CMakeFiles/publish_pcd.dir/rule:
-	cd /home/fish/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 cloud_to_grid/CMakeFiles/publish_pcd.dir/rule
+	cd /home/wang/bishe/slam/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 cloud_to_grid/CMakeFiles/publish_pcd.dir/rule
 .PHONY : cloud_to_grid/CMakeFiles/publish_pcd.dir/rule
 
 # Convenience name for target.
@@ -179,12 +179,12 @@ publish_pcd: cloud_to_grid/CMakeFiles/publish_pcd.dir/rule
 
 # fast build rule for target.
 publish_pcd/fast:
-	cd /home/fish/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/publish_pcd.dir/build.make cloud_to_grid/CMakeFiles/publish_pcd.dir/build
+	cd /home/wang/bishe/slam/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/publish_pcd.dir/build.make cloud_to_grid/CMakeFiles/publish_pcd.dir/build
 .PHONY : publish_pcd/fast
 
 # Convenience name for target.
 cloud_to_grid/CMakeFiles/generate_grid.dir/rule:
-	cd /home/fish/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 cloud_to_grid/CMakeFiles/generate_grid.dir/rule
+	cd /home/wang/bishe/slam/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 cloud_to_grid/CMakeFiles/generate_grid.dir/rule
 .PHONY : cloud_to_grid/CMakeFiles/generate_grid.dir/rule
 
 # Convenience name for target.
@@ -194,12 +194,12 @@ generate_grid: cloud_to_grid/CMakeFiles/generate_grid.dir/rule
 
 # fast build rule for target.
 generate_grid/fast:
-	cd /home/fish/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/generate_grid.dir/build.make cloud_to_grid/CMakeFiles/generate_grid.dir/build
+	cd /home/wang/bishe/slam/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/generate_grid.dir/build.make cloud_to_grid/CMakeFiles/generate_grid.dir/build
 .PHONY : generate_grid/fast
 
 # Convenience name for target.
 cloud_to_grid/CMakeFiles/Grid_Tool.dir/rule:
-	cd /home/fish/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 cloud_to_grid/CMakeFiles/Grid_Tool.dir/rule
+	cd /home/wang/bishe/slam/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 cloud_to_grid/CMakeFiles/Grid_Tool.dir/rule
 .PHONY : cloud_to_grid/CMakeFiles/Grid_Tool.dir/rule
 
 # Convenience name for target.
@@ -209,12 +209,12 @@ Grid_Tool: cloud_to_grid/CMakeFiles/Grid_Tool.dir/rule
 
 # fast build rule for target.
 Grid_Tool/fast:
-	cd /home/fish/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/Grid_Tool.dir/build.make cloud_to_grid/CMakeFiles/Grid_Tool.dir/build
+	cd /home/wang/bishe/slam/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/Grid_Tool.dir/build.make cloud_to_grid/CMakeFiles/Grid_Tool.dir/build
 .PHONY : Grid_Tool/fast
 
 # Convenience name for target.
 cloud_to_grid/CMakeFiles/cloud_to_grid_gencfg.dir/rule:
-	cd /home/fish/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 cloud_to_grid/CMakeFiles/cloud_to_grid_gencfg.dir/rule
+	cd /home/wang/bishe/slam/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 cloud_to_grid/CMakeFiles/cloud_to_grid_gencfg.dir/rule
 .PHONY : cloud_to_grid/CMakeFiles/cloud_to_grid_gencfg.dir/rule
 
 # Convenience name for target.
@@ -224,7 +224,7 @@ cloud_to_grid_gencfg: cloud_to_grid/CMakeFiles/cloud_to_grid_gencfg.dir/rule
 
 # fast build rule for target.
 cloud_to_grid_gencfg/fast:
-	cd /home/fish/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/cloud_to_grid_gencfg.dir/build.make cloud_to_grid/CMakeFiles/cloud_to_grid_gencfg.dir/build
+	cd /home/wang/bishe/slam/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/cloud_to_grid_gencfg.dir/build.make cloud_to_grid/CMakeFiles/cloud_to_grid_gencfg.dir/build
 .PHONY : cloud_to_grid_gencfg/fast
 
 src/Grid_Tool.o: src/Grid_Tool.cpp.o
@@ -233,7 +233,7 @@ src/Grid_Tool.o: src/Grid_Tool.cpp.o
 
 # target to build an object file
 src/Grid_Tool.cpp.o:
-	cd /home/fish/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/Grid_Tool.dir/build.make cloud_to_grid/CMakeFiles/Grid_Tool.dir/src/Grid_Tool.cpp.o
+	cd /home/wang/bishe/slam/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/Grid_Tool.dir/build.make cloud_to_grid/CMakeFiles/Grid_Tool.dir/src/Grid_Tool.cpp.o
 .PHONY : src/Grid_Tool.cpp.o
 
 src/Grid_Tool.i: src/Grid_Tool.cpp.i
@@ -242,7 +242,7 @@ src/Grid_Tool.i: src/Grid_Tool.cpp.i
 
 # target to preprocess a source file
 src/Grid_Tool.cpp.i:
-	cd /home/fish/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/Grid_Tool.dir/build.make cloud_to_grid/CMakeFiles/Grid_Tool.dir/src/Grid_Tool.cpp.i
+	cd /home/wang/bishe/slam/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/Grid_Tool.dir/build.make cloud_to_grid/CMakeFiles/Grid_Tool.dir/src/Grid_Tool.cpp.i
 .PHONY : src/Grid_Tool.cpp.i
 
 src/Grid_Tool.s: src/Grid_Tool.cpp.s
@@ -251,7 +251,7 @@ src/Grid_Tool.s: src/Grid_Tool.cpp.s
 
 # target to generate assembly for a file
 src/Grid_Tool.cpp.s:
-	cd /home/fish/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/Grid_Tool.dir/build.make cloud_to_grid/CMakeFiles/Grid_Tool.dir/src/Grid_Tool.cpp.s
+	cd /home/wang/bishe/slam/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/Grid_Tool.dir/build.make cloud_to_grid/CMakeFiles/Grid_Tool.dir/src/Grid_Tool.cpp.s
 .PHONY : src/Grid_Tool.cpp.s
 
 src/generate_grid.o: src/generate_grid.cpp.o
@@ -260,7 +260,7 @@ src/generate_grid.o: src/generate_grid.cpp.o
 
 # target to build an object file
 src/generate_grid.cpp.o:
-	cd /home/fish/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/generate_grid.dir/build.make cloud_to_grid/CMakeFiles/generate_grid.dir/src/generate_grid.cpp.o
+	cd /home/wang/bishe/slam/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/generate_grid.dir/build.make cloud_to_grid/CMakeFiles/generate_grid.dir/src/generate_grid.cpp.o
 .PHONY : src/generate_grid.cpp.o
 
 src/generate_grid.i: src/generate_grid.cpp.i
@@ -269,7 +269,7 @@ src/generate_grid.i: src/generate_grid.cpp.i
 
 # target to preprocess a source file
 src/generate_grid.cpp.i:
-	cd /home/fish/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/generate_grid.dir/build.make cloud_to_grid/CMakeFiles/generate_grid.dir/src/generate_grid.cpp.i
+	cd /home/wang/bishe/slam/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/generate_grid.dir/build.make cloud_to_grid/CMakeFiles/generate_grid.dir/src/generate_grid.cpp.i
 .PHONY : src/generate_grid.cpp.i
 
 src/generate_grid.s: src/generate_grid.cpp.s
@@ -278,7 +278,7 @@ src/generate_grid.s: src/generate_grid.cpp.s
 
 # target to generate assembly for a file
 src/generate_grid.cpp.s:
-	cd /home/fish/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/generate_grid.dir/build.make cloud_to_grid/CMakeFiles/generate_grid.dir/src/generate_grid.cpp.s
+	cd /home/wang/bishe/slam/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/generate_grid.dir/build.make cloud_to_grid/CMakeFiles/generate_grid.dir/src/generate_grid.cpp.s
 .PHONY : src/generate_grid.cpp.s
 
 src/publish_pcd.o: src/publish_pcd.cpp.o
@@ -287,7 +287,7 @@ src/publish_pcd.o: src/publish_pcd.cpp.o
 
 # target to build an object file
 src/publish_pcd.cpp.o:
-	cd /home/fish/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/publish_pcd.dir/build.make cloud_to_grid/CMakeFiles/publish_pcd.dir/src/publish_pcd.cpp.o
+	cd /home/wang/bishe/slam/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/publish_pcd.dir/build.make cloud_to_grid/CMakeFiles/publish_pcd.dir/src/publish_pcd.cpp.o
 .PHONY : src/publish_pcd.cpp.o
 
 src/publish_pcd.i: src/publish_pcd.cpp.i
@@ -296,7 +296,7 @@ src/publish_pcd.i: src/publish_pcd.cpp.i
 
 # target to preprocess a source file
 src/publish_pcd.cpp.i:
-	cd /home/fish/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/publish_pcd.dir/build.make cloud_to_grid/CMakeFiles/publish_pcd.dir/src/publish_pcd.cpp.i
+	cd /home/wang/bishe/slam/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/publish_pcd.dir/build.make cloud_to_grid/CMakeFiles/publish_pcd.dir/src/publish_pcd.cpp.i
 .PHONY : src/publish_pcd.cpp.i
 
 src/publish_pcd.s: src/publish_pcd.cpp.s
@@ -305,7 +305,7 @@ src/publish_pcd.s: src/publish_pcd.cpp.s
 
 # target to generate assembly for a file
 src/publish_pcd.cpp.s:
-	cd /home/fish/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/publish_pcd.dir/build.make cloud_to_grid/CMakeFiles/publish_pcd.dir/src/publish_pcd.cpp.s
+	cd /home/wang/bishe/slam/catkin_ws/build && $(MAKE) -f cloud_to_grid/CMakeFiles/publish_pcd.dir/build.make cloud_to_grid/CMakeFiles/publish_pcd.dir/src/publish_pcd.cpp.s
 .PHONY : src/publish_pcd.cpp.s
 
 # Help Target
@@ -345,6 +345,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/fish/catkin_ws/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/wang/bishe/slam/catkin_ws/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

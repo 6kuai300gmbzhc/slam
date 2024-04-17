@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3
+CMAKE_SOURCE_DIR = /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build
+CMAKE_BINARY_DIR = /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build
 
 # Utility rule file for clean_test_results.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS
 include CMakeFiles/clean_test_results.dir/progress.make
 
 CMakeFiles/clean_test_results:
-	/usr/bin/python3.8 /opt/ros/noetic/share/catkin/cmake/test/remove_test_results.py /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/test_results
+	/usr/bin/python3.8 /opt/ros/noetic/share/catkin/cmake/test/remove_test_results.py /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/test_results
 
 clean_test_results: CMakeFiles/clean_test_results
 clean_test_results: CMakeFiles/clean_test_results.dir/build.make
@@ -71,6 +71,6 @@ CMakeFiles/clean_test_results.dir/clean:
 .PHONY : CMakeFiles/clean_test_results.dir/clean
 
 CMakeFiles/clean_test_results.dir/depend:
-	cd /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3 /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3 /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/CMakeFiles/clean_test_results.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3 /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3 /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/CMakeFiles/clean_test_results.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/clean_test_results.dir/depend
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3
+# Install script for directory: /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -56,7 +56,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/usr/local" TYPE PROGRAM FILES "/home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/catkin_generated/installspace/_setup_util.py")
+file(INSTALL DESTINATION "/usr/local" TYPE PROGRAM FILES "/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/catkin_generated/installspace/_setup_util.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -68,7 +68,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/usr/local" TYPE PROGRAM FILES "/home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/catkin_generated/installspace/env.sh")
+file(INSTALL DESTINATION "/usr/local" TYPE PROGRAM FILES "/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/catkin_generated/installspace/env.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -81,8 +81,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
 file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES
-    "/home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/catkin_generated/installspace/setup.bash"
-    "/home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/catkin_generated/installspace/local_setup.bash"
+    "/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/catkin_generated/installspace/setup.bash"
+    "/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/catkin_generated/installspace/local_setup.bash"
     )
 endif()
 
@@ -96,8 +96,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
 file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES
-    "/home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/catkin_generated/installspace/setup.sh"
-    "/home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/catkin_generated/installspace/local_setup.sh"
+    "/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/catkin_generated/installspace/setup.sh"
+    "/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/catkin_generated/installspace/local_setup.sh"
     )
 endif()
 
@@ -111,8 +111,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
 file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES
-    "/home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/catkin_generated/installspace/setup.zsh"
-    "/home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/catkin_generated/installspace/local_setup.zsh"
+    "/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/catkin_generated/installspace/setup.zsh"
+    "/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/catkin_generated/installspace/local_setup.zsh"
     )
 endif()
 
@@ -125,12 +125,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES "/home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/catkin_generated/installspace/.rosinstall")
+file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES "/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/catkin_generated/installspace/.rosinstall")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/gtest/cmake_install.cmake")
+  include("/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/gtest/cmake_install.cmake")
 
 endif()
 
@@ -142,5 +142,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

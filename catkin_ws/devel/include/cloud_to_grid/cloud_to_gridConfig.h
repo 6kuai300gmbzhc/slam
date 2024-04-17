@@ -446,9 +446,9 @@ cloud_to_gridConfig::GroupDescription<cloud_to_gridConfig::DEFAULT, cloud_to_gri
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __default__.project_direction = 2;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      Default.abstract_parameters.push_back(cloud_to_gridConfig::AbstractParamDescriptionConstPtr(new cloud_to_gridConfig::ParamDescription<int>("project_direction", "int", 0, "project_direction x-y or y-z or x-z", "{'enum': [{'name': 'x', 'type': 'int', 'value': 0, 'srcline': 9, 'srcfile': '/home/fish/catkin_ws/src/cloud_to_grid/config/cloud_to_grid.cfg', 'description': 'projection to y-z', 'ctype': 'int', 'cconsttype': 'const int'}, {'name': 'y', 'type': 'int', 'value': 1, 'srcline': 10, 'srcfile': '/home/fish/catkin_ws/src/cloud_to_grid/config/cloud_to_grid.cfg', 'description': 'projection to z-x', 'ctype': 'int', 'cconsttype': 'const int'}, {'name': 'z', 'type': 'int', 'value': 2, 'srcline': 11, 'srcfile': '/home/fish/catkin_ws/src/cloud_to_grid/config/cloud_to_grid.cfg', 'description': 'projection to x-y', 'ctype': 'int', 'cconsttype': 'const int'}], 'enum_description': 'project_direction'}", &cloud_to_gridConfig::project_direction)));
+      Default.abstract_parameters.push_back(cloud_to_gridConfig::AbstractParamDescriptionConstPtr(new cloud_to_gridConfig::ParamDescription<int>("project_direction", "int", 0, "project_direction x-y or y-z or x-z", "{'enum': [{'name': 'x', 'type': 'int', 'value': 0, 'srcline': 9, 'srcfile': '/home/wang/bishe/slam/catkin_ws/src/cloud_to_grid/config/cloud_to_grid.cfg', 'description': 'projection to y-z', 'ctype': 'int', 'cconsttype': 'const int'}, {'name': 'y', 'type': 'int', 'value': 1, 'srcline': 10, 'srcfile': '/home/wang/bishe/slam/catkin_ws/src/cloud_to_grid/config/cloud_to_grid.cfg', 'description': 'projection to z-x', 'ctype': 'int', 'cconsttype': 'const int'}, {'name': 'z', 'type': 'int', 'value': 2, 'srcline': 11, 'srcfile': '/home/wang/bishe/slam/catkin_ws/src/cloud_to_grid/config/cloud_to_grid.cfg', 'description': 'projection to x-y', 'ctype': 'int', 'cconsttype': 'const int'}], 'enum_description': 'project_direction'}", &cloud_to_gridConfig::project_direction)));
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __param_descriptions__.push_back(cloud_to_gridConfig::AbstractParamDescriptionConstPtr(new cloud_to_gridConfig::ParamDescription<int>("project_direction", "int", 0, "project_direction x-y or y-z or x-z", "{'enum': [{'name': 'x', 'type': 'int', 'value': 0, 'srcline': 9, 'srcfile': '/home/fish/catkin_ws/src/cloud_to_grid/config/cloud_to_grid.cfg', 'description': 'projection to y-z', 'ctype': 'int', 'cconsttype': 'const int'}, {'name': 'y', 'type': 'int', 'value': 1, 'srcline': 10, 'srcfile': '/home/fish/catkin_ws/src/cloud_to_grid/config/cloud_to_grid.cfg', 'description': 'projection to z-x', 'ctype': 'int', 'cconsttype': 'const int'}, {'name': 'z', 'type': 'int', 'value': 2, 'srcline': 11, 'srcfile': '/home/fish/catkin_ws/src/cloud_to_grid/config/cloud_to_grid.cfg', 'description': 'projection to x-y', 'ctype': 'int', 'cconsttype': 'const int'}], 'enum_description': 'project_direction'}", &cloud_to_gridConfig::project_direction)));
+      __param_descriptions__.push_back(cloud_to_gridConfig::AbstractParamDescriptionConstPtr(new cloud_to_gridConfig::ParamDescription<int>("project_direction", "int", 0, "project_direction x-y or y-z or x-z", "{'enum': [{'name': 'x', 'type': 'int', 'value': 0, 'srcline': 9, 'srcfile': '/home/wang/bishe/slam/catkin_ws/src/cloud_to_grid/config/cloud_to_grid.cfg', 'description': 'projection to y-z', 'ctype': 'int', 'cconsttype': 'const int'}, {'name': 'y', 'type': 'int', 'value': 1, 'srcline': 10, 'srcfile': '/home/wang/bishe/slam/catkin_ws/src/cloud_to_grid/config/cloud_to_grid.cfg', 'description': 'projection to z-x', 'ctype': 'int', 'cconsttype': 'const int'}, {'name': 'z', 'type': 'int', 'value': 2, 'srcline': 11, 'srcfile': '/home/wang/bishe/slam/catkin_ws/src/cloud_to_grid/config/cloud_to_grid.cfg', 'description': 'projection to x-y', 'ctype': 'int', 'cconsttype': 'const int'}], 'enum_description': 'project_direction'}", &cloud_to_gridConfig::project_direction)));
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __min__.searchRadius = 0.0;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
@@ -608,11 +608,11 @@ cloud_to_gridConfig::GroupDescription<cloud_to_gridConfig::DEFAULT, cloud_to_gri
     return statics;
   }
 
-//#line 9 "/home/fish/catkin_ws/src/cloud_to_grid/config/cloud_to_grid.cfg"
+//#line 9 "/home/wang/bishe/slam/catkin_ws/src/cloud_to_grid/config/cloud_to_grid.cfg"
       const int cloud_to_grid_x = 0;
-//#line 10 "/home/fish/catkin_ws/src/cloud_to_grid/config/cloud_to_grid.cfg"
+//#line 10 "/home/wang/bishe/slam/catkin_ws/src/cloud_to_grid/config/cloud_to_grid.cfg"
       const int cloud_to_grid_y = 1;
-//#line 11 "/home/fish/catkin_ws/src/cloud_to_grid/config/cloud_to_grid.cfg"
+//#line 11 "/home/wang/bishe/slam/catkin_ws/src/cloud_to_grid/config/cloud_to_grid.cfg"
       const int cloud_to_grid_z = 2;
 }
 

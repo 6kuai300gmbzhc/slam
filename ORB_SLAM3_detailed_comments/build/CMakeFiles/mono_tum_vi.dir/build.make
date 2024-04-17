@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fish/bishe/ORB_SLAM3_detailed_comments
+CMAKE_SOURCE_DIR = /home/wang/bishe/slam/ORB_SLAM3_detailed_comments
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fish/bishe/ORB_SLAM3_detailed_comments/build
+CMAKE_BINARY_DIR = /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/mono_tum_vi.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/mono_tum_vi.dir/flags.make
 
 CMakeFiles/mono_tum_vi.dir/Examples/Monocular/mono_tum_vi.cc.o: CMakeFiles/mono_tum_vi.dir/flags.make
 CMakeFiles/mono_tum_vi.dir/Examples/Monocular/mono_tum_vi.cc.o: ../Examples/Monocular/mono_tum_vi.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fish/bishe/ORB_SLAM3_detailed_comments/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mono_tum_vi.dir/Examples/Monocular/mono_tum_vi.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mono_tum_vi.dir/Examples/Monocular/mono_tum_vi.cc.o -c /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples/Monocular/mono_tum_vi.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mono_tum_vi.dir/Examples/Monocular/mono_tum_vi.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mono_tum_vi.dir/Examples/Monocular/mono_tum_vi.cc.o -c /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples/Monocular/mono_tum_vi.cc
 
 CMakeFiles/mono_tum_vi.dir/Examples/Monocular/mono_tum_vi.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mono_tum_vi.dir/Examples/Monocular/mono_tum_vi.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples/Monocular/mono_tum_vi.cc > CMakeFiles/mono_tum_vi.dir/Examples/Monocular/mono_tum_vi.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples/Monocular/mono_tum_vi.cc > CMakeFiles/mono_tum_vi.dir/Examples/Monocular/mono_tum_vi.cc.i
 
 CMakeFiles/mono_tum_vi.dir/Examples/Monocular/mono_tum_vi.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mono_tum_vi.dir/Examples/Monocular/mono_tum_vi.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples/Monocular/mono_tum_vi.cc -o CMakeFiles/mono_tum_vi.dir/Examples/Monocular/mono_tum_vi.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples/Monocular/mono_tum_vi.cc -o CMakeFiles/mono_tum_vi.dir/Examples/Monocular/mono_tum_vi.cc.s
 
 # Object files for target mono_tum_vi
 mono_tum_vi_OBJECTS = \
@@ -80,39 +80,72 @@ mono_tum_vi_EXTERNAL_OBJECTS =
 ../Examples/Monocular/mono_tum_vi: CMakeFiles/mono_tum_vi.dir/Examples/Monocular/mono_tum_vi.cc.o
 ../Examples/Monocular/mono_tum_vi: CMakeFiles/mono_tum_vi.dir/build.make
 ../Examples/Monocular/mono_tum_vi: ../lib/libORB_SLAM3.so
-../Examples/Monocular/mono_tum_vi: /usr/local/opencv4/lib/libopencv_dnn.so.4.2.0
-../Examples/Monocular/mono_tum_vi: /usr/local/opencv4/lib/libopencv_gapi.so.4.2.0
-../Examples/Monocular/mono_tum_vi: /usr/local/opencv4/lib/libopencv_highgui.so.4.2.0
-../Examples/Monocular/mono_tum_vi: /usr/local/opencv4/lib/libopencv_ml.so.4.2.0
-../Examples/Monocular/mono_tum_vi: /usr/local/opencv4/lib/libopencv_objdetect.so.4.2.0
-../Examples/Monocular/mono_tum_vi: /usr/local/opencv4/lib/libopencv_photo.so.4.2.0
-../Examples/Monocular/mono_tum_vi: /usr/local/opencv4/lib/libopencv_stitching.so.4.2.0
-../Examples/Monocular/mono_tum_vi: /usr/local/opencv4/lib/libopencv_video.so.4.2.0
-../Examples/Monocular/mono_tum_vi: /usr/local/opencv4/lib/libopencv_calib3d.so.4.2.0
-../Examples/Monocular/mono_tum_vi: /usr/local/opencv4/lib/libopencv_features2d.so.4.2.0
-../Examples/Monocular/mono_tum_vi: /usr/local/opencv4/lib/libopencv_flann.so.4.2.0
-../Examples/Monocular/mono_tum_vi: /usr/local/opencv4/lib/libopencv_videoio.so.4.2.0
-../Examples/Monocular/mono_tum_vi: /usr/local/opencv4/lib/libopencv_imgcodecs.so.4.2.0
-../Examples/Monocular/mono_tum_vi: /usr/local/opencv4/lib/libopencv_imgproc.so.4.2.0
-../Examples/Monocular/mono_tum_vi: /usr/local/opencv4/lib/libopencv_core.so.4.2.0
-../Examples/Monocular/mono_tum_vi: /usr/local/lib/libpangolin.so
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_stitching.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_aruco.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_bgsegm.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_bioinspired.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_ccalib.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_dnn_objdetect.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_dnn_superres.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_dpm.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_highgui.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_face.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_freetype.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_fuzzy.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_hdf.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_hfs.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_img_hash.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_line_descriptor.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_quality.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_reg.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_rgbd.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_saliency.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_shape.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_stereo.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_structured_light.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_phase_unwrapping.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_superres.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_optflow.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_surface_matching.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_tracking.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_datasets.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_plot.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_text.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_dnn.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_ml.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_videostab.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_viz.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_ximgproc.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_video.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_xobjdetect.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_objdetect.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_calib3d.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_features2d.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_flann.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_xphoto.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_photo.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0
+../Examples/Monocular/mono_tum_vi: /usr/local/lib/libpango_glgeometry.so
+../Examples/Monocular/mono_tum_vi: /usr/local/lib/libpango_geometry.so
+../Examples/Monocular/mono_tum_vi: /usr/local/lib/libpango_plot.so
+../Examples/Monocular/mono_tum_vi: /usr/local/lib/libpango_python.so
+../Examples/Monocular/mono_tum_vi: /usr/local/lib/libpango_scene.so
+../Examples/Monocular/mono_tum_vi: /usr/local/lib/libpango_tools.so
+../Examples/Monocular/mono_tum_vi: /usr/local/lib/libpango_display.so
+../Examples/Monocular/mono_tum_vi: /usr/local/lib/libpango_vars.so
+../Examples/Monocular/mono_tum_vi: /usr/local/lib/libpango_video.so
+../Examples/Monocular/mono_tum_vi: /usr/local/lib/libpango_packetstream.so
+../Examples/Monocular/mono_tum_vi: /usr/local/lib/libpango_windowing.so
+../Examples/Monocular/mono_tum_vi: /usr/local/lib/libpango_opengl.so
+../Examples/Monocular/mono_tum_vi: /usr/local/lib/libpango_image.so
+../Examples/Monocular/mono_tum_vi: /usr/local/lib/libpango_core.so
 ../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 ../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libGLX.so
 ../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libGLU.so
-../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libEGL.so
-../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libOpenGL.so
-../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libGLX.so
-../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libGLU.so
-../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libEGL.so
-../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libdc1394.so
-../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libavcodec.so
-../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libavformat.so
-../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libavutil.so
-../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libswscale.so
-../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libavdevice.so
-../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libIlmImf.so
-../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libzstd.so
-../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/liblz4.so
+../Examples/Monocular/mono_tum_vi: /usr/local/lib/libtinyobj.so
 ../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libpcl_apps.so
 ../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libpcl_surface.so
 ../Examples/Monocular/mono_tum_vi: /usr/lib/x86_64-linux-gnu/libpcl_keypoints.so
@@ -205,7 +238,7 @@ mono_tum_vi_EXTERNAL_OBJECTS =
 ../Examples/Monocular/mono_tum_vi: ../Thirdparty/DBoW2/lib/libDBoW2.so
 ../Examples/Monocular/mono_tum_vi: ../Thirdparty/g2o/lib/libg2o.so
 ../Examples/Monocular/mono_tum_vi: CMakeFiles/mono_tum_vi.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fish/bishe/ORB_SLAM3_detailed_comments/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../Examples/Monocular/mono_tum_vi"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../Examples/Monocular/mono_tum_vi"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mono_tum_vi.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -218,6 +251,6 @@ CMakeFiles/mono_tum_vi.dir/clean:
 .PHONY : CMakeFiles/mono_tum_vi.dir/clean
 
 CMakeFiles/mono_tum_vi.dir/depend:
-	cd /home/fish/bishe/ORB_SLAM3_detailed_comments/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fish/bishe/ORB_SLAM3_detailed_comments /home/fish/bishe/ORB_SLAM3_detailed_comments /home/fish/bishe/ORB_SLAM3_detailed_comments/build /home/fish/bishe/ORB_SLAM3_detailed_comments/build /home/fish/bishe/ORB_SLAM3_detailed_comments/build/CMakeFiles/mono_tum_vi.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/wang/bishe/slam/ORB_SLAM3_detailed_comments /home/wang/bishe/slam/ORB_SLAM3_detailed_comments /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/build /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/build /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/build/CMakeFiles/mono_tum_vi.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/mono_tum_vi.dir/depend
 

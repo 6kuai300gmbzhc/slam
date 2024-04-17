@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3
+CMAKE_SOURCE_DIR = /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build
+CMAKE_BINARY_DIR = /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/MonoAR.dir/depend.make
@@ -114,16 +114,16 @@ CMakeFiles/MonoAR.dir/src/AR/ros_mono_ar.cc.o: /opt/ros/noetic/share/tf2_ros/pac
 CMakeFiles/MonoAR.dir/src/AR/ros_mono_ar.cc.o: /opt/ros/noetic/share/tf/package.xml
 CMakeFiles/MonoAR.dir/src/AR/ros_mono_ar.cc.o: /opt/ros/noetic/share/image_transport/package.xml
 CMakeFiles/MonoAR.dir/src/AR/ros_mono_ar.cc.o: /opt/ros/noetic/share/cv_bridge/package.xml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MonoAR.dir/src/AR/ros_mono_ar.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MonoAR.dir/src/AR/ros_mono_ar.cc.o -c /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/src/AR/ros_mono_ar.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MonoAR.dir/src/AR/ros_mono_ar.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MonoAR.dir/src/AR/ros_mono_ar.cc.o -c /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/src/AR/ros_mono_ar.cc
 
 CMakeFiles/MonoAR.dir/src/AR/ros_mono_ar.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MonoAR.dir/src/AR/ros_mono_ar.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/src/AR/ros_mono_ar.cc > CMakeFiles/MonoAR.dir/src/AR/ros_mono_ar.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/src/AR/ros_mono_ar.cc > CMakeFiles/MonoAR.dir/src/AR/ros_mono_ar.cc.i
 
 CMakeFiles/MonoAR.dir/src/AR/ros_mono_ar.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MonoAR.dir/src/AR/ros_mono_ar.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/src/AR/ros_mono_ar.cc -o CMakeFiles/MonoAR.dir/src/AR/ros_mono_ar.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/src/AR/ros_mono_ar.cc -o CMakeFiles/MonoAR.dir/src/AR/ros_mono_ar.cc.s
 
 CMakeFiles/MonoAR.dir/src/AR/ViewerAR.cc.o: CMakeFiles/MonoAR.dir/flags.make
 CMakeFiles/MonoAR.dir/src/AR/ViewerAR.cc.o: ../src/AR/ViewerAR.cc
@@ -182,16 +182,16 @@ CMakeFiles/MonoAR.dir/src/AR/ViewerAR.cc.o: /opt/ros/noetic/share/tf2_ros/packag
 CMakeFiles/MonoAR.dir/src/AR/ViewerAR.cc.o: /opt/ros/noetic/share/tf/package.xml
 CMakeFiles/MonoAR.dir/src/AR/ViewerAR.cc.o: /opt/ros/noetic/share/image_transport/package.xml
 CMakeFiles/MonoAR.dir/src/AR/ViewerAR.cc.o: /opt/ros/noetic/share/cv_bridge/package.xml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MonoAR.dir/src/AR/ViewerAR.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MonoAR.dir/src/AR/ViewerAR.cc.o -c /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/src/AR/ViewerAR.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MonoAR.dir/src/AR/ViewerAR.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MonoAR.dir/src/AR/ViewerAR.cc.o -c /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/src/AR/ViewerAR.cc
 
 CMakeFiles/MonoAR.dir/src/AR/ViewerAR.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MonoAR.dir/src/AR/ViewerAR.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/src/AR/ViewerAR.cc > CMakeFiles/MonoAR.dir/src/AR/ViewerAR.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/src/AR/ViewerAR.cc > CMakeFiles/MonoAR.dir/src/AR/ViewerAR.cc.i
 
 CMakeFiles/MonoAR.dir/src/AR/ViewerAR.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MonoAR.dir/src/AR/ViewerAR.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/src/AR/ViewerAR.cc -o CMakeFiles/MonoAR.dir/src/AR/ViewerAR.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/src/AR/ViewerAR.cc -o CMakeFiles/MonoAR.dir/src/AR/ViewerAR.cc.s
 
 # Object files for target MonoAR
 MonoAR_OBJECTS = \
@@ -204,60 +204,81 @@ MonoAR_EXTERNAL_OBJECTS =
 ../MonoAR: CMakeFiles/MonoAR.dir/src/AR/ros_mono_ar.cc.o
 ../MonoAR: CMakeFiles/MonoAR.dir/src/AR/ViewerAR.cc.o
 ../MonoAR: CMakeFiles/MonoAR.dir/build.make
-../MonoAR: /usr/local/opencv4/lib/libopencv_dnn.so.4.2.0
-../MonoAR: /usr/local/opencv4/lib/libopencv_gapi.so.4.2.0
-../MonoAR: /usr/local/opencv4/lib/libopencv_highgui.so.4.2.0
-../MonoAR: /usr/local/opencv4/lib/libopencv_ml.so.4.2.0
-../MonoAR: /usr/local/opencv4/lib/libopencv_objdetect.so.4.2.0
-../MonoAR: /usr/local/opencv4/lib/libopencv_photo.so.4.2.0
-../MonoAR: /usr/local/opencv4/lib/libopencv_stitching.so.4.2.0
-../MonoAR: /usr/local/opencv4/lib/libopencv_video.so.4.2.0
-../MonoAR: /usr/local/opencv4/lib/libopencv_videoio.so.4.2.0
-../MonoAR: /usr/local/lib/libpangolin.so
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_stitching.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_aruco.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_bgsegm.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_bioinspired.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_ccalib.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_dnn_objdetect.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_dnn_superres.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_dpm.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_face.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_freetype.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_fuzzy.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_hdf.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_hfs.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_img_hash.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_line_descriptor.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_quality.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_reg.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_rgbd.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_saliency.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_shape.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_stereo.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_structured_light.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_superres.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_surface_matching.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_tracking.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_videostab.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_viz.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_xobjdetect.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_xphoto.so.4.2.0
+../MonoAR: /usr/local/lib/libpango_glgeometry.so
+../MonoAR: /usr/local/lib/libpango_plot.so
+../MonoAR: /usr/local/lib/libpango_python.so
+../MonoAR: /usr/local/lib/libpango_scene.so
+../MonoAR: /usr/local/lib/libpango_tools.so
+../MonoAR: /usr/local/lib/libpango_video.so
 ../MonoAR: ../../../../Thirdparty/DBoW2/lib/libDBoW2.so
 ../MonoAR: ../../../../Thirdparty/g2o/lib/libg2o.so
 ../MonoAR: ../../../../lib/libORB_SLAM3.so
-../MonoAR: /usr/local/opencv4/lib/libopencv_imgcodecs.so.4.2.0
-../MonoAR: /usr/local/opencv4/lib/libopencv_calib3d.so.4.2.0
-../MonoAR: /usr/local/opencv4/lib/libopencv_features2d.so.4.2.0
-../MonoAR: /usr/local/opencv4/lib/libopencv_flann.so.4.2.0
-../MonoAR: /usr/local/opencv4/lib/libopencv_imgproc.so.4.2.0
-../MonoAR: /usr/local/opencv4/lib/libopencv_core.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_highgui.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_datasets.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_plot.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_text.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_dnn.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_ml.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_phase_unwrapping.so.4.2.0
+../MonoAR: ../../../../Thirdparty/DBoW2/lib/libDBoW2.so
+../MonoAR: ../../../../Thirdparty/g2o/lib/libg2o.so
+../MonoAR: ../../../../lib/libORB_SLAM3.so
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_optflow.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_ximgproc.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_video.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_objdetect.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_calib3d.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_features2d.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_flann.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_photo.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.4.2.0
+../MonoAR: /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0
+../MonoAR: /usr/local/lib/libpango_geometry.so
+../MonoAR: /usr/local/lib/libtinyobj.so
+../MonoAR: /usr/local/lib/libpango_display.so
+../MonoAR: /usr/local/lib/libpango_vars.so
+../MonoAR: /usr/local/lib/libpango_windowing.so
+../MonoAR: /usr/local/lib/libpango_opengl.so
+../MonoAR: /usr/lib/x86_64-linux-gnu/libGLEW.so
 ../MonoAR: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 ../MonoAR: /usr/lib/x86_64-linux-gnu/libGLX.so
 ../MonoAR: /usr/lib/x86_64-linux-gnu/libGLU.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libGLEW.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libEGL.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libSM.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libICE.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libX11.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libXext.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libOpenGL.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libGLX.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libGLU.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libGLEW.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libEGL.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libSM.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libICE.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libX11.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libXext.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libdc1394.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libavcodec.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libavformat.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libavutil.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libswscale.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libavdevice.so
-../MonoAR: /usr/lib/libOpenNI.so
-../MonoAR: /usr/lib/libOpenNI2.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libpng.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libz.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libjpeg.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libtiff.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libIlmImf.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/libzstd.so
-../MonoAR: /usr/lib/x86_64-linux-gnu/liblz4.so
+../MonoAR: /usr/local/lib/libpango_image.so
+../MonoAR: /usr/local/lib/libpango_packetstream.so
+../MonoAR: /usr/local/lib/libpango_core.so
 ../MonoAR: CMakeFiles/MonoAR.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ../MonoAR"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ../MonoAR"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MonoAR.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -270,6 +291,6 @@ CMakeFiles/MonoAR.dir/clean:
 .PHONY : CMakeFiles/MonoAR.dir/clean
 
 CMakeFiles/MonoAR.dir/depend:
-	cd /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3 /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3 /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/CMakeFiles/MonoAR.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3 /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3 /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/CMakeFiles/MonoAR.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/MonoAR.dir/depend
 

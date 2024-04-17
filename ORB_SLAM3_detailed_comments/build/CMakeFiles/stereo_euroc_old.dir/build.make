@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fish/bishe/ORB_SLAM3_detailed_comments
+CMAKE_SOURCE_DIR = /home/wang/bishe/slam/ORB_SLAM3_detailed_comments
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fish/bishe/ORB_SLAM3_detailed_comments/build
+CMAKE_BINARY_DIR = /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/stereo_euroc_old.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/stereo_euroc_old.dir/flags.make
 
 CMakeFiles/stereo_euroc_old.dir/Examples_old/Stereo/stereo_euroc.cc.o: CMakeFiles/stereo_euroc_old.dir/flags.make
 CMakeFiles/stereo_euroc_old.dir/Examples_old/Stereo/stereo_euroc.cc.o: ../Examples_old/Stereo/stereo_euroc.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fish/bishe/ORB_SLAM3_detailed_comments/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/stereo_euroc_old.dir/Examples_old/Stereo/stereo_euroc.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/stereo_euroc_old.dir/Examples_old/Stereo/stereo_euroc.cc.o -c /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/Stereo/stereo_euroc.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/stereo_euroc_old.dir/Examples_old/Stereo/stereo_euroc.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/stereo_euroc_old.dir/Examples_old/Stereo/stereo_euroc.cc.o -c /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/Stereo/stereo_euroc.cc
 
 CMakeFiles/stereo_euroc_old.dir/Examples_old/Stereo/stereo_euroc.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/stereo_euroc_old.dir/Examples_old/Stereo/stereo_euroc.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/Stereo/stereo_euroc.cc > CMakeFiles/stereo_euroc_old.dir/Examples_old/Stereo/stereo_euroc.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/Stereo/stereo_euroc.cc > CMakeFiles/stereo_euroc_old.dir/Examples_old/Stereo/stereo_euroc.cc.i
 
 CMakeFiles/stereo_euroc_old.dir/Examples_old/Stereo/stereo_euroc.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/stereo_euroc_old.dir/Examples_old/Stereo/stereo_euroc.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/Stereo/stereo_euroc.cc -o CMakeFiles/stereo_euroc_old.dir/Examples_old/Stereo/stereo_euroc.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/Stereo/stereo_euroc.cc -o CMakeFiles/stereo_euroc_old.dir/Examples_old/Stereo/stereo_euroc.cc.s
 
 # Object files for target stereo_euroc_old
 stereo_euroc_old_OBJECTS = \
@@ -80,39 +80,72 @@ stereo_euroc_old_EXTERNAL_OBJECTS =
 ../Examples_old/Stereo/stereo_euroc_old: CMakeFiles/stereo_euroc_old.dir/Examples_old/Stereo/stereo_euroc.cc.o
 ../Examples_old/Stereo/stereo_euroc_old: CMakeFiles/stereo_euroc_old.dir/build.make
 ../Examples_old/Stereo/stereo_euroc_old: ../lib/libORB_SLAM3.so
-../Examples_old/Stereo/stereo_euroc_old: /usr/local/opencv4/lib/libopencv_dnn.so.4.2.0
-../Examples_old/Stereo/stereo_euroc_old: /usr/local/opencv4/lib/libopencv_gapi.so.4.2.0
-../Examples_old/Stereo/stereo_euroc_old: /usr/local/opencv4/lib/libopencv_highgui.so.4.2.0
-../Examples_old/Stereo/stereo_euroc_old: /usr/local/opencv4/lib/libopencv_ml.so.4.2.0
-../Examples_old/Stereo/stereo_euroc_old: /usr/local/opencv4/lib/libopencv_objdetect.so.4.2.0
-../Examples_old/Stereo/stereo_euroc_old: /usr/local/opencv4/lib/libopencv_photo.so.4.2.0
-../Examples_old/Stereo/stereo_euroc_old: /usr/local/opencv4/lib/libopencv_stitching.so.4.2.0
-../Examples_old/Stereo/stereo_euroc_old: /usr/local/opencv4/lib/libopencv_video.so.4.2.0
-../Examples_old/Stereo/stereo_euroc_old: /usr/local/opencv4/lib/libopencv_calib3d.so.4.2.0
-../Examples_old/Stereo/stereo_euroc_old: /usr/local/opencv4/lib/libopencv_features2d.so.4.2.0
-../Examples_old/Stereo/stereo_euroc_old: /usr/local/opencv4/lib/libopencv_flann.so.4.2.0
-../Examples_old/Stereo/stereo_euroc_old: /usr/local/opencv4/lib/libopencv_videoio.so.4.2.0
-../Examples_old/Stereo/stereo_euroc_old: /usr/local/opencv4/lib/libopencv_imgcodecs.so.4.2.0
-../Examples_old/Stereo/stereo_euroc_old: /usr/local/opencv4/lib/libopencv_imgproc.so.4.2.0
-../Examples_old/Stereo/stereo_euroc_old: /usr/local/opencv4/lib/libopencv_core.so.4.2.0
-../Examples_old/Stereo/stereo_euroc_old: /usr/local/lib/libpangolin.so
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_stitching.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_aruco.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_bgsegm.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_bioinspired.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_ccalib.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_dnn_objdetect.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_dnn_superres.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_dpm.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_highgui.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_face.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_freetype.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_fuzzy.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_hdf.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_hfs.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_img_hash.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_line_descriptor.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_quality.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_reg.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_rgbd.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_saliency.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_shape.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_stereo.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_structured_light.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_phase_unwrapping.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_superres.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_optflow.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_surface_matching.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_tracking.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_datasets.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_plot.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_text.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_dnn.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_ml.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_videostab.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_viz.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_ximgproc.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_video.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_xobjdetect.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_objdetect.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_calib3d.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_features2d.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_flann.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_xphoto.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_photo.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0
+../Examples_old/Stereo/stereo_euroc_old: /usr/local/lib/libpango_glgeometry.so
+../Examples_old/Stereo/stereo_euroc_old: /usr/local/lib/libpango_geometry.so
+../Examples_old/Stereo/stereo_euroc_old: /usr/local/lib/libpango_plot.so
+../Examples_old/Stereo/stereo_euroc_old: /usr/local/lib/libpango_python.so
+../Examples_old/Stereo/stereo_euroc_old: /usr/local/lib/libpango_scene.so
+../Examples_old/Stereo/stereo_euroc_old: /usr/local/lib/libpango_tools.so
+../Examples_old/Stereo/stereo_euroc_old: /usr/local/lib/libpango_display.so
+../Examples_old/Stereo/stereo_euroc_old: /usr/local/lib/libpango_vars.so
+../Examples_old/Stereo/stereo_euroc_old: /usr/local/lib/libpango_video.so
+../Examples_old/Stereo/stereo_euroc_old: /usr/local/lib/libpango_packetstream.so
+../Examples_old/Stereo/stereo_euroc_old: /usr/local/lib/libpango_windowing.so
+../Examples_old/Stereo/stereo_euroc_old: /usr/local/lib/libpango_opengl.so
+../Examples_old/Stereo/stereo_euroc_old: /usr/local/lib/libpango_image.so
+../Examples_old/Stereo/stereo_euroc_old: /usr/local/lib/libpango_core.so
 ../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 ../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libGLX.so
 ../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libGLU.so
-../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libEGL.so
-../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libOpenGL.so
-../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libGLX.so
-../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libGLU.so
-../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libEGL.so
-../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libdc1394.so
-../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libavcodec.so
-../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libavformat.so
-../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libavutil.so
-../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libswscale.so
-../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libavdevice.so
-../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libIlmImf.so
-../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libzstd.so
-../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/liblz4.so
+../Examples_old/Stereo/stereo_euroc_old: /usr/local/lib/libtinyobj.so
 ../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libpcl_apps.so
 ../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libpcl_surface.so
 ../Examples_old/Stereo/stereo_euroc_old: /usr/lib/x86_64-linux-gnu/libpcl_keypoints.so
@@ -205,7 +238,7 @@ stereo_euroc_old_EXTERNAL_OBJECTS =
 ../Examples_old/Stereo/stereo_euroc_old: ../Thirdparty/DBoW2/lib/libDBoW2.so
 ../Examples_old/Stereo/stereo_euroc_old: ../Thirdparty/g2o/lib/libg2o.so
 ../Examples_old/Stereo/stereo_euroc_old: CMakeFiles/stereo_euroc_old.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fish/bishe/ORB_SLAM3_detailed_comments/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../Examples_old/Stereo/stereo_euroc_old"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../Examples_old/Stereo/stereo_euroc_old"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/stereo_euroc_old.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -218,6 +251,6 @@ CMakeFiles/stereo_euroc_old.dir/clean:
 .PHONY : CMakeFiles/stereo_euroc_old.dir/clean
 
 CMakeFiles/stereo_euroc_old.dir/depend:
-	cd /home/fish/bishe/ORB_SLAM3_detailed_comments/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fish/bishe/ORB_SLAM3_detailed_comments /home/fish/bishe/ORB_SLAM3_detailed_comments /home/fish/bishe/ORB_SLAM3_detailed_comments/build /home/fish/bishe/ORB_SLAM3_detailed_comments/build /home/fish/bishe/ORB_SLAM3_detailed_comments/build/CMakeFiles/stereo_euroc_old.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/wang/bishe/slam/ORB_SLAM3_detailed_comments /home/wang/bishe/slam/ORB_SLAM3_detailed_comments /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/build /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/build /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/build/CMakeFiles/stereo_euroc_old.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/stereo_euroc_old.dir/depend
 

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/fish/catkin_ws/devel/lib/cloud_to_grid/generate_grid"
-  "/home/fish/catkin_ws/devel/lib/cloud_to_grid/generate_grid.pdb"
+  "/home/wang/bishe/slam/catkin_ws/devel/lib/cloud_to_grid/generate_grid"
+  "/home/wang/bishe/slam/catkin_ws/devel/lib/cloud_to_grid/generate_grid.pdb"
   "CMakeFiles/generate_grid.dir/src/generate_grid.cpp.o"
 )
 

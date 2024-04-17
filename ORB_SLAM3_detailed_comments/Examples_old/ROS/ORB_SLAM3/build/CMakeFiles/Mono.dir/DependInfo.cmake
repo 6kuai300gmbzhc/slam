@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/src/ros_mono.cc" "/home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/CMakeFiles/Mono.dir/src/ros_mono.cc.o"
+  "/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/src/ros_mono.cc" "/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/CMakeFiles/Mono.dir/src/ros_mono.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -15,8 +15,12 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
   "DISABLE_LIBUSB_1_0"
   "DISABLE_PCAP"
   "DISABLE_PNG"
+  "HAVE_EIGEN"
+  "HAVE_GLEW"
+  "PANGO_DEFAULT_WIN_URI=\"x11\""
   "ROS_BUILD_SHARED_LIBS=1"
   "ROS_PACKAGE_NAME=\"ORB_SLAM3\""
+  "_LINUX_"
   "qh_QHpointer"
   "vtkRenderingContext2D_AUTOINIT=1(vtkRenderingContextOpenGL2)"
   "vtkRenderingCore_AUTOINIT=3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)"
@@ -26,18 +30,18 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include"
   "/opt/ros/noetic/include"
-  "/usr/include/opencv4"
   "/usr/include/vtk-7.1"
   "/usr/include/freetype2"
   "../"
   "../../../.."
   "../../../../include"
   "../../../../include/CameraModels"
+  "../../../../Thirdparty/Sophus"
   "/usr/include/pcl-1.10"
   "/usr/include/ni"
   "/usr/include/openni2"
+  "/usr/include/opencv4"
   "/usr/include/eigen3"
-  "/usr/local/opencv4/include/opencv4"
   )
 
 # Targets to which this target links.

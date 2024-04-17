@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fish/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/wang/bishe/slam/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fish/catkin_ws/build
+CMAKE_BINARY_DIR = /home/wang/bishe/slam/catkin_ws/build
 
 # Utility rule file for nodelet_generate_messages_py.
 
@@ -63,10 +63,10 @@ merge_maps/CMakeFiles/nodelet_generate_messages_py.dir/build: nodelet_generate_m
 .PHONY : merge_maps/CMakeFiles/nodelet_generate_messages_py.dir/build
 
 merge_maps/CMakeFiles/nodelet_generate_messages_py.dir/clean:
-	cd /home/fish/catkin_ws/build/merge_maps && $(CMAKE_COMMAND) -P CMakeFiles/nodelet_generate_messages_py.dir/cmake_clean.cmake
+	cd /home/wang/bishe/slam/catkin_ws/build/merge_maps && $(CMAKE_COMMAND) -P CMakeFiles/nodelet_generate_messages_py.dir/cmake_clean.cmake
 .PHONY : merge_maps/CMakeFiles/nodelet_generate_messages_py.dir/clean
 
 merge_maps/CMakeFiles/nodelet_generate_messages_py.dir/depend:
-	cd /home/fish/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fish/catkin_ws/src /home/fish/catkin_ws/src/merge_maps /home/fish/catkin_ws/build /home/fish/catkin_ws/build/merge_maps /home/fish/catkin_ws/build/merge_maps/CMakeFiles/nodelet_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/wang/bishe/slam/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/wang/bishe/slam/catkin_ws/src /home/wang/bishe/slam/catkin_ws/src/merge_maps /home/wang/bishe/slam/catkin_ws/build /home/wang/bishe/slam/catkin_ws/build/merge_maps /home/wang/bishe/slam/catkin_ws/build/merge_maps/CMakeFiles/nodelet_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : merge_maps/CMakeFiles/nodelet_generate_messages_py.dir/depend
 

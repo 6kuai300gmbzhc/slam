@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
-  "/home/fish/catkin_ws/devel/include/cloud_to_grid/cloud_to_gridConfig.h"
-  "/home/fish/catkin_ws/devel/lib/python3/dist-packages/cloud_to_grid/cfg/cloud_to_gridConfig.py"
-  "/home/fish/catkin_ws/devel/share/cloud_to_grid/docs/cloud_to_gridConfig-usage.dox"
-  "/home/fish/catkin_ws/devel/share/cloud_to_grid/docs/cloud_to_gridConfig.dox"
-  "/home/fish/catkin_ws/devel/share/cloud_to_grid/docs/cloud_to_gridConfig.wikidoc"
+  "/home/wang/bishe/slam/catkin_ws/devel/include/cloud_to_grid/cloud_to_gridConfig.h"
+  "/home/wang/bishe/slam/catkin_ws/devel/lib/python3/dist-packages/cloud_to_grid/cfg/cloud_to_gridConfig.py"
+  "/home/wang/bishe/slam/catkin_ws/devel/share/cloud_to_grid/docs/cloud_to_gridConfig-usage.dox"
+  "/home/wang/bishe/slam/catkin_ws/devel/share/cloud_to_grid/docs/cloud_to_gridConfig.dox"
+  "/home/wang/bishe/slam/catkin_ws/devel/share/cloud_to_grid/docs/cloud_to_gridConfig.wikidoc"
   "CMakeFiles/cloud_to_grid_gencfg"
 )
 

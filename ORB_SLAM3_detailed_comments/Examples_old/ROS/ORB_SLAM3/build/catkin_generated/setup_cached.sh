@@ -7,7 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/devel:$CMAKE_PREFIX_PATH"
-export PKG_CONFIG_PATH='/opt/ros/noetic/lib/pkgconfig:/usr/local/lib/pkgconfig:/usr/local/opencv4/lib/pkgconfig'
-export ROSLISP_PACKAGE_DIRECTORIES='/home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/devel/share/common-lisp'
-export ROS_PACKAGE_PATH='/home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3:/opt/ros/noetic/share'
+export CMAKE_PREFIX_PATH="/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/devel:$CMAKE_PREFIX_PATH"
+export PKG_CONFIG_PATH='/opt/ros/noetic/lib/pkgconfig:/usr/local/lib/pkgconfig'
+export ROSLISP_PACKAGE_DIRECTORIES='/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/devel/share/common-lisp'
+export ROS_PACKAGE_PATH='/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3:/opt/ros/noetic/share'

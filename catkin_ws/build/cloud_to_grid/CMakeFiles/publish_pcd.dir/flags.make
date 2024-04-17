@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=c++11 -std=gnu++14
 
 CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"cloud_to_grid\"
 
-CXX_INCLUDES = -I/home/fish/catkin_ws/devel/include -I/home/fish/catkin_ws/src/cloud_to_grid/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/eigen3 -I/usr/include/pcl-1.10 -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I/usr/include/opencv4 
+CXX_INCLUDES = -I/home/wang/bishe/slam/catkin_ws/devel/include -I/home/wang/bishe/slam/catkin_ws/src/cloud_to_grid/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/eigen3 -I/usr/include/pcl-1.10 -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I/usr/include/opencv4 
 

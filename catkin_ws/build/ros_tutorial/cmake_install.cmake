@@ -1,8 +1,8 @@
-# Install script for directory: /home/fish/catkin_ws/src/ros_tutorial
+# Install script for directory: /home/wang/bishe/slam/catkin_ws/src/ros_tutorial
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/fish/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/wang/bishe/slam/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/fish/catkin_ws/build/ros_tutorial/catkin_generated/installspace/ros_tutorial.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/wang/bishe/slam/catkin_ws/build/ros_tutorial/catkin_generated/installspace/ros_tutorial.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_tutorial/cmake" TYPE FILE FILES
-    "/home/fish/catkin_ws/build/ros_tutorial/catkin_generated/installspace/ros_tutorialConfig.cmake"
-    "/home/fish/catkin_ws/build/ros_tutorial/catkin_generated/installspace/ros_tutorialConfig-version.cmake"
+    "/home/wang/bishe/slam/catkin_ws/build/ros_tutorial/catkin_generated/installspace/ros_tutorialConfig.cmake"
+    "/home/wang/bishe/slam/catkin_ws/build/ros_tutorial/catkin_generated/installspace/ros_tutorialConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_tutorial" TYPE FILE FILES "/home/fish/catkin_ws/src/ros_tutorial/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_tutorial" TYPE FILE FILES "/home/wang/bishe/slam/catkin_ws/src/ros_tutorial/package.xml")
 endif()
 

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3
+CMAKE_SOURCE_DIR = /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build
+CMAKE_BINARY_DIR = /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Stereo_Inertial.dir/depend.make
@@ -114,16 +114,16 @@ CMakeFiles/Stereo_Inertial.dir/src/ros_stereo_inertial.cc.o: /opt/ros/noetic/sha
 CMakeFiles/Stereo_Inertial.dir/src/ros_stereo_inertial.cc.o: /opt/ros/noetic/share/tf/package.xml
 CMakeFiles/Stereo_Inertial.dir/src/ros_stereo_inertial.cc.o: /opt/ros/noetic/share/image_transport/package.xml
 CMakeFiles/Stereo_Inertial.dir/src/ros_stereo_inertial.cc.o: /opt/ros/noetic/share/cv_bridge/package.xml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Stereo_Inertial.dir/src/ros_stereo_inertial.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Stereo_Inertial.dir/src/ros_stereo_inertial.cc.o -c /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/src/ros_stereo_inertial.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Stereo_Inertial.dir/src/ros_stereo_inertial.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Stereo_Inertial.dir/src/ros_stereo_inertial.cc.o -c /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/src/ros_stereo_inertial.cc
 
 CMakeFiles/Stereo_Inertial.dir/src/ros_stereo_inertial.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Stereo_Inertial.dir/src/ros_stereo_inertial.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/src/ros_stereo_inertial.cc > CMakeFiles/Stereo_Inertial.dir/src/ros_stereo_inertial.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/src/ros_stereo_inertial.cc > CMakeFiles/Stereo_Inertial.dir/src/ros_stereo_inertial.cc.i
 
 CMakeFiles/Stereo_Inertial.dir/src/ros_stereo_inertial.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Stereo_Inertial.dir/src/ros_stereo_inertial.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/src/ros_stereo_inertial.cc -o CMakeFiles/Stereo_Inertial.dir/src/ros_stereo_inertial.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/src/ros_stereo_inertial.cc -o CMakeFiles/Stereo_Inertial.dir/src/ros_stereo_inertial.cc.s
 
 # Object files for target Stereo_Inertial
 Stereo_Inertial_OBJECTS = \
@@ -134,60 +134,81 @@ Stereo_Inertial_EXTERNAL_OBJECTS =
 
 ../Stereo_Inertial: CMakeFiles/Stereo_Inertial.dir/src/ros_stereo_inertial.cc.o
 ../Stereo_Inertial: CMakeFiles/Stereo_Inertial.dir/build.make
-../Stereo_Inertial: /usr/local/opencv4/lib/libopencv_dnn.so.4.2.0
-../Stereo_Inertial: /usr/local/opencv4/lib/libopencv_gapi.so.4.2.0
-../Stereo_Inertial: /usr/local/opencv4/lib/libopencv_highgui.so.4.2.0
-../Stereo_Inertial: /usr/local/opencv4/lib/libopencv_ml.so.4.2.0
-../Stereo_Inertial: /usr/local/opencv4/lib/libopencv_objdetect.so.4.2.0
-../Stereo_Inertial: /usr/local/opencv4/lib/libopencv_photo.so.4.2.0
-../Stereo_Inertial: /usr/local/opencv4/lib/libopencv_stitching.so.4.2.0
-../Stereo_Inertial: /usr/local/opencv4/lib/libopencv_video.so.4.2.0
-../Stereo_Inertial: /usr/local/opencv4/lib/libopencv_videoio.so.4.2.0
-../Stereo_Inertial: /usr/local/lib/libpangolin.so
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_stitching.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_aruco.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_bgsegm.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_bioinspired.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_ccalib.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_dnn_objdetect.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_dnn_superres.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_dpm.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_face.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_freetype.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_fuzzy.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_hdf.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_hfs.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_img_hash.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_line_descriptor.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_quality.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_reg.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_rgbd.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_saliency.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_shape.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_stereo.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_structured_light.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_superres.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_surface_matching.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_tracking.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_videostab.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_viz.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_xobjdetect.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_xphoto.so.4.2.0
+../Stereo_Inertial: /usr/local/lib/libpango_glgeometry.so
+../Stereo_Inertial: /usr/local/lib/libpango_plot.so
+../Stereo_Inertial: /usr/local/lib/libpango_python.so
+../Stereo_Inertial: /usr/local/lib/libpango_scene.so
+../Stereo_Inertial: /usr/local/lib/libpango_tools.so
+../Stereo_Inertial: /usr/local/lib/libpango_video.so
 ../Stereo_Inertial: ../../../../Thirdparty/DBoW2/lib/libDBoW2.so
 ../Stereo_Inertial: ../../../../Thirdparty/g2o/lib/libg2o.so
 ../Stereo_Inertial: ../../../../lib/libORB_SLAM3.so
-../Stereo_Inertial: /usr/local/opencv4/lib/libopencv_imgcodecs.so.4.2.0
-../Stereo_Inertial: /usr/local/opencv4/lib/libopencv_calib3d.so.4.2.0
-../Stereo_Inertial: /usr/local/opencv4/lib/libopencv_features2d.so.4.2.0
-../Stereo_Inertial: /usr/local/opencv4/lib/libopencv_flann.so.4.2.0
-../Stereo_Inertial: /usr/local/opencv4/lib/libopencv_imgproc.so.4.2.0
-../Stereo_Inertial: /usr/local/opencv4/lib/libopencv_core.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_highgui.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_datasets.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_plot.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_text.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_dnn.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_ml.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_phase_unwrapping.so.4.2.0
+../Stereo_Inertial: ../../../../Thirdparty/DBoW2/lib/libDBoW2.so
+../Stereo_Inertial: ../../../../Thirdparty/g2o/lib/libg2o.so
+../Stereo_Inertial: ../../../../lib/libORB_SLAM3.so
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_optflow.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_ximgproc.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_video.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_objdetect.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_calib3d.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_features2d.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_flann.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_photo.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.4.2.0
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0
+../Stereo_Inertial: /usr/local/lib/libpango_geometry.so
+../Stereo_Inertial: /usr/local/lib/libtinyobj.so
+../Stereo_Inertial: /usr/local/lib/libpango_display.so
+../Stereo_Inertial: /usr/local/lib/libpango_vars.so
+../Stereo_Inertial: /usr/local/lib/libpango_windowing.so
+../Stereo_Inertial: /usr/local/lib/libpango_opengl.so
+../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libGLEW.so
 ../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 ../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libGLX.so
 ../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libGLU.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libGLEW.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libEGL.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libSM.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libICE.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libX11.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libXext.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libOpenGL.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libGLX.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libGLU.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libGLEW.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libEGL.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libSM.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libICE.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libX11.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libXext.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libdc1394.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libavcodec.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libavformat.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libavutil.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libswscale.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libavdevice.so
-../Stereo_Inertial: /usr/lib/libOpenNI.so
-../Stereo_Inertial: /usr/lib/libOpenNI2.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libpng.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libz.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libjpeg.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libtiff.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libIlmImf.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/libzstd.so
-../Stereo_Inertial: /usr/lib/x86_64-linux-gnu/liblz4.so
+../Stereo_Inertial: /usr/local/lib/libpango_image.so
+../Stereo_Inertial: /usr/local/lib/libpango_packetstream.so
+../Stereo_Inertial: /usr/local/lib/libpango_core.so
 ../Stereo_Inertial: CMakeFiles/Stereo_Inertial.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../Stereo_Inertial"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../Stereo_Inertial"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Stereo_Inertial.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -200,6 +221,6 @@ CMakeFiles/Stereo_Inertial.dir/clean:
 .PHONY : CMakeFiles/Stereo_Inertial.dir/clean
 
 CMakeFiles/Stereo_Inertial.dir/depend:
-	cd /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3 /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3 /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build /home/fish/bishe/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/CMakeFiles/Stereo_Inertial.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3 /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3 /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build /home/wang/bishe/slam/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/CMakeFiles/Stereo_Inertial.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Stereo_Inertial.dir/depend
 

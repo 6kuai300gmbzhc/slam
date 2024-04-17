@@ -1,8 +1,8 @@
-# Install script for directory: /home/fish/catkin_ws/src/cloud_to_grid
+# Install script for directory: /home/wang/bishe/slam/catkin_ws/src/cloud_to_grid
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/fish/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/wang/bishe/slam/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,33 +38,33 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/cloud_to_grid" TYPE FILE FILES "/home/fish/catkin_ws/devel/include/cloud_to_grid/cloud_to_gridConfig.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/cloud_to_grid" TYPE FILE FILES "/home/wang/bishe/slam/catkin_ws/devel/include/cloud_to_grid/cloud_to_gridConfig.h")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages/cloud_to_grid" TYPE FILE FILES "/home/fish/catkin_ws/devel/lib/python3/dist-packages/cloud_to_grid/__init__.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages/cloud_to_grid" TYPE FILE FILES "/home/wang/bishe/slam/catkin_ws/devel/lib/python3/dist-packages/cloud_to_grid/__init__.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/fish/catkin_ws/devel/lib/python3/dist-packages/cloud_to_grid/cfg")
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/wang/bishe/slam/catkin_ws/devel/lib/python3/dist-packages/cloud_to_grid/cfg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages/cloud_to_grid" TYPE DIRECTORY FILES "/home/fish/catkin_ws/devel/lib/python3/dist-packages/cloud_to_grid/cfg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages/cloud_to_grid" TYPE DIRECTORY FILES "/home/wang/bishe/slam/catkin_ws/devel/lib/python3/dist-packages/cloud_to_grid/cfg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/fish/catkin_ws/build/cloud_to_grid/catkin_generated/installspace/cloud_to_grid.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/wang/bishe/slam/catkin_ws/build/cloud_to_grid/catkin_generated/installspace/cloud_to_grid.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cloud_to_grid/cmake" TYPE FILE FILES
-    "/home/fish/catkin_ws/build/cloud_to_grid/catkin_generated/installspace/cloud_to_gridConfig.cmake"
-    "/home/fish/catkin_ws/build/cloud_to_grid/catkin_generated/installspace/cloud_to_gridConfig-version.cmake"
+    "/home/wang/bishe/slam/catkin_ws/build/cloud_to_grid/catkin_generated/installspace/cloud_to_gridConfig.cmake"
+    "/home/wang/bishe/slam/catkin_ws/build/cloud_to_grid/catkin_generated/installspace/cloud_to_gridConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cloud_to_grid" TYPE FILE FILES "/home/fish/catkin_ws/src/cloud_to_grid/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cloud_to_grid" TYPE FILE FILES "/home/wang/bishe/slam/catkin_ws/src/cloud_to_grid/package.xml")
 endif()
 

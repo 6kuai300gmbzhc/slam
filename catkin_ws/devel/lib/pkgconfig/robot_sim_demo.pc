@@ -1,4 +1,4 @@
-prefix=/home/fish/catkin_ws/devel
+prefix=/home/wang/bishe/slam/catkin_ws/devel
 
 Name: robot_sim_demo
 Description: Description of robot_sim_demo

@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/fish/catkin_ws/devel/include/cloud_to_grid/cloud_to_gridConfig.h
+/home/wang/bishe/slam/catkin_ws/devel/include/cloud_to_grid/cloud_to_gridConfig.h
 dynamic_reconfigure/config_tools.h
 -
 limits
@@ -24,7 +24,7 @@ dynamic_reconfigure/config_init_mutex.h
 boost/any.hpp
 -
 
-/home/fish/catkin_ws/src/cloud_to_grid/include/cloud_to_grid/Grid_Tool.h
+/home/wang/bishe/slam/catkin_ws/src/cloud_to_grid/include/cloud_to_grid/Grid_Tool.h
 iostream
 -
 cmath
@@ -48,7 +48,7 @@ pcl/console/parse.h
 thread
 -
 
-/home/fish/catkin_ws/src/cloud_to_grid/src/generate_grid.cpp
+/home/wang/bishe/slam/catkin_ws/src/cloud_to_grid/src/generate_grid.cpp
 ros/ros.h
 -
 iostream
@@ -1277,20 +1277,50 @@ src/Core/util/ReenableStupidWarnings.h
 /usr/include/eigen3/Eigen/Core
 src/Core/util/DisableStupidWarnings.h
 /usr/include/eigen3/Eigen/src/Core/util/DisableStupidWarnings.h
-src/Core/util/Macros.h
-/usr/include/eigen3/Eigen/src/Core/util/Macros.h
-src/Core/util/ConfigureVectorization.h
-/usr/include/eigen3/Eigen/src/Core/util/ConfigureVectorization.h
 cuda_runtime.h
--
-hip/hip_runtime.h
 -
 new
 -
+src/Core/util/Macros.h
+/usr/include/eigen3/Eigen/src/Core/util/Macros.h
 complex
 -
 src/Core/util/MKL_support.h
 /usr/include/eigen3/Eigen/src/Core/util/MKL_support.h
+malloc.h
+-
+immintrin.h
+-
+mmintrin.h
+-
+emmintrin.h
+-
+xmmintrin.h
+-
+pmmintrin.h
+-
+tmmintrin.h
+-
+smmintrin.h
+-
+nmmintrin.h
+-
+immintrin.h
+-
+altivec.h
+-
+altivec.h
+-
+arm_neon.h
+-
+vecintrin.h
+-
+vector_types.h
+-
+host_defines.h
+-
+cuda_fp16.h
+-
 omp.h
 -
 cerrno
@@ -1305,8 +1335,6 @@ cassert
 -
 functional
 -
-sstream
--
 iosfwd
 -
 cstring
@@ -1319,23 +1347,11 @@ climits
 -
 algorithm
 -
-array
--
 type_traits
 -
 iostream
 -
 intrin.h
--
-CL/sycl.hpp
--
-map
--
-memory
--
-utility
--
-thread
 -
 src/Core/util/Constants.h
 /usr/include/eigen3/Eigen/src/Core/util/Constants.h
@@ -1349,10 +1365,6 @@ src/Core/util/XprHelper.h
 /usr/include/eigen3/Eigen/src/Core/util/XprHelper.h
 src/Core/util/Memory.h
 /usr/include/eigen3/Eigen/src/Core/util/Memory.h
-src/Core/util/IntegralConstant.h
-/usr/include/eigen3/Eigen/src/Core/util/IntegralConstant.h
-src/Core/util/SymbolicIndex.h
-/usr/include/eigen3/Eigen/src/Core/util/SymbolicIndex.h
 src/Core/NumTraits.h
 /usr/include/eigen3/Eigen/src/Core/NumTraits.h
 src/Core/MathFunctions.h
@@ -1363,62 +1375,38 @@ src/Core/MathFunctionsImpl.h
 /usr/include/eigen3/Eigen/src/Core/MathFunctionsImpl.h
 src/Core/arch/Default/ConjHelper.h
 /usr/include/eigen3/Eigen/src/Core/arch/Default/ConjHelper.h
-src/Core/arch/Default/Half.h
-/usr/include/eigen3/Eigen/src/Core/arch/Default/Half.h
-src/Core/arch/Default/BFloat16.h
-/usr/include/eigen3/Eigen/src/Core/arch/Default/BFloat16.h
-src/Core/arch/Default/TypeCasting.h
-/usr/include/eigen3/Eigen/src/Core/arch/Default/TypeCasting.h
-src/Core/arch/Default/GenericPacketMathFunctionsFwd.h
-/usr/include/eigen3/Eigen/src/Core/arch/Default/GenericPacketMathFunctionsFwd.h
 src/Core/arch/SSE/PacketMath.h
 /usr/include/eigen3/Eigen/src/Core/arch/SSE/PacketMath.h
-src/Core/arch/SSE/TypeCasting.h
-/usr/include/eigen3/Eigen/src/Core/arch/SSE/TypeCasting.h
-src/Core/arch/SSE/Complex.h
-/usr/include/eigen3/Eigen/src/Core/arch/SSE/Complex.h
 src/Core/arch/AVX/PacketMath.h
 /usr/include/eigen3/Eigen/src/Core/arch/AVX/PacketMath.h
-src/Core/arch/AVX/TypeCasting.h
-/usr/include/eigen3/Eigen/src/Core/arch/AVX/TypeCasting.h
-src/Core/arch/AVX/Complex.h
-/usr/include/eigen3/Eigen/src/Core/arch/AVX/Complex.h
 src/Core/arch/AVX512/PacketMath.h
 /usr/include/eigen3/Eigen/src/Core/arch/AVX512/PacketMath.h
-src/Core/arch/AVX512/TypeCasting.h
-/usr/include/eigen3/Eigen/src/Core/arch/AVX512/TypeCasting.h
-src/Core/arch/AVX512/Complex.h
-/usr/include/eigen3/Eigen/src/Core/arch/AVX512/Complex.h
-src/Core/arch/SSE/MathFunctions.h
-/usr/include/eigen3/Eigen/src/Core/arch/SSE/MathFunctions.h
-src/Core/arch/AVX/MathFunctions.h
-/usr/include/eigen3/Eigen/src/Core/arch/AVX/MathFunctions.h
 src/Core/arch/AVX512/MathFunctions.h
 /usr/include/eigen3/Eigen/src/Core/arch/AVX512/MathFunctions.h
 src/Core/arch/SSE/PacketMath.h
 /usr/include/eigen3/Eigen/src/Core/arch/SSE/PacketMath.h
-src/Core/arch/SSE/TypeCasting.h
-/usr/include/eigen3/Eigen/src/Core/arch/SSE/TypeCasting.h
 src/Core/arch/SSE/Complex.h
 /usr/include/eigen3/Eigen/src/Core/arch/SSE/Complex.h
+src/Core/arch/SSE/MathFunctions.h
+/usr/include/eigen3/Eigen/src/Core/arch/SSE/MathFunctions.h
 src/Core/arch/AVX/PacketMath.h
 /usr/include/eigen3/Eigen/src/Core/arch/AVX/PacketMath.h
-src/Core/arch/AVX/TypeCasting.h
-/usr/include/eigen3/Eigen/src/Core/arch/AVX/TypeCasting.h
-src/Core/arch/AVX/Complex.h
-/usr/include/eigen3/Eigen/src/Core/arch/AVX/Complex.h
-src/Core/arch/SSE/MathFunctions.h
-/usr/include/eigen3/Eigen/src/Core/arch/SSE/MathFunctions.h
 src/Core/arch/AVX/MathFunctions.h
 /usr/include/eigen3/Eigen/src/Core/arch/AVX/MathFunctions.h
-src/Core/arch/SSE/PacketMath.h
-/usr/include/eigen3/Eigen/src/Core/arch/SSE/PacketMath.h
+src/Core/arch/AVX/Complex.h
+/usr/include/eigen3/Eigen/src/Core/arch/AVX/Complex.h
+src/Core/arch/AVX/TypeCasting.h
+/usr/include/eigen3/Eigen/src/Core/arch/AVX/TypeCasting.h
 src/Core/arch/SSE/TypeCasting.h
 /usr/include/eigen3/Eigen/src/Core/arch/SSE/TypeCasting.h
+src/Core/arch/SSE/PacketMath.h
+/usr/include/eigen3/Eigen/src/Core/arch/SSE/PacketMath.h
 src/Core/arch/SSE/MathFunctions.h
 /usr/include/eigen3/Eigen/src/Core/arch/SSE/MathFunctions.h
 src/Core/arch/SSE/Complex.h
 /usr/include/eigen3/Eigen/src/Core/arch/SSE/Complex.h
+src/Core/arch/SSE/TypeCasting.h
+/usr/include/eigen3/Eigen/src/Core/arch/SSE/TypeCasting.h
 src/Core/arch/AltiVec/PacketMath.h
 /usr/include/eigen3/Eigen/src/Core/arch/AltiVec/PacketMath.h
 src/Core/arch/AltiVec/MathFunctions.h
@@ -1427,8 +1415,6 @@ src/Core/arch/AltiVec/Complex.h
 /usr/include/eigen3/Eigen/src/Core/arch/AltiVec/Complex.h
 src/Core/arch/NEON/PacketMath.h
 /usr/include/eigen3/Eigen/src/Core/arch/NEON/PacketMath.h
-src/Core/arch/NEON/TypeCasting.h
-/usr/include/eigen3/Eigen/src/Core/arch/NEON/TypeCasting.h
 src/Core/arch/NEON/MathFunctions.h
 /usr/include/eigen3/Eigen/src/Core/arch/NEON/MathFunctions.h
 src/Core/arch/NEON/Complex.h
@@ -1439,32 +1425,18 @@ src/Core/arch/ZVector/MathFunctions.h
 /usr/include/eigen3/Eigen/src/Core/arch/ZVector/MathFunctions.h
 src/Core/arch/ZVector/Complex.h
 /usr/include/eigen3/Eigen/src/Core/arch/ZVector/Complex.h
-src/Core/arch/MSA/PacketMath.h
-/usr/include/eigen3/Eigen/src/Core/arch/MSA/PacketMath.h
-src/Core/arch/MSA/MathFunctions.h
-/usr/include/eigen3/Eigen/src/Core/arch/MSA/MathFunctions.h
-src/Core/arch/MSA/Complex.h
-/usr/include/eigen3/Eigen/src/Core/arch/MSA/Complex.h
-src/Core/arch/GPU/PacketMath.h
-/usr/include/eigen3/Eigen/src/Core/arch/GPU/PacketMath.h
-src/Core/arch/GPU/MathFunctions.h
-/usr/include/eigen3/Eigen/src/Core/arch/GPU/MathFunctions.h
-src/Core/arch/GPU/TypeCasting.h
-/usr/include/eigen3/Eigen/src/Core/arch/GPU/TypeCasting.h
-src/Core/arch/SYCL/SyclMemoryModel.h
-/usr/include/eigen3/Eigen/src/Core/arch/SYCL/SyclMemoryModel.h
-src/Core/arch/SYCL/InteropHeaders.h
-/usr/include/eigen3/Eigen/src/Core/arch/SYCL/InteropHeaders.h
-src/Core/arch/SYCL/PacketMath.h
-/usr/include/eigen3/Eigen/src/Core/arch/SYCL/PacketMath.h
-src/Core/arch/SYCL/MathFunctions.h
-/usr/include/eigen3/Eigen/src/Core/arch/SYCL/MathFunctions.h
-src/Core/arch/SYCL/TypeCasting.h
-/usr/include/eigen3/Eigen/src/Core/arch/SYCL/TypeCasting.h
+src/Core/arch/CUDA/Half.h
+/usr/include/eigen3/Eigen/src/Core/arch/CUDA/Half.h
+src/Core/arch/CUDA/PacketMathHalf.h
+/usr/include/eigen3/Eigen/src/Core/arch/CUDA/PacketMathHalf.h
+src/Core/arch/CUDA/TypeCasting.h
+/usr/include/eigen3/Eigen/src/Core/arch/CUDA/TypeCasting.h
+src/Core/arch/CUDA/PacketMath.h
+/usr/include/eigen3/Eigen/src/Core/arch/CUDA/PacketMath.h
+src/Core/arch/CUDA/MathFunctions.h
+/usr/include/eigen3/Eigen/src/Core/arch/CUDA/MathFunctions.h
 src/Core/arch/Default/Settings.h
 /usr/include/eigen3/Eigen/src/Core/arch/Default/Settings.h
-src/Core/arch/Default/GenericPacketMathFunctions.h
-/usr/include/eigen3/Eigen/src/Core/arch/Default/GenericPacketMathFunctions.h
 src/Core/functors/TernaryFunctors.h
 /usr/include/eigen3/Eigen/src/Core/functors/TernaryFunctors.h
 src/Core/functors/BinaryFunctors.h
@@ -1479,12 +1451,6 @@ src/Core/functors/AssignmentFunctors.h
 /usr/include/eigen3/Eigen/src/Core/functors/AssignmentFunctors.h
 src/Core/arch/CUDA/Complex.h
 /usr/include/eigen3/Eigen/src/Core/arch/CUDA/Complex.h
-src/Core/util/IndexedViewHelper.h
-/usr/include/eigen3/Eigen/src/Core/util/IndexedViewHelper.h
-src/Core/util/ReshapedHelper.h
-/usr/include/eigen3/Eigen/src/Core/util/ReshapedHelper.h
-src/Core/ArithmeticSequence.h
-/usr/include/eigen3/Eigen/src/Core/ArithmeticSequence.h
 src/Core/IO.h
 /usr/include/eigen3/Eigen/src/Core/IO.h
 src/Core/DenseCoeffsBase.h
@@ -1549,10 +1515,6 @@ src/Core/Block.h
 /usr/include/eigen3/Eigen/src/Core/Block.h
 src/Core/VectorBlock.h
 /usr/include/eigen3/Eigen/src/Core/VectorBlock.h
-src/Core/IndexedView.h
-/usr/include/eigen3/Eigen/src/Core/IndexedView.h
-src/Core/Reshaped.h
-/usr/include/eigen3/Eigen/src/Core/Reshaped.h
 src/Core/Transpose.h
 /usr/include/eigen3/Eigen/src/Core/Transpose.h
 src/Core/DiagonalMatrix.h
@@ -1623,16 +1585,12 @@ src/Core/CoreIterators.h
 /usr/include/eigen3/Eigen/src/Core/CoreIterators.h
 src/Core/ConditionEstimator.h
 /usr/include/eigen3/Eigen/src/Core/ConditionEstimator.h
-src/Core/arch/AltiVec/MatrixProduct.h
-/usr/include/eigen3/Eigen/src/Core/arch/AltiVec/MatrixProduct.h
 src/Core/BooleanRedux.h
 /usr/include/eigen3/Eigen/src/Core/BooleanRedux.h
 src/Core/Select.h
 /usr/include/eigen3/Eigen/src/Core/Select.h
 src/Core/VectorwiseOp.h
 /usr/include/eigen3/Eigen/src/Core/VectorwiseOp.h
-src/Core/PartialReduxEvaluator.h
-/usr/include/eigen3/Eigen/src/Core/PartialReduxEvaluator.h
 src/Core/Random.h
 /usr/include/eigen3/Eigen/src/Core/Random.h
 src/Core/Replicate.h
@@ -1641,8 +1599,6 @@ src/Core/Reverse.h
 /usr/include/eigen3/Eigen/src/Core/Reverse.h
 src/Core/ArrayWrapper.h
 /usr/include/eigen3/Eigen/src/Core/ArrayWrapper.h
-src/Core/StlIterators.h
-/usr/include/eigen3/Eigen/src/Core/StlIterators.h
 src/Core/products/GeneralMatrixMatrix_BLAS.h
 /usr/include/eigen3/Eigen/src/Core/products/GeneralMatrixMatrix_BLAS.h
 src/Core/products/GeneralMatrixVector_BLAS.h
@@ -1685,6 +1641,8 @@ Eigenvalues
 /usr/include/eigen3/Eigen/Eigenvalues
 Core
 /usr/include/eigen3/Eigen/Core
+src/Core/util/DisableStupidWarnings.h
+/usr/include/eigen3/Eigen/src/Core/util/DisableStupidWarnings.h
 Cholesky
 /usr/include/eigen3/Eigen/Cholesky
 Jacobi
@@ -1695,8 +1653,6 @@ LU
 /usr/include/eigen3/Eigen/LU
 Geometry
 /usr/include/eigen3/Eigen/Geometry
-src/Core/util/DisableStupidWarnings.h
-/usr/include/eigen3/Eigen/src/Core/util/DisableStupidWarnings.h
 src/misc/RealSvd2x2.h
 /usr/include/eigen3/Eigen/src/misc/RealSvd2x2.h
 src/Eigenvalues/Tridiagonalization.h
@@ -1737,14 +1693,14 @@ src/Core/util/ReenableStupidWarnings.h
 /usr/include/eigen3/Eigen/Geometry
 Core
 /usr/include/eigen3/Eigen/Core
+src/Core/util/DisableStupidWarnings.h
+/usr/include/eigen3/Eigen/src/Core/util/DisableStupidWarnings.h
 SVD
 /usr/include/eigen3/Eigen/SVD
 LU
 /usr/include/eigen3/Eigen/LU
 limits
 -
-src/Core/util/DisableStupidWarnings.h
-/usr/include/eigen3/Eigen/src/Core/util/DisableStupidWarnings.h
 src/Geometry/OrthoMethods.h
 /usr/include/eigen3/Eigen/src/Geometry/OrthoMethods.h
 src/Geometry/EulerAngles.h
@@ -1773,8 +1729,8 @@ src/Geometry/AlignedBox.h
 /usr/include/eigen3/Eigen/src/Geometry/AlignedBox.h
 src/Geometry/Umeyama.h
 /usr/include/eigen3/Eigen/src/Geometry/Umeyama.h
-src/Geometry/arch/Geometry_SIMD.h
-/usr/include/eigen3/Eigen/src/Geometry/arch/Geometry_SIMD.h
+src/Geometry/arch/Geometry_SSE.h
+/usr/include/eigen3/Eigen/src/Geometry/arch/Geometry_SSE.h
 src/Core/util/ReenableStupidWarnings.h
 /usr/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
 
@@ -1825,22 +1781,22 @@ src/LU/Determinant.h
 /usr/include/eigen3/Eigen/src/LU/Determinant.h
 src/LU/InverseImpl.h
 /usr/include/eigen3/Eigen/src/LU/InverseImpl.h
-src/LU/arch/InverseSize4.h
-/usr/include/eigen3/Eigen/src/LU/arch/InverseSize4.h
+src/LU/arch/Inverse_SSE.h
+/usr/include/eigen3/Eigen/src/LU/arch/Inverse_SSE.h
 src/Core/util/ReenableStupidWarnings.h
 /usr/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
 
 /usr/include/eigen3/Eigen/QR
 Core
 /usr/include/eigen3/Eigen/Core
+src/Core/util/DisableStupidWarnings.h
+/usr/include/eigen3/Eigen/src/Core/util/DisableStupidWarnings.h
 Cholesky
 /usr/include/eigen3/Eigen/Cholesky
 Jacobi
 /usr/include/eigen3/Eigen/Jacobi
 Householder
 /usr/include/eigen3/Eigen/Householder
-src/Core/util/DisableStupidWarnings.h
-/usr/include/eigen3/Eigen/src/Core/util/DisableStupidWarnings.h
 src/QR/HouseholderQR.h
 /usr/include/eigen3/Eigen/src/QR/HouseholderQR.h
 src/QR/FullPivHouseholderQR.h
@@ -1902,11 +1858,11 @@ src/StlSupport/StdVector.h
 
 /usr/include/eigen3/Eigen/src/Cholesky/LLT_LAPACKE.h
 
-/usr/include/eigen3/Eigen/src/Core/ArithmeticSequence.h
-
 /usr/include/eigen3/Eigen/src/Core/Array.h
 
 /usr/include/eigen3/Eigen/src/Core/ArrayBase.h
+../plugins/CommonCwiseUnaryOps.h
+/usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 ../plugins/MatrixCwiseUnaryOps.h
 /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
 ../plugins/ArrayCwiseUnaryOps.h
@@ -1951,14 +1907,8 @@ src/StlSupport/StdVector.h
 /usr/include/eigen3/Eigen/src/Core/CwiseUnaryView.h
 
 /usr/include/eigen3/Eigen/src/Core/DenseBase.h
-../plugins/CommonCwiseUnaryOps.h
-/usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 ../plugins/BlockMethods.h
 /usr/include/eigen3/Eigen/src/plugins/BlockMethods.h
-../plugins/IndexedViewMethods.h
-/usr/include/eigen3/Eigen/src/plugins/IndexedViewMethods.h
-../plugins/ReshapedMethods.h
-/usr/include/eigen3/Eigen/src/plugins/ReshapedMethods.h
 
 /usr/include/eigen3/Eigen/src/Core/DenseCoeffsBase.h
 
@@ -1984,8 +1934,6 @@ src/StlSupport/StdVector.h
 
 /usr/include/eigen3/Eigen/src/Core/IO.h
 
-/usr/include/eigen3/Eigen/src/Core/IndexedView.h
-
 /usr/include/eigen3/Eigen/src/Core/Inverse.h
 
 /usr/include/eigen3/Eigen/src/Core/Map.h
@@ -1999,6 +1947,8 @@ src/StlSupport/StdVector.h
 /usr/include/eigen3/Eigen/src/Core/Matrix.h
 
 /usr/include/eigen3/Eigen/src/Core/MatrixBase.h
+../plugins/CommonCwiseUnaryOps.h
+/usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 ../plugins/CommonCwiseBinaryOps.h
 /usr/include/eigen3/Eigen/src/plugins/CommonCwiseBinaryOps.h
 ../plugins/MatrixCwiseUnaryOps.h
@@ -2011,8 +1961,6 @@ src/StlSupport/StdVector.h
 /usr/include/eigen3/Eigen/src/Core/NoAlias.h
 
 /usr/include/eigen3/Eigen/src/Core/NumTraits.h
-
-/usr/include/eigen3/Eigen/src/Core/PartialReduxEvaluator.h
 
 /usr/include/eigen3/Eigen/src/Core/PermutationMatrix.h
 
@@ -2029,8 +1977,6 @@ src/StlSupport/StdVector.h
 /usr/include/eigen3/Eigen/src/Core/Ref.h
 
 /usr/include/eigen3/Eigen/src/Core/Replicate.h
-
-/usr/include/eigen3/Eigen/src/Core/Reshaped.h
 
 /usr/include/eigen3/Eigen/src/Core/ReturnByValue.h
 
@@ -2049,10 +1995,6 @@ src/StlSupport/StdVector.h
 /usr/include/eigen3/Eigen/src/Core/SolverBase.h
 
 /usr/include/eigen3/Eigen/src/Core/StableNorm.h
-atomic
--
-
-/usr/include/eigen3/Eigen/src/Core/StlIterators.h
 
 /usr/include/eigen3/Eigen/src/Core/Stride.h
 
@@ -2078,75 +2020,37 @@ atomic
 
 /usr/include/eigen3/Eigen/src/Core/arch/AVX/TypeCasting.h
 
-/usr/include/eigen3/Eigen/src/Core/arch/AVX512/Complex.h
-
 /usr/include/eigen3/Eigen/src/Core/arch/AVX512/MathFunctions.h
 
 /usr/include/eigen3/Eigen/src/Core/arch/AVX512/PacketMath.h
-
-/usr/include/eigen3/Eigen/src/Core/arch/AVX512/TypeCasting.h
 
 /usr/include/eigen3/Eigen/src/Core/arch/AltiVec/Complex.h
 
 /usr/include/eigen3/Eigen/src/Core/arch/AltiVec/MathFunctions.h
 
-/usr/include/eigen3/Eigen/src/Core/arch/AltiVec/MatrixProduct.h
-MatrixProductCommon.h
-/usr/include/eigen3/Eigen/src/Core/arch/AltiVec/MatrixProductCommon.h
-MatrixProductMMA.h
-/usr/include/eigen3/Eigen/src/Core/arch/AltiVec/MatrixProductMMA.h
-
-/usr/include/eigen3/Eigen/src/Core/arch/AltiVec/MatrixProductCommon.h
-
-/usr/include/eigen3/Eigen/src/Core/arch/AltiVec/MatrixProductMMA.h
-
 /usr/include/eigen3/Eigen/src/Core/arch/AltiVec/PacketMath.h
 
 /usr/include/eigen3/Eigen/src/Core/arch/CUDA/Complex.h
 
-/usr/include/eigen3/Eigen/src/Core/arch/Default/BFloat16.h
+/usr/include/eigen3/Eigen/src/Core/arch/CUDA/Half.h
+
+/usr/include/eigen3/Eigen/src/Core/arch/CUDA/MathFunctions.h
+
+/usr/include/eigen3/Eigen/src/Core/arch/CUDA/PacketMath.h
+
+/usr/include/eigen3/Eigen/src/Core/arch/CUDA/PacketMathHalf.h
+
+/usr/include/eigen3/Eigen/src/Core/arch/CUDA/TypeCasting.h
 
 /usr/include/eigen3/Eigen/src/Core/arch/Default/ConjHelper.h
 
-/usr/include/eigen3/Eigen/src/Core/arch/Default/GenericPacketMathFunctions.h
-
-/usr/include/eigen3/Eigen/src/Core/arch/Default/GenericPacketMathFunctionsFwd.h
-
-/usr/include/eigen3/Eigen/src/Core/arch/Default/Half.h
-sstream
--
-
 /usr/include/eigen3/Eigen/src/Core/arch/Default/Settings.h
-
-/usr/include/eigen3/Eigen/src/Core/arch/Default/TypeCasting.h
-
-/usr/include/eigen3/Eigen/src/Core/arch/GPU/MathFunctions.h
-
-/usr/include/eigen3/Eigen/src/Core/arch/GPU/PacketMath.h
-
-/usr/include/eigen3/Eigen/src/Core/arch/GPU/TypeCasting.h
-
-/usr/include/eigen3/Eigen/src/Core/arch/HIP/hcc/math_constants.h
-
-/usr/include/eigen3/Eigen/src/Core/arch/MSA/Complex.h
-iostream
--
-
-/usr/include/eigen3/Eigen/src/Core/arch/MSA/MathFunctions.h
-
-/usr/include/eigen3/Eigen/src/Core/arch/MSA/PacketMath.h
-iostream
--
-string
--
 
 /usr/include/eigen3/Eigen/src/Core/arch/NEON/Complex.h
 
 /usr/include/eigen3/Eigen/src/Core/arch/NEON/MathFunctions.h
 
 /usr/include/eigen3/Eigen/src/Core/arch/NEON/PacketMath.h
-
-/usr/include/eigen3/Eigen/src/Core/arch/NEON/TypeCasting.h
 
 /usr/include/eigen3/Eigen/src/Core/arch/SSE/Complex.h
 
@@ -2155,30 +2059,6 @@ string
 /usr/include/eigen3/Eigen/src/Core/arch/SSE/PacketMath.h
 
 /usr/include/eigen3/Eigen/src/Core/arch/SSE/TypeCasting.h
-
-/usr/include/eigen3/Eigen/src/Core/arch/SYCL/InteropHeaders.h
-
-/usr/include/eigen3/Eigen/src/Core/arch/SYCL/MathFunctions.h
-
-/usr/include/eigen3/Eigen/src/Core/arch/SYCL/PacketMath.h
-type_traits
--
-
-/usr/include/eigen3/Eigen/src/Core/arch/SYCL/SyclMemoryModel.h
-CL/sycl.hpp
--
-stdexcept
--
-cstddef
--
-queue
--
-set
--
-unordered_map
--
-
-/usr/include/eigen3/Eigen/src/Core/arch/SYCL/TypeCasting.h
 
 /usr/include/eigen3/Eigen/src/Core/arch/ZVector/Complex.h
 
@@ -2215,8 +2095,6 @@ stdint.h
 /usr/include/eigen3/Eigen/src/Core/products/GeneralMatrixVector_BLAS.h
 
 /usr/include/eigen3/Eigen/src/Core/products/Parallelizer.h
-atomic
--
 
 /usr/include/eigen3/Eigen/src/Core/products/SelfadjointMatrixMatrix.h
 
@@ -2246,61 +2124,11 @@ atomic
 
 /usr/include/eigen3/Eigen/src/Core/util/BlasUtil.h
 
-/usr/include/eigen3/Eigen/src/Core/util/ConfigureVectorization.h
-malloc.h
--
-immintrin.h
--
-mmintrin.h
--
-emmintrin.h
--
-xmmintrin.h
--
-pmmintrin.h
--
-tmmintrin.h
--
-smmintrin.h
--
-nmmintrin.h
--
-immintrin.h
--
-altivec.h
--
-altivec.h
--
-arm_neon.h
--
-vecintrin.h
--
-msa.h
--
-arm_fp16.h
--
-immintrin.h
--
-vector_types.h
--
-cuda_runtime_api.h
--
-cuda_fp16.h
--
-hip/hip_vector_types.h
--
-hip/hip_fp16.h
--
-
 /usr/include/eigen3/Eigen/src/Core/util/Constants.h
 
 /usr/include/eigen3/Eigen/src/Core/util/DisableStupidWarnings.h
 
 /usr/include/eigen3/Eigen/src/Core/util/ForwardDeclarations.h
-
-/usr/include/eigen3/Eigen/src/Core/util/IndexedViewHelper.h
-
-/usr/include/eigen3/Eigen/src/Core/util/IntegralConstant.h
 
 /usr/include/eigen3/Eigen/src/Core/util/MKL_support.h
 mkl.h
@@ -2309,12 +2137,6 @@ mkl.h
 /usr/include/eigen3/Eigen/src/misc/blas.h
 
 /usr/include/eigen3/Eigen/src/Core/util/Macros.h
-cuda.h
--
-hip/hip_runtime.h
--
-cmath
--
 cstdlib
 -
 iostream
@@ -2327,22 +2149,12 @@ cfloat
 -
 math_constants.h
 -
-Eigen/src/Core/arch/HIP/hcc/math_constants.h
-/usr/include/eigen3/Eigen/src/Core/util/Eigen/src/Core/arch/HIP/hcc/math_constants.h
 cstdint
--
-cstdint
--
-stdint.h
 -
 
 /usr/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
 
-/usr/include/eigen3/Eigen/src/Core/util/ReshapedHelper.h
-
 /usr/include/eigen3/Eigen/src/Core/util/StaticAssert.h
-
-/usr/include/eigen3/Eigen/src/Core/util/SymbolicIndex.h
 
 /usr/include/eigen3/Eigen/src/Core/util/XprHelper.h
 
@@ -2416,7 +2228,7 @@ stdint.h
 
 /usr/include/eigen3/Eigen/src/Geometry/Umeyama.h
 
-/usr/include/eigen3/Eigen/src/Geometry/arch/Geometry_SIMD.h
+/usr/include/eigen3/Eigen/src/Geometry/arch/Geometry_SSE.h
 
 /usr/include/eigen3/Eigen/src/Householder/BlockHouseholder.h
 
@@ -2436,7 +2248,7 @@ stdint.h
 
 /usr/include/eigen3/Eigen/src/LU/PartialPivLU_LAPACKE.h
 
-/usr/include/eigen3/Eigen/src/LU/arch/InverseSize4.h
+/usr/include/eigen3/Eigen/src/LU/arch/Inverse_SSE.h
 
 /usr/include/eigen3/Eigen/src/QR/ColPivHouseholderQR.h
 
@@ -2498,17 +2310,9 @@ lapacke_mangling.h
 
 /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 
-/usr/include/eigen3/Eigen/src/plugins/IndexedViewMethods.h
-IndexedViewMethods.h
-/usr/include/eigen3/Eigen/src/plugins/IndexedViewMethods.h
-
 /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 
 /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
-
-/usr/include/eigen3/Eigen/src/plugins/ReshapedMethods.h
-ReshapedMethods.h
-/usr/include/eigen3/Eigen/src/plugins/ReshapedMethods.h
 
 /usr/include/pcl-1.10/pcl/ModelCoefficients.h
 string

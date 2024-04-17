@@ -1,1 +1,5 @@
 ORB_SLAM3_detailed_comments/Vocabulary/ORBvoc.txt
+ORB_SLAM3_detailed_comments/build/*
+ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build/*
+catkin_ws/build/*
+catkin_ws/devel/*
