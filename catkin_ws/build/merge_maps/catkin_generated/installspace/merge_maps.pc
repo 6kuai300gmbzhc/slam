@@ -1,0 +1,8 @@
+prefix=/home/fish/catkin_ws/install
+
+Name: merge_maps
+Description: Description of merge_maps
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,15 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~mode" : \b [bool] false:global,true:increasing min: False, default: False, max: True
+- \b "~project_direction" : \b [int] project_direction x-y or y-z or x-z min: 0, default: 2, max: 2
+- \b "~searchRadius" : \b [double] pcl cloud searchRadius min: 0.0, default: 0.1, max: 5.0
+- \b "~deviation" : \b [double] a threshold to decide whether a point is obstacal min: 0.0, default: 0.5, max: 1.0
+- \b "~sigma" : \b [double] balance between height and normal vector min: 0.0, default: 0.5, max: 1.0
+- \b "~threshold" : \b [int] behind this value,the grid is considered occupied min: 0, default: 5, max: 10
+- \b "~cellResolution" : \b [double] map cellResolution min: 0.0, default: 0.05, max: 1.0
+- \b "~clip_max" : \b [double] max height to reserve min: -100.0, default: 1.0, max: 100.0
+- \b "~clip_min" : \b [double] min height to reserve min: -100.0, default: -1.0, max: 100.0
+- \b "~map_size" : \b [double] map size min: 0.0, default: 40.0, max: 100.0
+

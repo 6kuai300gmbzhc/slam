@@ -1,0 +1,8 @@
+prefix=/home/fish/catkin_ws/install
+
+Name: cloud_to_grid
+Description: Description of cloud_to_grid
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 

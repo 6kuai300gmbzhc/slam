@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="ros_tutorial" type="ros_tutorial_node" name="test" output="screen"/>
+</launch>
