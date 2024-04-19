@@ -36,6 +36,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/include/pcl-1.10"
   "/usr/include/ni"
   "/usr/include/openni2"
+  "/home/fish/bishe/catkin_ws/devel/include"
   "/usr/include/eigen3"
   "/usr/local/opencv4/include/opencv4"
   )

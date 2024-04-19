@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/fish/catkin_ws/src/ros_tutorial/src/ros_tutorial_node.cpp
+/home/fish/bishe/catkin_ws/src/ros_tutorial/src/ros_tutorial_node.cpp
 ros/ros.h
 -
 sensor_msgs/Image.h

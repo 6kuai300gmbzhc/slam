@@ -1,4 +1,4 @@
-prefix=/home/fish/catkin_ws/devel
+prefix=/home/fish/bishe/catkin_ws/devel
 
 Name: ros_tutorial
 Description: Description of ros_tutorial

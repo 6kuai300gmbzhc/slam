@@ -67,14 +67,14 @@ set(cloud_to_grid_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(cloud_to_grid_SOURCE_PREFIX /home/fish/catkin_ws/src/cloud_to_grid)
-  set(cloud_to_grid_DEVEL_PREFIX /home/fish/catkin_ws/devel)
+  set(cloud_to_grid_SOURCE_PREFIX /home/fish/bishe/catkin_ws/src/cloud_to_grid)
+  set(cloud_to_grid_DEVEL_PREFIX /home/fish/bishe/catkin_ws/devel)
   set(cloud_to_grid_INSTALL_PREFIX "")
   set(cloud_to_grid_PREFIX ${cloud_to_grid_DEVEL_PREFIX})
 else()
   set(cloud_to_grid_SOURCE_PREFIX "")
   set(cloud_to_grid_DEVEL_PREFIX "")
-  set(cloud_to_grid_INSTALL_PREFIX /home/fish/catkin_ws/install)
+  set(cloud_to_grid_INSTALL_PREFIX /home/fish/bishe/catkin_ws/install)
   set(cloud_to_grid_PREFIX ${cloud_to_grid_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/fish/catkin_ws/install/lib;/home/fish/catkin_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/fish/bishe/catkin_ws/install/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -177,7 +177,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(cloud_to_grid_EXPORTED_TARGETS "cloud_to_grid_gencfg")
+set(cloud_to_grid_EXPORTED_TARGETS "cloud_to_grid_generate_messages_cpp;cloud_to_grid_generate_messages_eus;cloud_to_grid_generate_messages_lisp;cloud_to_grid_generate_messages_nodejs;cloud_to_grid_generate_messages_py;cloud_to_grid_gencfg")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${cloud_to_grid_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -214,7 +214,7 @@ foreach(depend ${depends})
   _list_append_deduplicate(cloud_to_grid_EXPORTED_TARGETS ${${cloud_to_grid_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "cloud_to_grid-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${cloud_to_grid_DIR}/${extra})

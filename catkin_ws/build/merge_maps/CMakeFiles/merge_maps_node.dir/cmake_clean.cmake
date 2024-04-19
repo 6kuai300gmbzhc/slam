@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/fish/catkin_ws/devel/lib/merge_maps/merge_maps_node"
-  "/home/fish/catkin_ws/devel/lib/merge_maps/merge_maps_node.pdb"
+  "/home/fish/bishe/catkin_ws/devel/lib/merge_maps/merge_maps_node"
+  "/home/fish/bishe/catkin_ws/devel/lib/merge_maps/merge_maps_node.pdb"
   "CMakeFiles/merge_maps_node.dir/src/merge_maps.cpp.o"
 )
 

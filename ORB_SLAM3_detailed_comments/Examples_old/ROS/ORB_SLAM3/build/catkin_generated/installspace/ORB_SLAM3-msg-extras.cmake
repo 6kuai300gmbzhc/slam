@@ -1,0 +1,2 @@
+set(ORB_SLAM3_MESSAGE_FILES "msg/pclpos.msg")
+set(ORB_SLAM3_SERVICE_FILES "")

@@ -21,7 +21,7 @@
 #include<algorithm>
 #include<fstream>
 #include<chrono>
-
+#include<vector>
 #include<ros/ros.h>
 #include <cv_bridge/cv_bridge.h>
 #include <message_filters/subscriber.h>
@@ -40,11 +40,13 @@
 #include <pcl/filters/voxel_grid.h>
 #include <pcl/point_types.h>
 #include <pcl_conversions/pcl_conversions.h>
-#include<std_msgs/Header.h>
+#include <std_msgs/Header.h>
+#include <cloud_to_grid/pclpos.h>
 
 using namespace std;
 ros::Publisher pcl_pub;
-sensor_msgs::PointCloud2 output;
+sensor_msgs::PointCloud2 pclMSG;
+cloud_to_grid::pclpos output;
 class ImageGrabber
 {
 public:
@@ -73,7 +75,7 @@ int main(int argc, char **argv)
     ImageGrabber igb(&SLAM);
 
     ros::NodeHandle nh;
-    pcl_pub = nh.advertise<sensor_msgs::PointCloud2> ("point_cloud", 1);
+    pcl_pub = nh.advertise<cloud_to_grid::pclpos> ("point_cloud", 1);
     message_filters::Subscriber<sensor_msgs::Image> rgb_sub(nh, "/cam0/rgb/image_raw", 100);
     message_filters::Subscriber<sensor_msgs::Image> depth_sub(nh, "/cam0/depth/image_raw", 100);
     typedef message_filters::sync_policies::ApproximateTime<sensor_msgs::Image, sensor_msgs::Image> sync_pol;
@@ -121,8 +123,22 @@ void ImageGrabber::GrabRGBD(const sensor_msgs::ImageConstPtr& msgRGB,const senso
     ORB_SLAM3::SLAM_Output data;
     data=mpSLAM->TrackRGBDOutput(cv_ptrRGB->image,cv_ptrD->image,cv_ptrRGB->header.stamp.toSec());
 
-    pcl::toROSMsg(*(data.pointcloud), output);
-    output.header.frame_id = "map";
+    pcl::toROSMsg(*(data.pointcloud), pclMSG);
+    pclMSG.header.frame_id = "map";
+    output.pcl=pclMSG;
+    output.header.frame_id="map&pose";
+    Sophus::Matrix<float, 3, 4> mat=data.pos.matrix3x4();
+    
+    int i=0;
+    for(;i<12;i++){
+        output.se3[i]=mat.data()[i];
+    }
+    for(;i<15;i++){
+    	output.se3[i]=0;
+    }
+    output.se3[15]=1;
+    
+    std::cout<<data.pos.matrix3x4();
     pcl_pub.publish(output);
 }
 

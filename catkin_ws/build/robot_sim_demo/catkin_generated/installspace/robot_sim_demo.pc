@@ -1,4 +1,4 @@
-prefix=/home/fish/catkin_ws/install
+prefix=/home/fish/bishe/catkin_ws/install
 
 Name: robot_sim_demo
 Description: Description of robot_sim_demo

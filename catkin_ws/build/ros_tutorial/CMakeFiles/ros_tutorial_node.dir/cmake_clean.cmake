@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/fish/catkin_ws/devel/lib/ros_tutorial/ros_tutorial_node"
-  "/home/fish/catkin_ws/devel/lib/ros_tutorial/ros_tutorial_node.pdb"
+  "/home/fish/bishe/catkin_ws/devel/lib/ros_tutorial/ros_tutorial_node"
+  "/home/fish/bishe/catkin_ws/devel/lib/ros_tutorial/ros_tutorial_node.pdb"
   "CMakeFiles/ros_tutorial_node.dir/src/ros_tutorial_node.cpp.o"
 )
 

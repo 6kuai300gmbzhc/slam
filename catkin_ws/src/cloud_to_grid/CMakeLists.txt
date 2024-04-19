@@ -17,12 +17,29 @@ find_package(catkin REQUIRED COMPONENTS
   image_transport
   cv_bridge
   dynamic_reconfigure
+  message_generation
+  sensor_msgs
 )
+set(CMAKE_PREFIX_PATH "/usr/local/opencv4")
 
-
+add_message_files(
+  FILES
+  pclpos.msg
+)
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+  sensor_msgs
+)
  generate_dynamic_reconfigure_options(
    config/cloud_to_grid.cfg
  )
+catkin_package(
+ CATKIN_DEPENDS roscpp rospy std_msgs sensor_msgs message_runtime
+)
+
+
+
 
 ###################################
 ## catkin specific configuration ##

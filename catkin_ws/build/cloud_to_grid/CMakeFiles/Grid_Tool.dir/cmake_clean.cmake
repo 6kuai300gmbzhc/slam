@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/fish/catkin_ws/devel/lib/libGrid_Tool.pdb"
-  "/home/fish/catkin_ws/devel/lib/libGrid_Tool.so"
+  "/home/fish/bishe/catkin_ws/devel/lib/libGrid_Tool.pdb"
+  "/home/fish/bishe/catkin_ws/devel/lib/libGrid_Tool.so"
   "CMakeFiles/Grid_Tool.dir/src/Grid_Tool.cpp.o"
 )
 

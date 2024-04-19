@@ -67,14 +67,14 @@ set(merge_maps_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(merge_maps_SOURCE_PREFIX /home/fish/catkin_ws/src/merge_maps)
-  set(merge_maps_DEVEL_PREFIX /home/fish/catkin_ws/devel)
+  set(merge_maps_SOURCE_PREFIX /home/fish/bishe/catkin_ws/src/merge_maps)
+  set(merge_maps_DEVEL_PREFIX /home/fish/bishe/catkin_ws/devel)
   set(merge_maps_INSTALL_PREFIX "")
   set(merge_maps_PREFIX ${merge_maps_DEVEL_PREFIX})
 else()
   set(merge_maps_SOURCE_PREFIX "")
   set(merge_maps_DEVEL_PREFIX "")
-  set(merge_maps_INSTALL_PREFIX /home/fish/catkin_ws/install)
+  set(merge_maps_INSTALL_PREFIX /home/fish/bishe/catkin_ws/install)
   set(merge_maps_PREFIX ${merge_maps_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/fish/catkin_ws/install/lib;/home/fish/catkin_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/fish/bishe/catkin_ws/install/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

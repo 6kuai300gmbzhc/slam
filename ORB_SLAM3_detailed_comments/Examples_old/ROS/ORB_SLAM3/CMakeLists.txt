@@ -50,6 +50,11 @@ find_package(Pangolin REQUIRED)
 
 find_package(PCL 1.10 REQUIRED)
 
+find_package(message_generation)
+find_package(sensor_msgs)
+find_package(std_msgs)
+find_package(cloud_to_grid)
+
 include_directories(
 ${PROJECT_SOURCE_DIR}
 ${PROJECT_SOURCE_DIR}/../../../
@@ -58,6 +63,7 @@ ${PROJECT_SOURCE_DIR}/../../../include/CameraModels
 ${Pangolin_INCLUDE_DIRS}
 ${PCL_INCLUDE_DIRS}
 /usr/include/pcl-1.10
+/home/fish/bishe/catkin_ws/devel/include
 )
 
 set(LIBS 

@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"merge_maps\"
 
-CXX_INCLUDES = -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/eigen3 -I/usr/include/pcl-1.10 -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I/usr/include/opencv4 -I/home/fish/catkin_ws/src/merge_maps/../cloud_to_grid/include 
+CXX_INCLUDES = -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/eigen3 -I/usr/include/pcl-1.10 -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I/usr/include/opencv4 -I/home/fish/bishe/catkin_ws/src/merge_maps/../cloud_to_grid/include 
 

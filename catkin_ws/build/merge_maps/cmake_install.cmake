@@ -1,8 +1,8 @@
-# Install script for directory: /home/fish/catkin_ws/src/merge_maps
+# Install script for directory: /home/fish/bishe/catkin_ws/src/merge_maps
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/fish/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/fish/bishe/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,21 +38,21 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/fish/catkin_ws/build/merge_maps/catkin_generated/installspace/merge_maps.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/fish/bishe/catkin_ws/build/merge_maps/catkin_generated/installspace/merge_maps.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/merge_maps/cmake" TYPE FILE FILES
-    "/home/fish/catkin_ws/build/merge_maps/catkin_generated/installspace/merge_mapsConfig.cmake"
-    "/home/fish/catkin_ws/build/merge_maps/catkin_generated/installspace/merge_mapsConfig-version.cmake"
+    "/home/fish/bishe/catkin_ws/build/merge_maps/catkin_generated/installspace/merge_mapsConfig.cmake"
+    "/home/fish/bishe/catkin_ws/build/merge_maps/catkin_generated/installspace/merge_mapsConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/merge_maps" TYPE FILE FILES "/home/fish/catkin_ws/src/merge_maps/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/merge_maps" TYPE FILE FILES "/home/fish/bishe/catkin_ws/src/merge_maps/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/merge_maps" TYPE PROGRAM FILES "/home/fish/catkin_ws/build/merge_maps/catkin_generated/installspace/find_transformation.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/merge_maps" TYPE PROGRAM FILES "/home/fish/bishe/catkin_ws/build/merge_maps/catkin_generated/installspace/find_transformation.py")
 endif()
 

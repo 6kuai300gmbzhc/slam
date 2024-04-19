@@ -19,7 +19,7 @@
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
         args="-urdf -model $(arg robot_name) -param robot_description $(arg init_pose)" respawn="false" output="screen" />
 
-<node pkg="tf" type="static_transform_publisher" name="transform_coordinate" args="0 0 0 0 0 0 base_link laser_link 100"/>
+<node pkg="tf" type="static_transform_publisher" name="transform_coordinate" args="0 0 0 0 0 0 base_link laser_link$(arg robot_name) 100"/>
   <rosparam command="load"
             file="$(find robot_sim_demo)/config/joints.yaml"
             ns="/$(arg robot_name)"/>

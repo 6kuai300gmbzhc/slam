@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: ORB_SLAM3
+Description: Description of ORB_SLAM3
+Version: 0.0.1
+Cflags: -I/opt/ros/noetic/include -I/usr/include/opencv4 -I${prefix}/include
+Libs: -L${prefix}/lib -ltf -ltf2_ros -lactionlib -ltf2 -limage_transport -lmessage_filters -lclass_loader -ldl -lroscpp -lpthread -lxmlrpcpp -lroslib -lrospack -lcv_bridge -lrosconsole -lrosconsole_log4cxx -lrosconsole_backend_interface -lroscpp_serialization -lrostime -lcpp_common -lorb_slam3
+Requires: roscpp sensor_msgs std_msgs message_runtime

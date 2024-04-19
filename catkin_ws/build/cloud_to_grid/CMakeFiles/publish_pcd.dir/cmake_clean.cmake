@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/fish/catkin_ws/devel/lib/cloud_to_grid/publish_pcd"
-  "/home/fish/catkin_ws/devel/lib/cloud_to_grid/publish_pcd.pdb"
+  "/home/fish/bishe/catkin_ws/devel/lib/cloud_to_grid/publish_pcd"
+  "/home/fish/bishe/catkin_ws/devel/lib/cloud_to_grid/publish_pcd.pdb"
   "CMakeFiles/publish_pcd.dir/src/publish_pcd.cpp.o"
 )
 
