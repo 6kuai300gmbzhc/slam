@@ -13,11 +13,11 @@
 #include <pcl/console/parse.h>
 #include <thread>
 
-#define DEBUG
+//#define DEBUG
 using namespace std;
 namespace MyTool
 {
-    typedef pcl::PointXYZRGBA PointType;
+    typedef pcl::PointXYZ PointType;
     typedef pcl::PointCloud<PointType> PointCloud;
     typedef pcl::PointCloud<pcl::Normal> NormalCloud;
 

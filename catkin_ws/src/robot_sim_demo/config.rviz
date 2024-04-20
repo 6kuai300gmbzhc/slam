@@ -60,7 +60,7 @@ Visualization Manager:
       Draw Behind: false
       Enabled: true
       Name: Map
-      Topic: /robot2/map
+      Topic: /map
       Unreliable: false
       Use Timestamp: false
       Value: true

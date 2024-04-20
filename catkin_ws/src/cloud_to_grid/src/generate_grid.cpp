@@ -9,10 +9,11 @@
 #include <nav_msgs/OccupancyGrid.h>
 #include <dynamic_reconfigure/server.h>
 #include <cloud_to_grid/cloud_to_gridConfig.h>
+#include <cloud_to_grid/pclpos.h>
 using namespace std;
 
 void TimerCallBack(const ros::TimerEvent&);
-void CloudCallBack(const sensor_msgs::PointCloud2ConstPtr ros_cloud);
+void CloudCallBack(const cloud_to_grid::pclpos ros_cloud);
 
 MyTool::MyGrid *mygrid;
 MyTool::MapMetaData mapData;
@@ -25,7 +26,7 @@ int map_counter=0;
 
 
 void callback(cloud_to_grid::cloud_to_gridConfig &config, uint32_t level) {
-    ROS_INFO("Reconfigure Request");
+    //ROS_INFO("Reconfigure Request");
     MyTool::param.mode = config.mode;
     MyTool::param.project_direction = config.project_direction;
     MyTool::param.searchRadius=config.searchRadius;
@@ -81,14 +82,16 @@ void TimerCallBack(const ros::TimerEvent&)
         grid.info.origin.position.y = mapData.map_length/2*-1;  //miny
         grid.data = mapData.data;
         mappub.publish(grid);
-        std::cout<<"Pub grid!!"<< std::endl;
+        //std::cout<<"Pub grid!!"<< std::endl;
     }
 
 }
 
-void CloudCallBack(const sensor_msgs::PointCloud2ConstPtr ros_cloud){
+void CloudCallBack(const cloud_to_grid::pclpos ros_cloud){
+
     pcl::PCLPointCloud2 pcl_pc2;
-    pcl_conversions::toPCL(*ros_cloud,pcl_pc2);
+    sensor_msgs::PointCloud2ConstPtr pclMSG(new sensor_msgs::PointCloud2(ros_cloud.pcl));
+    pcl_conversions::toPCL(*pclMSG,pcl_pc2);
     MyTool::PointCloud::Ptr temp_cloud(new MyTool::PointCloud());
     pcl::fromPCLPointCloud2(pcl_pc2,*temp_cloud);
     mygrid->update(temp_cloud,mapData);

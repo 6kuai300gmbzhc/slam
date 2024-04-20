@@ -33,17 +33,20 @@ int map_counter=0;
 
 // Store /map1 data to grid1
 void map1Callback(const nav_msgs::OccupancyGrid::ConstPtr& msg){
-    cout<<"map1 callback\n";
+    //cout<<"map1 callback\n";
+    
     grid1.header = msg->header;
     grid1.info = msg->info;
+    ROS_INFO("Got map1 %d %d", grid1.info.width, grid1.info.height);
     grid1.data = msg->data;
 }
 
 // Store /map2 data to grid2
 void map2Callback(const nav_msgs::OccupancyGrid::ConstPtr& msg){
-    cout<<"map2 callback\n";
+    //cout<<"map2 callback\n";
     grid2.header = msg->header;
     grid2.info = msg->info;
+    ROS_INFO("Got map2 %d %d", grid1.info.width, grid1.info.height);
     // ROS_INFO("Got map %d %d", info.width, info.height);
     // Map map(info.width, info.height);
     grid2.data = msg->data;
@@ -107,7 +110,7 @@ int main(int argc, char **argv)
     ros::NodeHandle nh;
     map1_sub = nh.subscribe("map1", 1, map1Callback);//need to change by yourself
     map2_sub = nh.subscribe("map2", 1, map2Callback);
-    final_map_pub= nh.advertise<nav_msgs::OccupancyGrid>("map", 1);
+    final_map_pub= nh.advertise<nav_msgs::OccupancyGrid>("final_map", 1);
 
     // Publish merged_map her
     ros::Timer timer = nh.createTimer(ros::Duration(0.5), TimerCallBack);
@@ -216,97 +219,99 @@ std::pair<int, int> grid2_to_grid(int x, int y){
 // Q: when to updat mapData?
 void TimerCallBack(const ros::TimerEvent&)
 {
-    cout<<"TimerCallBack\n";
+    //cout<<"TimerCallBack\n";
     // cout<<"grid1.data.size() "<<grid1.data.size() << endl;
     // cout<<"grid2.data.size() "<<grid2.data.size() << endl;
     if(!grid1.data.empty() && !grid2.data.empty()){
+        int mapSize = min(grid1.data.size(), grid2.data.size());
+        grid.data.resize(mapSize);
 
         // cout<<"Update global grid!\n";        
-        // vector<pair<bool, bool>> exist(grid.data.size(), make_pair(false, false));
+        vector<pair<bool, bool>> exist(grid.data.size(), make_pair(false, false));
 
-        // cout<<"======== Info =================\n";
-        // cout<<"grid1.info.width, height "<<grid1.info.width<<" "<<grid1.info.height<<endl;
-        // cout<<"grid2.info.width, height "<<grid2.info.width<<" "<<grid2.info.height<<endl;
+        cout<<"======== Info =================\n";
+        cout<<"grid1.info.width, height "<<grid1.info.width<<" "<<grid1.info.height<<endl;
+        cout<<"grid2.info.width, height "<<grid2.info.width<<" "<<grid2.info.height<<endl;
 
 
         // // Transform grid1.data to grid.data
-        // for(int i=0; i<grid1.data.size(); i++){
-        //     int x = i%grid1.info.width;
-        //     int y = i/grid1.info.width;
-        //     std::pair<int, int> grid_loc = grid1_to_grid(x, y);
-        //     if(grid_loc.first <0 or grid_loc.first>GLOBAL_WIDTH or grid_loc.second<0 or grid_loc.second >GLOBAL_HEIGHT){
-        //         cout<<"Invalid global location! "<<grid_loc.first<<" "<<grid_loc.second<<endl;
-        //     }
-        //     else{
-        //         // Valid pixel global coordinate
-        //         grid.data[grid_loc.first + grid.info.width*grid_loc.second] = grid1.data[i];
-        //         exist[grid_loc.first + grid.info.width*grid_loc.second].first = true;
-        //     }
-        // }
-
-        // for(int j=0; j<grid2.data.size(); j++){
-        //     int x = j%grid2.info.width;
-        //     int y = j/grid2.info.width;            
-        //     std::pair<int, int> grid_loc = grid2_to_grid(x, y);
-        //     if(grid_loc.first <0 or grid_loc.first>GLOBAL_WIDTH or grid_loc.second<0 or grid_loc.second >GLOBAL_HEIGHT){
-        //         cout<<"Invalid global location! "<<grid_loc.first<<" "<<grid_loc.second<<endl;
-        //     }
-        //     else{
-
-        //         grid.data[grid_loc.first + grid.info.width*grid_loc.second] = grid2.data[j];
-        //         exist[grid_loc.first + grid.info.width*grid_loc.second].second = true;
-        //     }
-        // }
-
-        // Merge map1 and map2 algorithm        
-        // for(int i=0; i< grid.data.size(); ++i){
-        //     // query the 'exist_vector'
-        //     // exist_vector is a vector of pair<bool, bool>
-        //     // True: grid1 has this index in its map
-        //     // False: 
-        //     if(exist[i].first==true && exist[i].second==true){
-        //         if(grid1.data[i]==0.5 && grid2.data[i]!=0.5){
-        //             grid.data[i] = grid2.data[i];
-        //         }
-        //         else if(grid1.data[i]!=0.5 && grid2.data[i]==0.5){
-        //             grid.data[i] = grid1.data[i];
-        //         }
-        //         else if(grid1.data[i]==0.5 && grid2.data[i]==0.5){
-        //             grid.data[i] = 0.5; // unknown
-        //         }
-        //         else{
-        //             grid.data[i] = (grid1.data[i] + grid2.data[i])/2 ;
-
-        //         }
-        //     }
-        //     // Else, do nothing!
-        // }
-
-        // Transform grid2.data to grid.data
-        cout<<"grid1.data.size() "<<grid1.data.size()<<endl;
-        cout<<"grid2.data.size() "<<grid2.data.size()<<endl;
-        int mapSize = min(grid1.data.size(), grid2.data.size());
-        // cout<< (grid.data.size()) <<endl;
-
-        grid.data.resize(mapSize);
-        for(int i=0; i< mapSize; ++i){
-            if(grid1.data[i]==-1 && grid2.data[i]!=-1){
-                grid.data[i] = grid2.data[i];
-            }
-            else if(grid1.data[i]!=-1 && grid2.data[i]==-1){
-                grid.data[i] = grid1.data[i];
-            }
-            else if(grid1.data[i]==-1 && grid2.data[i]==-1){
-                grid.data[i] = -1; // unknown
+        for(int i=0; i<grid1.data.size(); i++){
+            int x = i%grid1.info.width;
+            int y = i/grid1.info.width;
+            std::pair<int, int> grid_loc = grid1_to_grid(x, y);
+            if(grid_loc.first <0 or grid_loc.first>GLOBAL_WIDTH or grid_loc.second<0 or grid_loc.second >GLOBAL_HEIGHT){
+                cout<<"Invalid global location! "<<grid_loc.first<<" "<<grid_loc.second<<endl;
             }
             else{
-                grid.data[i] = (grid1.data[i] + grid2.data[i])/2 ;
-
+                // Valid pixel global coordinate
+                grid.data[grid_loc.first + grid.info.width*grid_loc.second] = grid1.data[i];
+                exist[grid_loc.first + grid.info.width*grid_loc.second].first = true;
             }
         }
 
+        for(int j=0; j<grid2.data.size(); j++){
+            int x = j%grid2.info.width;
+            int y = j/grid2.info.width;            
+            std::pair<int, int> grid_loc = grid2_to_grid(x, y);
+            if(grid_loc.first <0 or grid_loc.first>GLOBAL_WIDTH or grid_loc.second<0 or grid_loc.second >GLOBAL_HEIGHT){
+                cout<<"Invalid global location! "<<grid_loc.first<<" "<<grid_loc.second<<endl;
+            }
+            else{
+
+                grid.data[grid_loc.first + grid.info.width*grid_loc.second] = grid2.data[j];
+                exist[grid_loc.first + grid.info.width*grid_loc.second].second = true;
+            }
+        }
+
+        // Merge map1 and map2 algorithm        
+        for(int i=0; i< grid.data.size(); ++i){
+            // query the 'exist_vector'
+            // exist_vector is a vector of pair<bool, bool>
+            // True: grid1 has this index in its map
+            // False: 
+            if(exist[i].first==true && exist[i].second==true){
+                if(grid1.data[i]==0.5 && grid2.data[i]!=0.5){
+                    grid.data[i] = grid2.data[i];
+                }
+                else if(grid1.data[i]!=0.5 && grid2.data[i]==0.5){
+                    grid.data[i] = grid1.data[i];
+                }
+                else if(grid1.data[i]==0.5 && grid2.data[i]==0.5){
+                    grid.data[i] = 0.5; // unknown
+                }
+                else{
+                    grid.data[i] = (grid1.data[i] + grid2.data[i])/2 ;
+
+                }
+            }
+            // Else, do nothing!
+        }
+
+        // // Transform grid2.data to grid.data
+        // //cout<<"grid1.data.size() "<<grid1.data.size()<<endl;
+        // //cout<<"grid2.data.size() "<<grid2.data.size()<<endl;
+        // int mapSize = min(grid1.data.size(), grid2.data.size());
+        // // cout<< (grid.data.size()) <<endl;
+
+        // grid.data.resize(mapSize);
+        // for(int i=0; i< mapSize; ++i){
+        //     if(grid1.data[i]==-1 && grid2.data[i]!=-1){
+        //         grid.data[i] = grid2.data[i];
+        //     }
+        //     else if(grid1.data[i]!=-1 && grid2.data[i]==-1){
+        //         grid.data[i] = grid1.data[i];
+        //     }
+        //     else if(grid1.data[i]==-1 && grid2.data[i]==-1){
+        //         grid.data[i] = -1; // unknown
+        //     }
+        //     else{
+        //         grid.data[i] = (grid1.data[i] + grid2.data[i])/2 ;
+
+        //     }
+        // }
+
         final_map_pub.publish(grid);
-        std::cout<<"Pub grid!!"<< std::endl;
+        //std::cout<<"Pub grid!!"<< std::endl;
 
     }
 }

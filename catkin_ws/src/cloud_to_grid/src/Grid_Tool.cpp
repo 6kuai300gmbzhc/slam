@@ -19,7 +19,6 @@ namespace MyTool {
             float x = it->x;
             float y = it->y;
             float z = it->z;
-            float rgb = it->rgb;
             if ((z>param.clip_max)||(z<param.clip_min)) {
                 it=cloud->points.erase(it);
                 i++;
