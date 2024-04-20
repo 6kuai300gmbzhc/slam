@@ -1,1 +1,9 @@
-ORB_SLAM3_detailed_comments/Vocabulary/ORBvoc.txt
+/ORB_SLAM3_detailed_comments/Vocabulary/ORBvoc.txt
+/ORB_SLAM3_detailed_comments/build
+/ORB_SLAM3_detailed_comments/KeyFrameTrajectory.txt
+/ORB_SLAM3_detailed_comments/.vscode
+/ORB_SLAM3_detailed_comments/ROS/ORB_SLAM3/RGBD
+/ORB_SLAM3_detailed_comments/ROS/ORB_SLAM3/build
+/catkin_ws/build
+*.vscode
+/catkin_ws/devel
