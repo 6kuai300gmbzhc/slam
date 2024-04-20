@@ -63,7 +63,7 @@ ${PROJECT_SOURCE_DIR}/../../../include/CameraModels
 ${Pangolin_INCLUDE_DIRS}
 ${PCL_INCLUDE_DIRS}
 /usr/include/pcl-1.10
-/home/fish/bishe/catkin_ws/devel/include
+${PROJECT_SOURCE_DIR}/../../../../catkin_ws/devel/include
 )
 
 set(LIBS 
