@@ -7,14 +7,17 @@ namespace MyTool {
 
     std::vector<double> transCoor(double x,double y,double z,Eigen::MatrixXd SE3transform){
         std::vector<double> ret;
-        Eigen::MatrixXd inverseRobotPose = SE3transform;//.inverse();
+        Eigen::MatrixXd RobotPose = SE3transform;//.inverse();
         Eigen::Vector4d cloud_loc(4);
-        cloud_loc << x,y,z, 1.0;
-        cloud_loc = inverseRobotPose * cloud_loc;
+        cloud_loc << x,y,z,1.0;
+        cloud_loc = RobotPose * cloud_loc;
         //ret << cloud_loc(0),cloud_loc(1),cloud_loc(2);
-        ret.push_back(cloud_loc(0));
-        ret.push_back(cloud_loc(1));
-        ret.push_back(cloud_loc(2));
+        //ret.push_back(cloud_loc(0));
+        //ret.push_back(cloud_loc(1));
+        //ret.push_back(cloud_loc(2));
+        ret.push_back(z);
+        ret.push_back(x);
+        ret.push_back(-y);
         return ret;
     }
     void filterPointCloud(PointCloud::Ptr &cloud){
@@ -53,7 +56,7 @@ namespace MyTool {
             float y = it->y;
             float z = it->z;
             //float rgb = it->rgb;
-            if ((z>param.clip_max)||(z<param.clip_min)) {
+            if ((z>10*param.clip_max)||(z<param.clip_min)) {
                 it=cloud->points.erase(it);
                 i++;
             } else
@@ -217,19 +220,22 @@ namespace MyTool {
     }
     void MyGrid::updateSE3(double (&SE3)[16])
     {
+        cout<<"updateSE3"<<endl;
         SE3transform<<SE3[0],SE3[4],SE3[8],SE3[12],
                       SE3[1],SE3[5],SE3[9],SE3[13],
                       SE3[2],SE3[6],SE3[10],SE3[14],
                       SE3[3],SE3[7],SE3[11],SE3[15];
         cout<<SE3transform<<endl;
+        
 
     }
     void MyGrid::updateAccPointCloud(PointCloud::Ptr& cloud,Eigen::MatrixXd SE3transform){
         PointCloud::iterator it = cloud->points.begin();
-        cout<<it->x<<" "<<it->y<<" "<<it->z<<endl;
+        cout<<"beforeTransform: "<<it->x<<" "<<it->y<<" "<<it->z<<endl;
         cout<<SE3transform<<endl;
         std::vector<double> newCoorOut=transCoor(it->x,it->y,it->z,SE3transform);
-        cout<<newCoorOut[0]<<" "<<newCoorOut[1]<<" "<<newCoorOut[2]<<endl;
+        cout<<"afterTransform: "<<newCoorOut[0]<<" "<<newCoorOut[1]<<" "<<newCoorOut[2]<<endl;
+        accPointCloud.clear();
         while (it != cloud->points.end()) {
             float x = it->x;
             float y = it->y;
