@@ -126,20 +126,30 @@ void ImageGrabber::GrabRGBD(const sensor_msgs::ImageConstPtr& msgRGB,const senso
     pcl::toROSMsg(*(data.pointcloud), pclMSG);
     pclMSG.header.frame_id = "map";
     output.pcl=pclMSG;
-    output.header.frame_id="map&pose";
+    output.header.frame_id="map";
     Sophus::Matrix<float, 3, 4> mat=data.pos.matrix3x4();
     
     int i=0;
     for(;i<12;i++){
-        output.se3[i]=mat.data()[i];
+        output.se3[i/3*4+i%3]=mat.data()[i];
     }
-    for(;i<15;i++){
-    	output.se3[i]=0;
-    }
+    std::cout<<std::endl;
+    output.se3[3]=0;
+    output.se3[7]=0;
+    output.se3[11]=0;
     output.se3[15]=1;
     
-    std::cout<<data.pos.matrix3x4();
+    for(int i=0;i<4;i++){
+        for(int j=0;j<4;j++){
+            std::cout<<output.se3[i*4+j]<<"  ";
+        }
+        std::cout<<std::endl;
+    }
+
+    //std::cout<<data.pos.matrix3x4();
+    std::cout<<"==============="<<std::endl;
     pcl_pub.publish(output);
+    
 }
 
 

@@ -19,6 +19,7 @@ MyTool::MyGrid *mygrid;
 MyTool::MapMetaData mapData;
 
 ros::Publisher mappub;
+ros::Publisher pclpub;
 ros::Subscriber cloud_sub;
 
 nav_msgs::OccupancyGrid grid;
@@ -49,6 +50,7 @@ int main(int argc, char **argv)
     ros::NodeHandle nh;
     cloud_sub= nh.subscribe("point_cloud", 1, CloudCallBack);//need to change by yourself
     mappub= nh.advertise<nav_msgs::OccupancyGrid>("map", 1);
+    pclpub=nh.advertise<sensor_msgs::PointCloud2>("pcl",1);
     ros::Timer timer = nh.createTimer(ros::Duration(0.5), TimerCallBack);
 
     dynamic_reconfigure::Server<cloud_to_grid::cloud_to_gridConfig> server;
@@ -83,18 +85,27 @@ void TimerCallBack(const ros::TimerEvent&)
         grid.data = mapData.data;
         mappub.publish(grid);
         //std::cout<<"Pub grid!!"<< std::endl;
+
+        MyTool::PointCloud p=mygrid->getAccPointCloud();
+        sensor_msgs::PointCloud2 pclMSG;
+        pcl::toROSMsg(p, pclMSG);
+        pclMSG.header.frame_id = "map";
+        pclpub.publish(pclMSG);
     }
 
 }
 
 void CloudCallBack(const cloud_to_grid::pclpos ros_cloud){
-
     pcl::PCLPointCloud2 pcl_pc2;
     sensor_msgs::PointCloud2ConstPtr pclMSG(new sensor_msgs::PointCloud2(ros_cloud.pcl));
+    double SE3[16];
+    for(int i=0;i<16;i++){
+        SE3[i]=ros_cloud.se3[i];
+    }
     pcl_conversions::toPCL(*pclMSG,pcl_pc2);
     MyTool::PointCloud::Ptr temp_cloud(new MyTool::PointCloud());
     pcl::fromPCLPointCloud2(pcl_pc2,*temp_cloud);
-    mygrid->update(temp_cloud,mapData);
+    mygrid->update(temp_cloud,mapData,SE3);
 }
 
 

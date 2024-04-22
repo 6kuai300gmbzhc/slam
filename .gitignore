@@ -2,8 +2,8 @@
 /ORB_SLAM3_detailed_comments/build
 /ORB_SLAM3_detailed_comments/KeyFrameTrajectory.txt
 /ORB_SLAM3_detailed_comments/.vscode
-/ORB_SLAM3_detailed_comments/ROS/ORB_SLAM3/RGBD
-/ORB_SLAM3_detailed_comments/ROS/ORB_SLAM3/build
+/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/RGBD
+/ORB_SLAM3_detailed_comments/Examples_old/ROS/ORB_SLAM3/build
 /catkin_ws/build
 *.vscode
 /catkin_ws/devel

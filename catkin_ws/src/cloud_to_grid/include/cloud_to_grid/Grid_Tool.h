@@ -12,8 +12,15 @@
 #include <pcl/features/normal_3d.h>
 #include <pcl/console/parse.h>
 #include <thread>
+#include <pcl/filters/voxel_grid.h>
+#include <pcl/filters/statistical_outlier_removal.h>
+ #include <pcl/filters/radius_outlier_removal.h>
+ #include <pcl/filters/conditional_removal.h>
+#include <Eigen/Dense>
+#include <Eigen/Geometry>
 
-//#define DEBUG
+
+#define DEBUG
 using namespace std;
 namespace MyTool
 {
@@ -59,6 +66,7 @@ namespace MyTool
 
     void GetGridCoord(const double temp_x,const double temp_y,int &x,int &y);
     void RemoveUnusedPoint(PointCloud::Ptr &cloud);
+    std::vector<double> transCoor(double x,double y,double z,Eigen::MatrixXd SE3transform);
 
     class MyGrid
     {
@@ -68,15 +76,21 @@ namespace MyTool
           std::map<Coordiate, int> gridPoints;
           std::vector<signed char> ocGrid;
           MapMetaData mapMetaData;
+          Eigen::MatrixXd SE3transform;
+          pcl::PointCloud<PointType> accPointCloud;
+          
           void scoreFun(double normal_value,double height,double &score);
           void getMinMaxXY(std::map<Coordiate, int> &tmp_gridPoints,int &min_x,int &max_x,int &min_y,int &max_y);
           void calcSurfaceNormals(PointCloud::Ptr& cloud);
           void updateGrid(PointCloud::Ptr& cloud);
           void getMapMetadata(MapMetaData &data);
+          void updateAccPointCloud(PointCloud::Ptr& cloud,Eigen::MatrixXd SE3transform);
           bool isUpdateGrid=false;
      public:
           MyGrid();
-          void update(PointCloud::Ptr& cloud,MapMetaData &data);
+          void update(PointCloud::Ptr& cloud,MapMetaData &data,double (&SE3)[16]);
+          void updateSE3(double (&SE3)[16]);
+          pcl::PointCloud<PointType> getAccPointCloud();
     };
 
 } 

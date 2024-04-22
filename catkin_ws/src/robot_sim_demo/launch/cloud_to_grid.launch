@@ -28,7 +28,7 @@
 
     <!-- rivz map -->
     <node name="rviz" pkg ="rviz" type="rviz" args="-d $(find robot_sim_demo)/config.rviz" />
-    <node pkg="tf" type="static_transform_publisher" name="link_name" args="0 0 0 0 0 0 final_map odom 0" />
+    <!--node pkg="tf" type="static_transform_publisher" name="link_name" args="0 0 0 0 0 0 map odom 0" /-->
 
 
 </launch>

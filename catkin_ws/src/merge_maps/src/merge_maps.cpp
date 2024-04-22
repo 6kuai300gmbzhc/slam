@@ -122,8 +122,8 @@ int main(int argc, char **argv)
 
     ////////////////////////////////////////////////////////////////////
     // Init robot pose (in radians, meters)
-    float robot1_x = 4.5;
-    float robot1_y = 4.5;
+    float robot1_x = 0;//4.5;
+    float robot1_y = 0;//4.5;
     float robot1_theta = 0;
     float robot2_x = 5;
     float robot2_y = 5;
