@@ -31,10 +31,10 @@ namespace MyTool {
         }
     }
     //TODO
-    /*
+    
     std::vector<double> getLocalCoor(double x,double y,double z,Eigen::MatrixXd SE3transform){
         std::vector<double> ret;
-        Eigen::MatrixXd RobotPose = SE3transform.inverse();//.inverse();
+        Eigen::MatrixXd RobotPose = SE3transform;//.inverse();
         Eigen::Vector4d global_loc(4);
         Eigen::Vector4d local_loc(4);
         global_loc << x,y,z,1.0;
@@ -48,6 +48,7 @@ namespace MyTool {
         ret.push_back(local_loc(2));
         return ret;
     }
+    /*
     //想要得到的是把全局坐标转换回局部坐标，然后经过x，y轴上的旋转与平移，同时还要计算每个点的法向量，来用于对比
     void relocatePoints(PointCloud::Ptr &cloud,Eigen::MatrixXd SE3transform){
         for (decltype(cloud->size()) i = 0; i < cloud->size(); i++) {
@@ -62,6 +63,7 @@ namespace MyTool {
         }
     }
     */
+    
     
     void filterPointCloud(PointCloud::Ptr &cloud){
         pcl::PointCloud<PointType>::Ptr cloud_filtered (new pcl::PointCloud<PointType>);  
@@ -282,13 +284,14 @@ namespace MyTool {
             float x = it->x;
             float y = it->y;
             float z = it->z;
-            
- 
+            //使accpointcloud里面存储的是点云的局部坐标数据（相对于摄像头）
+            std::vector<double> localCoor=getLocalCoor(x,y,z,SE3transform);
+
             // 创建一个PointXYZ的点
             PointType newPoint;
-            newPoint.x = x;  // 设置点的x坐标
-            newPoint.y = y;  // 设置点的y坐标
-            newPoint.z = z;  // 设置点的z坐标
+            newPoint.x = localCoor[0];  // 设置点的x坐标
+            newPoint.y = localCoor[1];  // 设置点的y坐标
+            newPoint.z = localCoor[2];  // 设置点的z坐标
  
             // 将点插入到点云中
             accPointCloud.push_back(newPoint);
