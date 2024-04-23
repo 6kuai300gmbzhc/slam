@@ -67,6 +67,10 @@ namespace MyTool
     void GetGridCoord(const double temp_x,const double temp_y,int &x,int &y);
     void RemoveUnusedPoint(PointCloud::Ptr &cloud);
     std::vector<double> transCoor(double x,double y,double z,Eigen::MatrixXd SE3transform);
+    std::vector<double> getLocalCoor(double x,double y,double z,Eigen::MatrixXd SE3transform);
+    void relocatePoints(PointCloud::Ptr &cloud,Eigen::MatrixXd SE3transform);
+    void transCoorAxis(PointCloud::Ptr &cloud);
+
 
     class MyGrid
     {

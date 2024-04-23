@@ -15,11 +15,54 @@ namespace MyTool {
         //ret.push_back(cloud_loc(0));
         //ret.push_back(cloud_loc(1));
         //ret.push_back(cloud_loc(2));
-        ret.push_back(z);
         ret.push_back(x);
-        ret.push_back(-y);
+        ret.push_back(y);
+        ret.push_back(z);
         return ret;
     }
+    void transCoorAxis(PointCloud::Ptr &cloud){
+        for (decltype(cloud->size()) i = 0; i < cloud->size(); i++) {
+            double newx=cloud->points[i].z;
+            double newy=-1.0*cloud->points[i].x;
+            double newz=-1.0*cloud->points[i].y;
+            cloud->points[i].x=newx;
+            cloud->points[i].y=newy;
+            cloud->points[i].z=newz;
+        }
+    }
+    //TODO
+    /*
+    std::vector<double> getLocalCoor(double x,double y,double z,Eigen::MatrixXd SE3transform){
+        std::vector<double> ret;
+        Eigen::MatrixXd RobotPose = SE3transform.inverse();//.inverse();
+        Eigen::Vector4d global_loc(4);
+        Eigen::Vector4d local_loc(4);
+        global_loc << x,y,z,1.0;
+        local_loc = RobotPose * global_loc;
+        //ret << cloud_loc(0),cloud_loc(1),cloud_loc(2);
+        //ret.push_back(cloud_loc(0));
+        //ret.push_back(cloud_loc(1));
+        //ret.push_back(cloud_loc(2));
+        ret.push_back(local_loc(0));
+        ret.push_back(local_loc(1));
+        ret.push_back(local_loc(2));
+        return ret;
+    }
+    //想要得到的是把全局坐标转换回局部坐标，然后经过x，y轴上的旋转与平移，同时还要计算每个点的法向量，来用于对比
+    void relocatePoints(PointCloud::Ptr &cloud,Eigen::MatrixXd SE3transform){
+        for (decltype(cloud->size()) i = 0; i < cloud->size(); i++) {
+            float x = points[i]->x;
+            float y = points[i]->y;
+            float z = points[i]->z;
+            //float rgb = it->rgb;
+            std::vector<double> globalCoor=transCoor(x,y,z,SE3transform);
+            std::vector<double> localCoor=getLocalCoor(globalCoor[0],y,z,SE3transform);
+            if(abs(localCoor[2]-z)>=0.3||)
+            
+        }
+    }
+    */
+    
     void filterPointCloud(PointCloud::Ptr &cloud){
         pcl::PointCloud<PointType>::Ptr cloud_filtered (new pcl::PointCloud<PointType>);  
         pcl::RadiusOutlierRemoval<PointType> ror;	//创建滤波器对象
@@ -115,7 +158,8 @@ namespace MyTool {
     void MyGrid::updateGrid(PointCloud::Ptr &cloud) {
 #ifdef DEBUG
         cout<<"start updateGrid"<<endl;
-#endif  
+#endif
+        transCoorAxis(cloud);
         updateAccPointCloud(cloud,SE3transform);
         RemoveUnusedPoint(cloud);
         calcSurfaceNormals(cloud);
@@ -130,14 +174,12 @@ namespace MyTool {
             height = cloud->points[i].z;
             axis_1 = cloud->points[i].x;
             axis_2 = cloud->points[i].y;
-            std::vector<double> newCoor;
-            newCoor = transCoor(axis_1,axis_2,height,SE3transform);
 
             double score;
             scoreFun(normal_value, height, score);
 
             int grid_x, grid_y;
-            GetGridCoord(newCoor[0], newCoor[1], grid_x, grid_y);
+            GetGridCoord(axis_1, axis_2, grid_x, grid_y);
             Coordiate key(grid_x, grid_y);
             int count = gridPoints.count(key);
             if (count > 0) {
@@ -214,6 +256,7 @@ namespace MyTool {
             gridPoints.clear();
             isGlobalUpdate = true;
         }
+        
         updateGrid(cloud); 
         updateSE3(SE3);
         getMapMetadata(data);
@@ -221,33 +264,31 @@ namespace MyTool {
     void MyGrid::updateSE3(double (&SE3)[16])
     {
         cout<<"updateSE3"<<endl;
-        SE3transform<<SE3[0],SE3[4],SE3[8],SE3[12],
-                      SE3[1],SE3[5],SE3[9],SE3[13],
-                      SE3[2],SE3[6],SE3[10],SE3[14],
-                      SE3[3],SE3[7],SE3[11],SE3[15];
+        SE3transform<<SE3[10],-SE3[2],-SE3[6],SE3[14],
+                      -SE3[8],SE3[0],SE3[4],-SE3[12],
+                      -SE3[9],SE3[1],SE3[5],-SE3[13],
+                      SE3[11],-SE3[3],SE3[-7],SE3[15];
+        //Eigen
         cout<<SE3transform<<endl;
+        
         
 
     }
     void MyGrid::updateAccPointCloud(PointCloud::Ptr& cloud,Eigen::MatrixXd SE3transform){
         PointCloud::iterator it = cloud->points.begin();
-        cout<<"beforeTransform: "<<it->x<<" "<<it->y<<" "<<it->z<<endl;
         cout<<SE3transform<<endl;
-        std::vector<double> newCoorOut=transCoor(it->x,it->y,it->z,SE3transform);
-        cout<<"afterTransform: "<<newCoorOut[0]<<" "<<newCoorOut[1]<<" "<<newCoorOut[2]<<endl;
         accPointCloud.clear();
         while (it != cloud->points.end()) {
             float x = it->x;
             float y = it->y;
             float z = it->z;
-            //float rgb = it->rgb;
-            std::vector<double> newCoor=transCoor(x,y,z,SE3transform);
+            
  
             // 创建一个PointXYZ的点
             PointType newPoint;
-            newPoint.x = newCoor[0];  // 设置点的x坐标
-            newPoint.y = newCoor[1];  // 设置点的y坐标
-            newPoint.z = newCoor[2];  // 设置点的z坐标
+            newPoint.x = x;  // 设置点的x坐标
+            newPoint.y = y;  // 设置点的y坐标
+            newPoint.z = z;  // 设置点的z坐标
  
             // 将点插入到点云中
             accPointCloud.push_back(newPoint);
