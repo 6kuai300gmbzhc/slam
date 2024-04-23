@@ -71,6 +71,7 @@ namespace MyTool
     std::vector<double> getLocalCoor(double x,double y,double z,Eigen::MatrixXd SE3transform);
     void relocatePoints(PointCloud::Ptr &cloud,Eigen::MatrixXd SE3transform);
     void transCoorAxis(PointCloud::Ptr &cloud);
+    bool whetherRelocate(Eigen::MatrixXd SE3transform);
 
 
     class MyGrid
