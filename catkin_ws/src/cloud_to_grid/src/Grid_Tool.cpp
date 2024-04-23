@@ -48,31 +48,64 @@ namespace MyTool {
         ret.push_back(local_loc(2));
         return ret;
     }
-    /*
-    //想要得到的是把全局坐标转换回局部坐标，然后经过x，y轴上的旋转与平移，同时还要计算每个点的法向量，来用于对比
-    void relocatePoints(PointCloud::Ptr &cloud,Eigen::MatrixXd SE3transform){
-        for (decltype(cloud->size()) i = 0; i < cloud->size(); i++) {
-            float x = points[i]->x;
-            float y = points[i]->y;
-            float z = points[i]->z;
-            //float rgb = it->rgb;
-            std::vector<double> globalCoor=transCoor(x,y,z,SE3transform);
-            std::vector<double> localCoor=getLocalCoor(globalCoor[0],y,z,SE3transform);
-            if(abs(localCoor[2]-z)>=0.3||)
-            
+    bool whetherRelocate(Eigen::MatrixXd SE3transform){
+        //TODO
+        // 提取旋转矩阵部分  
+        Eigen::Matrix3d R = SE3transform.block<3, 3>(0, 0);  
+        //  检查Z轴旋转角  
+        Eigen::AngleAxisd angleAxis(R);  
+        double angle = angleAxis.angle(); // 旋转角（弧度）  
+        Eigen::Vector3d axis = angleAxis.axis(); // 旋转轴  
+        // 判断Z轴旋转角是否接近0或π（180度）  
+        const double threshold = std::acos(-1.0) / 180.0 * 10.0; // 10度为阈值 
+        if(SE3transform(2,3)>0.2||SE3transform(2,3)<0||std::abs(angle - 0.0) < threshold || std::abs(angle - std::acos(-1.0)) < threshold){
+            return true;
+        }else{
+            return false;
         }
     }
-    */
+    //想要得到的是把全局坐标转换回局部坐标，然后经过x，y轴上的旋转与平移，同时还要计算每个点的法向量，来用于对比
+    void relocatePoints(PointCloud::Ptr &cloud,Eigen::MatrixXd SE3transform){
+        PointCloud::iterator it = cloud->points.begin();
+        while (it != cloud->points.end()) {
+            float x = it->x;
+            float y = it->y;
+            float z = it->z;
+            
+            //std::vector<double> localCoor=getLocalCoor(x,y,z,SE3transform);
+            //PointType pointToAdd;
+            //pointToAdd.x=localCoor[0]+SE3transform(0,3);
+            //pointToAdd.y=localCoor[1]+SE3transform(1,3);
+            //pointToAdd.z=localCoor[2];
+            Eigen::Matrix3d R = SE3transform.block<3, 3>(0, 0);  
+            Eigen::Vector3d t = SE3transform.block<3, 1>(0, 3);
+            Eigen::Matrix3d R_new;  
+            R_new << R(0, 0), R(0, 1), 0,  
+                    R(1, 0), R(1, 1), 0,  
+                    0,       0,       1;
+            Eigen::Vector3d t_new(t(0), t(1), 0);
+            Eigen::Vector3d global_point; // 假设这是你要转换的全局点
+            global_point<<x,y,z;  
+            Eigen::Vector3d local_point = R_new * (global_point - t_new);
+            Eigen::Vector3d new_global_point = R_new.transpose() * local_point + t_new;
+            it->x=new_global_point(0);
+            it->y=new_global_point(1);
+            it->z=new_global_point(2);
+            it++;
+        }
+    }
+    
     
     
     void filterPointCloud(PointCloud::Ptr &cloud){
         pcl::PointCloud<PointType>::Ptr cloud_filtered (new pcl::PointCloud<PointType>);  
         pcl::RadiusOutlierRemoval<PointType> ror;	//创建滤波器对象
 	    ror.setInputCloud(cloud);						//设置待滤波点云
-	    ror.setRadiusSearch(0.10);						//设置查询点的半径范围
-	    ror.setMinNeighborsInRadius(5);	//设置判断是否为离群点的阈值，即半径内至少包括的点数
+	    ror.setRadiusSearch(0.05);						//设置查询点的半径范围
+	    ror.setMinNeighborsInRadius(3);	//设置判断是否为离群点的阈值，即半径内至少包括的点数
 	    //ror.setNegative(true);	//默认false，保存内点；true，保存滤掉的外点
 	    ror.filter(*cloud_filtered);	//执行滤波，保存滤波结果于cloud_filtered
+        /*
         //分成若干网格，体素滤波
         pcl::VoxelGrid<PointType> sor2;  
         sor2.setInputCloud(cloud_filtered);  
@@ -83,6 +116,31 @@ namespace MyTool {
         sor2.filter(*cloud_filtered2);  
         // 将结果存储回原来的cloud对象  
         *cloud = *cloud_filtered2;
+        */
+       long j=0;
+        PointCloud::iterator it = cloud->points.begin();
+        while (it != cloud->points.end()) {
+            it++;
+            j++;       
+        }
+        cloud->points.clear();
+        cout<<"after filter remove points:"<<j<<endl;
+        long i=0;
+        PointCloud::iterator it2 = cloud_filtered->points.begin();
+        while (it2 != cloud_filtered->points.end()) {
+            float x = it2->x;
+            float y = it2->y;
+            float z = it2->z;
+            PointType pointToAdd;
+            pointToAdd.x = x;
+            pointToAdd.y = y;
+            pointToAdd.z = z;
+            //float rgb = it->rgb;
+            cloud->push_back(pointToAdd);
+            it2++;
+            i++;
+        }
+        cout<<"after filter remain points:"<<i<<endl;
     }
 
     void GetGridCoord(const double temp_x,const double temp_y,int &x,int &y) {
@@ -101,7 +159,7 @@ namespace MyTool {
             float y = it->y;
             float z = it->z;
             //float rgb = it->rgb;
-            if ((z>10*param.clip_max)||(z<param.clip_min)) {
+            if ((z>30*param.clip_max)||(z<param.clip_min)) {
                 it=cloud->points.erase(it);
                 i++;
             } else
@@ -161,12 +219,22 @@ namespace MyTool {
 #ifdef DEBUG
         cout<<"start updateGrid"<<endl;
 #endif
+        //改变坐标轴
         transCoorAxis(cloud);
-        updateAccPointCloud(cloud,SE3transform);
+        //判断小车是否还认为自己在地面上，如果不是，要重新修复点云的坐标
+        if(whetherRelocate(SE3transform)){
+            relocatePoints(cloud,SE3transform);
+        }
+
+        //去除无用的点
         RemoveUnusedPoint(cloud);
+        //滤波器
+        filterPointCloud(cloud);
+        updateAccPointCloud(cloud,SE3transform);
+        
         calcSurfaceNormals(cloud);
-        //filter
-        //filterPointCloud(cloud);
+        
+        //更新grid
         for (decltype(cloud->size()) i = 0; i < cloud->size(); i++) {
             double normal_value;
             double height;

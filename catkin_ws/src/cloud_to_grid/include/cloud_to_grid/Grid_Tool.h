@@ -18,6 +18,7 @@
  #include <pcl/filters/conditional_removal.h>
 #include <Eigen/Dense>
 #include <Eigen/Geometry>
+#include <cmath>
 
 
 #define DEBUG
