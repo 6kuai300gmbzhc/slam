@@ -21,7 +21,7 @@
 #include <cmath>
 
 
-#define DEBUG
+//#define DEBUG
 using namespace std;
 namespace MyTool
 {

@@ -10,6 +10,8 @@
 #include <dynamic_reconfigure/server.h>
 #include <cloud_to_grid/cloud_to_gridConfig.h>
 #include <cloud_to_grid/pclpos.h>
+
+//#define DEBUG_PCL
 using namespace std;
 
 void TimerCallBack(const ros::TimerEvent&);
@@ -86,11 +88,13 @@ void TimerCallBack(const ros::TimerEvent&)
         mappub.publish(grid);
         //std::cout<<"Pub grid!!"<< std::endl;
 
+#ifdef DEBUG_PCL
         MyTool::PointCloud p=mygrid->getAccPointCloud();
         sensor_msgs::PointCloud2 pclMSG;
         pcl::toROSMsg(p, pclMSG);
         pclMSG.header.frame_id = "map";
         pclpub.publish(pclMSG);
+#endif
     }
 
 }

@@ -21,7 +21,7 @@
     </group>
 
     <!-- Merge Map -->
-    <node name="merge_maps_node" pkg="merge_maps" type="merge_maps_node" >
+    <node name="merge_maps_node" pkg="merge_maps" type="merge_maps_node" output="screen">
         <remap from="/map1" to="/robot1/map"/>
         <remap from="/map2" to="/robot2/map"/>
     </node>

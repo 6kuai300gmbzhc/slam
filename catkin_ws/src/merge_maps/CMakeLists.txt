@@ -131,8 +131,6 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
   ${PROJECT_SOURCE_DIR}/../cloud_to_grid/include
 )
-message(${PROJECT_SOURCE_DIR}/../cloud_to_grid/include)
-message("??????????????????????")
 ## Declare a C++ library
 #add_library(${PROJECT_NAME} SHARED
 #   src/cloud_to_grid/src/Grid_Tool.h

@@ -8,3 +8,4 @@
 *.vscode
 /catkin_ws/devel
 /.git
+ORB_SLAM3_detailed_comments/KeyFrameTrajectory.txt

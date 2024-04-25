@@ -37,7 +37,7 @@ void map1Callback(const nav_msgs::OccupancyGrid::ConstPtr& msg){
     
     grid1.header = msg->header;
     grid1.info = msg->info;
-    ROS_INFO("Got map1 %d %d", grid1.info.width, grid1.info.height);
+    //ROS_INFO("Got map1 %d %d", grid1.info.width, grid1.info.height);
     grid1.data = msg->data;
 }
 
@@ -46,7 +46,7 @@ void map2Callback(const nav_msgs::OccupancyGrid::ConstPtr& msg){
     //cout<<"map2 callback\n";
     grid2.header = msg->header;
     grid2.info = msg->info;
-    ROS_INFO("Got map2 %d %d", grid1.info.width, grid1.info.height);
+    //ROS_INFO("Got map2 %d %d", grid1.info.width, grid1.info.height);
     // ROS_INFO("Got map %d %d", info.width, info.height);
     // Map map(info.width, info.height);
     grid2.data = msg->data;
@@ -61,8 +61,8 @@ void map2Callback(const nav_msgs::OccupancyGrid::ConstPtr& msg){
 #define GLOBAL_RESOLUTION 0.05
 #define GLOBAL_WIDTH 800
 #define GLOBAL_HEIGHT 800
-#define X_OFFSET GLOBAL_WIDTH/2
-#define Y_OFFSET GLOBAL_HEIGHT/2
+#define X_OFFSET 0//GLOBAL_WIDTH/2
+#define Y_OFFSET 0//GLOBAL_HEIGHT/2
 
 #include <Eigen/Dense>
 #include <Eigen/Geometry>
@@ -136,12 +136,12 @@ int main(int argc, char **argv)
                         sin(robot1_theta), cos(robot1_theta), robot1_y/GLOBAL_RESOLUTION,
                         0, 0, 1;
     cout<<"robot1 transformation matrix: \n";                        
-    std::cout << robot1_transform<<endl;
+    std::cout << robot1_transform.inverse()<<endl;
     robot2_transform << cos(robot2_theta), -sin(robot2_theta), robot2_x/GLOBAL_RESOLUTION,
                         sin(robot2_theta), cos(robot2_theta), robot2_y/GLOBAL_RESOLUTION,
                         0, 0, 1;
     cout<<"robot2 transformation matrix: \n";
-    std::cout << robot2_transform<<endl;
+    std::cout << robot2_transform.inverse()<<endl;
 
     /////////////////////////////////////////////////////////////////////
     // Initialized grid.size()
@@ -193,25 +193,25 @@ Output:pixel locations x, y in global frame (integers might be negative)
 
 std::pair<int, int> grid1_to_grid(int x, int y){
     std::pair<int, int>grid_loc;
-
+    cout<<"grid1 local_loc "<<x << " "<<y<<endl;
     Vector3d grid1_loc(3), global_loc(3);
     grid1_loc << x, y, 1;
     global_loc = robot1_transform.inverse() * grid1_loc;
     grid_loc.first = int(global_loc[0] + X_OFFSET);
     grid_loc.second = int(global_loc[1] +Y_OFFSET);
-    // cout<<"grid1 to global_loc "<<grid_loc.first << " "<<grid_loc.second<<endl;
+    cout<<"grid1 to global_loc "<<grid_loc.first << " "<<grid_loc.second<<endl;
     return grid_loc;
 }
 
 std::pair<int, int> grid2_to_grid(int x, int y){
     std::pair<int, int>grid_loc;
-
+    cout<<"grid2 local_loc "<<x << " "<<y<<endl;
     Vector3d grid2_loc(3), global_loc(3);
     grid2_loc << x, y, 1;
     global_loc = robot2_transform.inverse() * grid2_loc;
     grid_loc.first = int(global_loc[0]+ X_OFFSET);
     grid_loc.second = int(global_loc[1]+ Y_OFFSET);
-    // cout<<"grid2 to global_loc "<< grid_loc.first << " "<<grid_loc.second<<endl;
+    cout<<"grid2 to global_loc "<< grid_loc.first << " "<<grid_loc.second<<endl;
 
     return grid_loc;
 }
@@ -219,7 +219,7 @@ std::pair<int, int> grid2_to_grid(int x, int y){
 // Q: when to updat mapData?
 void TimerCallBack(const ros::TimerEvent&)
 {
-    //cout<<"TimerCallBack\n";
+    cout<<"TimerCallBack\n";
     // cout<<"grid1.data.size() "<<grid1.data.size() << endl;
     // cout<<"grid2.data.size() "<<grid2.data.size() << endl;
     if(!grid1.data.empty() && !grid2.data.empty()){
@@ -240,12 +240,12 @@ void TimerCallBack(const ros::TimerEvent&)
             int y = i/grid1.info.width;
             std::pair<int, int> grid_loc = grid1_to_grid(x, y);
             if(grid_loc.first <0 or grid_loc.first>GLOBAL_WIDTH or grid_loc.second<0 or grid_loc.second >GLOBAL_HEIGHT){
-                cout<<"Invalid global location! "<<grid_loc.first<<" "<<grid_loc.second<<endl;
+                cout<<"Invalid grid 1global location! "<<grid_loc.first<<" "<<grid_loc.second<<endl;
             }
             else{
                 // Valid pixel global coordinate
                 grid.data[grid_loc.first + grid.info.width*grid_loc.second] = grid1.data[i];
-                exist[grid_loc.first + grid.info.width*grid_loc.second].first = true;
+                //exist[grid_loc.first + grid.info.width*grid_loc.second].first = true;
             }
         }
 
@@ -254,38 +254,38 @@ void TimerCallBack(const ros::TimerEvent&)
             int y = j/grid2.info.width;            
             std::pair<int, int> grid_loc = grid2_to_grid(x, y);
             if(grid_loc.first <0 or grid_loc.first>GLOBAL_WIDTH or grid_loc.second<0 or grid_loc.second >GLOBAL_HEIGHT){
-                cout<<"Invalid global location! "<<grid_loc.first<<" "<<grid_loc.second<<endl;
+                cout<<"Invalid grod2 global location! "<<grid_loc.first<<" "<<grid_loc.second<<endl;
             }
             else{
 
                 grid.data[grid_loc.first + grid.info.width*grid_loc.second] = grid2.data[j];
-                exist[grid_loc.first + grid.info.width*grid_loc.second].second = true;
+                //exist[grid_loc.first + grid.info.width*grid_loc.second].second = true;
             }
         }
 
-        // Merge map1 and map2 algorithm        
-        for(int i=0; i< grid.data.size(); ++i){
-            // query the 'exist_vector'
-            // exist_vector is a vector of pair<bool, bool>
-            // True: grid1 has this index in its map
-            // False: 
-            if(exist[i].first==true && exist[i].second==true){
-                if(grid1.data[i]==0.5 && grid2.data[i]!=0.5){
-                    grid.data[i] = grid2.data[i];
-                }
-                else if(grid1.data[i]!=0.5 && grid2.data[i]==0.5){
-                    grid.data[i] = grid1.data[i];
-                }
-                else if(grid1.data[i]==0.5 && grid2.data[i]==0.5){
-                    grid.data[i] = 0.5; // unknown
-                }
-                else{
-                    grid.data[i] = (grid1.data[i] + grid2.data[i])/2 ;
+        // // Merge map1 and map2 algorithm        
+        // for(int i=0; i< grid.data.size(); ++i){
+        //     // query the 'exist_vector'
+        //     // exist_vector is a vector of pair<bool, bool>
+        //     // True: grid1 has this index in its map
+        //     // False: 
+        //     //if(exist[i].first==true && exist[i].second==true){
+        //         if(grid1.data[i]==-1 && grid2.data[i]!=-1){
+        //             grid.data[i] = grid2.data[i];
+        //         }
+        //         else if(grid1.data[i]!=-1 && grid2.data[i]==-1){
+        //             grid.data[i] = grid1.data[i];
+        //         }
+        //         else if(grid1.data[i]==-1 && grid2.data[i]==-1){
+        //             grid.data[i] = -1; // unknown
+        //         }
+        //         else{
+        //             grid.data[i] = (grid1.data[i] + grid2.data[i])/2 ;
 
-                }
-            }
-            // Else, do nothing!
-        }
+        //         }
+        //     //}
+        //     // Else, do nothing!
+        // }
 
         // // Transform grid2.data to grid.data
         // //cout<<"grid1.data.size() "<<grid1.data.size()<<endl;

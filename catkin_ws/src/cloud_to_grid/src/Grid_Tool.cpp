@@ -222,9 +222,9 @@ namespace MyTool {
         //改变坐标轴
         transCoorAxis(cloud);
         //判断小车是否还认为自己在地面上，如果不是，要重新修复点云的坐标
-        if(whetherRelocate(SE3transform)){
-            relocatePoints(cloud,SE3transform);
-        }
+        // if(whetherRelocate(SE3transform)){
+        //     relocatePoints(cloud,SE3transform);
+        // }
 
         //去除无用的点
         RemoveUnusedPoint(cloud);
