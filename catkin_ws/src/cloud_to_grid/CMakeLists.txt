@@ -25,6 +25,7 @@ set(CMAKE_PREFIX_PATH "/usr/local/opencv4")
 add_message_files(
   FILES
   pclpos.msg
+  gridmsg.msg
 )
 generate_messages(
   DEPENDENCIES

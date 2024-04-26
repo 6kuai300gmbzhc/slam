@@ -21,6 +21,7 @@ find_package(catkin REQUIRED COMPONENTS
   image_transport
   cv_bridge
   dynamic_reconfigure
+  cloud_to_grid
 )
 
 
@@ -127,7 +128,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+  include
   ${catkin_INCLUDE_DIRS}
   ${PROJECT_SOURCE_DIR}/../cloud_to_grid/include
 )

@@ -10,8 +10,8 @@
 #include <dynamic_reconfigure/server.h>
 #include <cloud_to_grid/cloud_to_gridConfig.h>
 #include <cloud_to_grid/pclpos.h>
-
-//#define DEBUG_PCL
+#include <cloud_to_grid/gridmsg.h>
+#include <cstdint>
 using namespace std;
 
 void TimerCallBack(const ros::TimerEvent&);
@@ -22,6 +22,7 @@ MyTool::MapMetaData mapData;
 
 ros::Publisher mappub;
 ros::Publisher pclpub;
+ros::Publisher gridpub;
 ros::Subscriber cloud_sub;
 
 nav_msgs::OccupancyGrid grid;
@@ -53,6 +54,8 @@ int main(int argc, char **argv)
     cloud_sub= nh.subscribe("point_cloud", 1, CloudCallBack);//need to change by yourself
     mappub= nh.advertise<nav_msgs::OccupancyGrid>("map", 1);
     pclpub=nh.advertise<sensor_msgs::PointCloud2>("pcl",1);
+    gridpub=nh.advertise<cloud_to_grid::gridmsg>("grid",1);
+
     ros::Timer timer = nh.createTimer(ros::Duration(0.5), TimerCallBack);
 
     dynamic_reconfigure::Server<cloud_to_grid::cloud_to_gridConfig> server;
@@ -65,7 +68,11 @@ int main(int argc, char **argv)
     return 0;
 }
 void TimerCallBack(const ros::TimerEvent&)
-{
+{   
+#ifdef DEBUG
+    std::cout<<"generate_grid_time"<<std::endl;
+#endif
+#ifdef DEBUG_MAP
     if(!mapData.data.empty())
     {
         grid.header.seq = map_counter++;
@@ -87,15 +94,34 @@ void TimerCallBack(const ros::TimerEvent&)
         grid.data = mapData.data;
         mappub.publish(grid);
         //std::cout<<"Pub grid!!"<< std::endl;
+    }
+#endif
 
 #ifdef DEBUG_PCL
-        MyTool::PointCloud p=mygrid->getAccPointCloud();
-        sensor_msgs::PointCloud2 pclMSG;
-        pcl::toROSMsg(p, pclMSG);
-        pclMSG.header.frame_id = "map";
-        pclpub.publish(pclMSG);
+    MyTool::PointCloud p=mygrid->getAccPointCloud();
+    sensor_msgs::PointCloud2 pclMSG;
+    pcl::toROSMsg(p, pclMSG);
+    pclMSG.header.frame_id = "map";
+    pclpub.publish(pclMSG);
 #endif
+    std::map<MyTool::Coordiate, int> gridPoints=mygrid->getGridPoints();
+    cloud_to_grid::gridmsg gridmsgs;
+    if(gridPoints.size()>0){
+        int size=0;
+        gridmsgs.header.frame_id="gridpoints";
+        for(auto it=gridPoints.begin();it!=gridPoints.end();it++){
+            //std::cout<<size<<std::endl;
+            gridmsgs.key_first.push_back(it->first.x);
+            gridmsgs.key_second.push_back(it->first.y);
+            gridmsgs.val.push_back(it->second);
+            size++;
+        }
+        gridmsgs.size=size;
+        gridpub.publish(gridmsgs);
     }
+#ifdef DEBUG
+    std::cout<<"generate_grid_time_fin"<<std::endl;
+#endif
 
 }
 

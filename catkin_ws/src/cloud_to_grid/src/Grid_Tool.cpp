@@ -3,6 +3,7 @@
 //
 
 #include <cloud_to_grid/Grid_Tool.h>
+
 namespace MyTool {
 
     std::vector<double> transCoor(double x,double y,double z,Eigen::MatrixXd SE3transform){
@@ -98,13 +99,15 @@ namespace MyTool {
     
     
     void filterPointCloud(PointCloud::Ptr &cloud){
-        pcl::PointCloud<PointType>::Ptr cloud_filtered (new pcl::PointCloud<PointType>);  
+        PointCloud::Ptr cloud_filtered (new PointCloud);  
         pcl::RadiusOutlierRemoval<PointType> ror;	//创建滤波器对象
 	    ror.setInputCloud(cloud);						//设置待滤波点云
 	    ror.setRadiusSearch(0.05);						//设置查询点的半径范围
 	    ror.setMinNeighborsInRadius(3);	//设置判断是否为离群点的阈值，即半径内至少包括的点数
 	    //ror.setNegative(true);	//默认false，保存内点；true，保存滤掉的外点
 	    ror.filter(*cloud_filtered);	//执行滤波，保存滤波结果于cloud_filtered
+        cloud.reset();
+        cloud=cloud_filtered;
         /*
         //分成若干网格，体素滤波
         pcl::VoxelGrid<PointType> sor2;  
@@ -117,30 +120,30 @@ namespace MyTool {
         // 将结果存储回原来的cloud对象  
         *cloud = *cloud_filtered2;
         */
-       long j=0;
-        PointCloud::iterator it = cloud->points.begin();
-        while (it != cloud->points.end()) {
-            it++;
-            j++;       
-        }
-        cloud->points.clear();
-        cout<<"after filter remove points:"<<j<<endl;
-        long i=0;
-        PointCloud::iterator it2 = cloud_filtered->points.begin();
-        while (it2 != cloud_filtered->points.end()) {
-            float x = it2->x;
-            float y = it2->y;
-            float z = it2->z;
-            PointType pointToAdd;
-            pointToAdd.x = x;
-            pointToAdd.y = y;
-            pointToAdd.z = z;
-            //float rgb = it->rgb;
-            cloud->push_back(pointToAdd);
-            it2++;
-            i++;
-        }
-        cout<<"after filter remain points:"<<i<<endl;
+    //    long j=0;
+    //     PointCloud::iterator it = cloud->points.begin();
+    //     while (it != cloud->points.end()) {
+    //         it++;
+    //         j++;       
+    //     }
+    //     cloud->points.clear();
+    //     cout<<"after filter remove points:"<<j<<endl;
+    //     long i=0;
+    //     PointCloud::iterator it2 = cloud_filtered->points.begin();
+    //     while (it2 != cloud_filtered->points.end()) {
+    //         float x = it2->x;
+    //         float y = it2->y;
+    //         float z = it2->z;
+    //         PointType pointToAdd;
+    //         pointToAdd.x = x;
+    //         pointToAdd.y = y;
+    //         pointToAdd.z = z;
+    //         //float rgb = it->rgb;
+    //         cloud->push_back(pointToAdd);
+    //         it2++;
+    //         i++;
+    //     }
+    //     cout<<"after filter remain points:"<<i<<endl;
     }
 
     void GetGridCoord(const double temp_x,const double temp_y,int &x,int &y) {
@@ -219,31 +222,61 @@ namespace MyTool {
 #ifdef DEBUG
         cout<<"start updateGrid"<<endl;
 #endif
-        //改变坐标轴
-        transCoorAxis(cloud);
-        //判断小车是否还认为自己在地面上，如果不是，要重新修复点云的坐标
-        // if(whetherRelocate(SE3transform)){
-        //     relocatePoints(cloud,SE3transform);
-        // }
-
-        //去除无用的点
-        RemoveUnusedPoint(cloud);
+#ifdef DEBUG_PCL
+        accPointCloud.clear();
+#endif
         //滤波器
         filterPointCloud(cloud);
-        updateAccPointCloud(cloud,SE3transform);
-        
+
+        //计算法向量
         calcSurfaceNormals(cloud);
-        
+
+        // //改变坐标轴
+        // transCoorAxis(cloud);
+        // //判断小车是否还认为自己在地面上，如果不是，要重新修复点云的坐标
+        // // if(whetherRelocate(SE3transform)){
+        // //     relocatePoints(cloud,SE3transform);
+        // // }
+
+        // //去除无用的点
+        // RemoveUnusedPoint(cloud);
+
+        // updateAccPointCloud(cloud,SE3transform);
         //更新grid
         for (decltype(cloud->size()) i = 0; i < cloud->size(); i++) {
+            //修正坐标轴
+            double newx=cloud->points[i].z;
+            double newy=-1.0*cloud->points[i].x;
+            double newz=-1.0*cloud->points[i].y;
+
+            //去除无用点
+            if ((newz>30*param.clip_max)||(newz<param.clip_min)) {
+                continue;
+            }
+
+#ifdef DEBUG_PCL
+            //cout<<SE3transform<<endl;
+            //使accpointcloud里面存储的是点云的局部坐标数据（相对于摄像头）
+            std::vector<double> localCoor=getLocalCoor(newx,newy,newz,SE3transform);
+
+            // 创建一个PointXYZ的点
+            PointType newPoint;
+            newPoint.x = localCoor[0];  // 设置点的x坐标
+            newPoint.y = localCoor[1];  // 设置点的y坐标
+            newPoint.z = localCoor[2];  // 设置点的z坐标
+ 
+            // 将点插入到点云中
+            accPointCloud.push_back(newPoint);
+#endif
+
             double normal_value;
             double height;
             double axis_1;
             double axis_2;
-            normal_value = cloudNormalPtr->points[i].normal_z;
-            height = cloud->points[i].z;
-            axis_1 = cloud->points[i].x;
-            axis_2 = cloud->points[i].y;
+            normal_value = cloudNormalPtr->points[i].normal_y;//因计算法向量时还未修正坐标
+            height = newz;
+            axis_1 = newx;
+            axis_2 = newy;
 
             double score;
             scoreFun(normal_value, height, score);
@@ -287,13 +320,21 @@ namespace MyTool {
         isUpdateGrid = true;
         if (gridPoints.size() > 0) {
             int min_x = 0, max_x = 0, min_y = 0, max_y = 0;
-            getMinMaxXY(gridPoints, min_x, max_x, min_y, max_y);
+            //getMinMaxXY(gridPoints, min_x, max_x, min_y, max_y);
             ocGrid = std::vector<signed char>(param.border_grids*param.border_grids,-1);
             auto it = gridPoints.begin();
             while (it != gridPoints.end()) {
                 ++it;
                 int x = it->first.x;
                 int y = it->first.y;
+                if (x > max_x)
+                    max_x = x;
+                if (x < min_x)
+                    min_x = x;
+                if (y > max_y)
+                    max_y = y;
+                if (y < min_y)
+                    min_y = y;
                 int position = (y + param.border_grids/2) * param.border_grids + x + param.border_grids/2;
                 if(position>ocGrid.size()||position<0)
                     continue;
@@ -314,7 +355,7 @@ namespace MyTool {
 #ifdef DEBUG
         cout<<"end getMapdata"<<endl;
 #endif
-    isUpdateGrid = false;
+        isUpdateGrid = false;
     }
     void MyGrid::update(PointCloud::Ptr& cloud,MapMetaData &data,double (&SE3)[16])
     {
@@ -333,13 +374,17 @@ namespace MyTool {
     }
     void MyGrid::updateSE3(double (&SE3)[16])
     {
+#ifdef DEBUG
         cout<<"updateSE3"<<endl;
+#endif
         SE3transform<<SE3[10],-SE3[2],-SE3[6],SE3[14],
                       -SE3[8],SE3[0],SE3[4],-SE3[12],
                       -SE3[9],SE3[1],SE3[5],-SE3[13],
                       SE3[11],-SE3[3],SE3[-7],SE3[15];
         //Eigen
+#ifdef DEBUG
         cout<<SE3transform<<endl;
+#endif
         
         
 
@@ -368,6 +413,9 @@ namespace MyTool {
     }
     pcl::PointCloud<PointType> MyGrid::getAccPointCloud(){
         return this->accPointCloud;
+    }
+    std::map<Coordiate, int> MyGrid::getGridPoints(){
+        return this->gridPoints;
     }
 }
 

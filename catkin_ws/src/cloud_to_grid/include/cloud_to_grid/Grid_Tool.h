@@ -22,6 +22,8 @@
 
 
 //#define DEBUG
+//#define DEBUG_PCL
+#define DEBUG_MAP
 using namespace std;
 namespace MyTool
 {
@@ -74,6 +76,9 @@ namespace MyTool
     bool whetherRelocate(Eigen::MatrixXd SE3transform);
 
 
+
+
+
     class MyGrid
     {
      private:
@@ -97,6 +102,7 @@ namespace MyTool
           void update(PointCloud::Ptr& cloud,MapMetaData &data,double (&SE3)[16]);
           void updateSE3(double (&SE3)[16]);
           pcl::PointCloud<PointType> getAccPointCloud();
+          std::map<Coordiate, int> getGridPoints();
     };
 
 } 
