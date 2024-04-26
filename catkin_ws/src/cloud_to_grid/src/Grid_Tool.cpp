@@ -66,34 +66,29 @@ namespace MyTool {
         }
     }
     //想要得到的是把全局坐标转换回局部坐标，然后经过x，y轴上的旋转与平移，同时还要计算每个点的法向量，来用于对比
-    void relocatePoints(PointCloud::Ptr &cloud,Eigen::MatrixXd SE3transform){
-        PointCloud::iterator it = cloud->points.begin();
-        while (it != cloud->points.end()) {
-            float x = it->x;
-            float y = it->y;
-            float z = it->z;
-            
-            //std::vector<double> localCoor=getLocalCoor(x,y,z,SE3transform);
+    Eigen::Vector3d relocatePoints(double x,double y,double z,Eigen::MatrixXd SE3transform){  
+            std::vector<double> localCoor=getLocalCoor(x,y,z,SE3transform);
             //PointType pointToAdd;
             //pointToAdd.x=localCoor[0]+SE3transform(0,3);
             //pointToAdd.y=localCoor[1]+SE3transform(1,3);
             //pointToAdd.z=localCoor[2];
-            Eigen::Matrix3d R = SE3transform.block<3, 3>(0, 0);  
-            Eigen::Vector3d t = SE3transform.block<3, 1>(0, 3);
+            Eigen::MatrixXd invSE3transform=SE3transform.inverse();
+            cout<<"inv:"<<endl;
+            cout<<invSE3transform<<endl;
+            Eigen::Matrix3d R = invSE3transform.block<3, 3>(0, 0);  
+            Eigen::Vector3d t = invSE3transform.block<3, 1>(0, 3);
             Eigen::Matrix3d R_new;  
             R_new << R(0, 0), R(0, 1), 0,  
                     R(1, 0), R(1, 1), 0,  
                     0,       0,       1;
             Eigen::Vector3d t_new(t(0), t(1), 0);
-            Eigen::Vector3d global_point; // 假设这是你要转换的全局点
-            global_point<<x,y,z;  
-            Eigen::Vector3d local_point = R_new * (global_point - t_new);
-            Eigen::Vector3d new_global_point = R_new.transpose() * local_point + t_new;
-            it->x=new_global_point(0);
-            it->y=new_global_point(1);
-            it->z=new_global_point(2);
-            it++;
-        }
+            //Eigen::Vector3d global_point; // 假设这是你要转换的全局点
+            //global_point<<x,y,z;  
+            Eigen::Vector3d local_point;
+            local_point<<localCoor[0],localCoor[1],localCoor[2];
+            Eigen::Vector3d new_global_point;
+            new_global_point = R_new * local_point + t_new;     
+            return new_global_point;  
     }
     
     
@@ -237,7 +232,8 @@ namespace MyTool {
         // // if(whetherRelocate(SE3transform)){
         // //     relocatePoints(cloud,SE3transform);
         // // }
-
+        
+        bool relocate=whetherRelocate(SE3transform);//判断是否在地面上且面对水平方向
         // //去除无用的点
         // RemoveUnusedPoint(cloud);
 
@@ -252,6 +248,14 @@ namespace MyTool {
             //去除无用点
             if ((newz>30*param.clip_max)||(newz<param.clip_min)) {
                 continue;
+            }
+
+            //如果偏移，重新定位并将新的数据存回点云里
+            if(relocate){
+                Eigen::Vector3d new_global_coor=relocatePoints(newx,newy,newz,SE3transform);
+                cloud->points[i].z=new_global_coor(0);
+                cloud->points[i].x=-1.0*new_global_coor(1);
+                cloud->points[i].y=-1.0*new_global_coor(2);
             }
 
 #ifdef DEBUG_PCL
