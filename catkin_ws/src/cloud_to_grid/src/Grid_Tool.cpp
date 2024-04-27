@@ -73,8 +73,8 @@ namespace MyTool {
             //pointToAdd.y=localCoor[1]+SE3transform(1,3);
             //pointToAdd.z=localCoor[2];
             Eigen::MatrixXd invSE3transform=SE3transform.inverse();
-            cout<<"inv:"<<endl;
-            cout<<invSE3transform<<endl;
+            //cout<<"inv:"<<endl;
+            //cout<<invSE3transform<<endl;
             Eigen::Matrix3d R = invSE3transform.block<3, 3>(0, 0);  
             Eigen::Vector3d t = invSE3transform.block<3, 1>(0, 3);
             Eigen::Matrix3d R_new;  
@@ -238,6 +238,7 @@ namespace MyTool {
         // RemoveUnusedPoint(cloud);
 
         // updateAccPointCloud(cloud,SE3transform);
+        
         //更新grid
         for (decltype(cloud->size()) i = 0; i < cloud->size(); i++) {
             //修正坐标轴
@@ -292,11 +293,11 @@ namespace MyTool {
             if (count > 0) {
                 int &gridPointCount = gridPoints.find(key)->second;
                 if (score >= param.deviation/*height >= -1.0*/) {
-                    gridPointCount = min(10,gridPointCount+1);
+                    gridPointCount = gridPointCount+1;
                     //gridPointCount++;
                 } else {
-                    gridPointCount = max(0, gridPointCount-1);
-                    continue;
+                    gridPointCount = gridPointCount;
+                   
                 }
             } else {
                gridPoints.insert(std::pair<Coordiate, int>(key, 0));
@@ -305,10 +306,84 @@ namespace MyTool {
                 //if (height >= 0.01)
                  //   gridPoints[key]++;
             }
+
         }
 #ifdef DEBUG
         cout<<"end updateGrid"<<endl;
 #endif
+    }
+
+    void MyGrid::repatchGrid(){
+        //创建一个双段队列，用于对所有已识别的点的遍历，凭此来修正地图
+        std::deque<std::pair<Coordiate,int>> pointsInDeque;
+        for (const auto& point : gridPoints) {  
+            pointsInDeque.push_back(point); // item是一个pair<coordiate, int>  
+        }
+        //构造偏移队列，用于遍历一点的四周
+        int deviaX[8]={-1,-1,-1,0,1,1,1,0};
+        int deviaY[8]={-1,0,1,1,1,0,-1,-1};
+        int searched=0;
+        int PointsAdded=0;
+        //开始遍历，开始修补
+        while (!pointsInDeque.empty()) {  
+            // 获取首元素  
+            cout<<"pointssearched:"<<searched<<"|||||PointsAdded:"<<PointsAdded<<endl;
+            const std::pair<Coordiate, int>& headPoint = pointsInDeque.front();  
+            searched++;
+            int x=headPoint.first.x;
+            int y=headPoint.first.y;
+            //判断该坐标的网格四周有没有符合要填充的点
+            for(int i=0;i<8;i++){
+                int xd =x+deviaX[i];
+                int yd =y+deviaY[i];
+                MyTool::Coordiate c(xd,yd);
+                if(gridPoints.count(c)==0){//确认没有该点的数据
+                    //cout<<"=find=";
+                    //计算该点周围已被识别的点的数量，以及该点周围的point的数量
+                    int count1=0;
+                    int countpoints=0;
+                    std::vector<int> sortedNums;  
+                    for(int j=0;j<8;j++){
+                        int xdd=xd+deviaX[j];
+                        int ydd=yd+deviaY[j];
+                        MyTool::Coordiate c2(xdd,ydd);
+                        if(gridPoints.count(c2)!=0){
+                            count1++;
+                            sortedNums.push_back(gridPoints.find(c2)->second);
+                        }else{
+
+                        }
+                    }
+                    cout<<"count1:"<<count1<<"   ";
+                    
+                    if(count1>=5){
+                        std::sort(sortedNums.begin(), sortedNums.end());
+                        cout<<"ADD!!!!"<<endl;
+                        cout<<"ADD!!!!"<<endl;
+                        cout<<"ADD!!!!"<<endl;
+                        int ret;
+                        if (count1 % 2 == 0) {  
+                            // 偶数长度，取中间两个数的平均值  
+                            ret= (sortedNums[count1 / 2 - 1] + sortedNums[count1 / 2]) / 2;  
+                        }else {  
+                            // 奇数长度，直接取中间的数  
+                            ret= sortedNums[count1 / 2];  
+                        } 
+                        gridPoints.insert(std::pair<Coordiate, int>(c,ret));
+                        pointsInDeque.push_back(std::pair<Coordiate, int>(c,ret));
+                        PointsAdded++;
+                    }else{
+                        count1=0;countpoints=0;
+                    }
+
+                }
+
+            }
+            // 删除首元素  
+            pointsInDeque.pop_front();  
+        }  
+        cout<<"finish repatch"<<endl;
+       
     }
 
     void MyGrid::scoreFun(double normal_z, double z, double &score) {
@@ -373,7 +448,9 @@ namespace MyTool {
         }
         
         updateGrid(cloud); 
+        
         updateSE3(SE3);
+        repatchGrid();
         getMapMetadata(data);
     }
     void MyGrid::updateSE3(double (&SE3)[16])

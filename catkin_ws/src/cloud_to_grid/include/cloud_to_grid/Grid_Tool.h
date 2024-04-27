@@ -19,7 +19,8 @@
 #include <Eigen/Dense>
 #include <Eigen/Geometry>
 #include <cmath>
-
+#include <deque>
+#include <utility>
 
 //#define DEBUG
 //#define DEBUG_PCL
@@ -97,12 +98,14 @@ namespace MyTool
           void getMapMetadata(MapMetaData &data);
           void updateAccPointCloud(PointCloud::Ptr& cloud,Eigen::MatrixXd SE3transform);
           bool isUpdateGrid=false;
+          void repatchGrid();
      public:
           MyGrid();
           void update(PointCloud::Ptr& cloud,MapMetaData &data,double (&SE3)[16]);
           void updateSE3(double (&SE3)[16]);
           pcl::PointCloud<PointType> getAccPointCloud();
           std::map<Coordiate, int> getGridPoints();
+          
     };
 
 } 
