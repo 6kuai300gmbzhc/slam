@@ -99,6 +99,7 @@ namespace MyTool
           void updateAccPointCloud(PointCloud::Ptr& cloud,Eigen::MatrixXd SE3transform);
           bool isUpdateGrid=false;
           void repatchGrid();
+          void generateFloor(Eigen::MatrixXd SE3transform);
      public:
           MyGrid();
           void update(PointCloud::Ptr& cloud,MapMetaData &data,double (&SE3)[16]);

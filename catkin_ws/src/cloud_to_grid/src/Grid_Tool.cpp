@@ -293,10 +293,10 @@ namespace MyTool {
             if (count > 0) {
                 int &gridPointCount = gridPoints.find(key)->second;
                 if (score >= param.deviation/*height >= -1.0*/) {
-                    gridPointCount = gridPointCount+1;
+                    gridPointCount = max(gridPointCount+1,15);
                     //gridPointCount++;
                 } else {
-                    gridPointCount = gridPointCount;
+                    gridPointCount = min(gridPointCount-1,0);
                    
                 }
             } else {
@@ -327,7 +327,7 @@ namespace MyTool {
         //开始遍历，开始修补
         while (!pointsInDeque.empty()) {  
             // 获取首元素  
-            cout<<"pointssearched:"<<searched<<"|||||PointsAdded:"<<PointsAdded<<endl;
+            //cout<<"pointssearched:"<<searched<<"|||||PointsAdded:"<<PointsAdded<<endl;
             const std::pair<Coordiate, int>& headPoint = pointsInDeque.front();  
             searched++;
             int x=headPoint.first.x;
@@ -340,40 +340,59 @@ namespace MyTool {
                 if(gridPoints.count(c)==0){//确认没有该点的数据
                     //cout<<"=find=";
                     //计算该点周围已被识别的点的数量，以及该点周围的point的数量
-                    int count1=0;
+                    int countwall=0;
                     int countpoints=0;
+                    int countfloor=0;
+                    int countborder=0;
+                    int countcorner=0;
+                    
                     std::vector<int> sortedNums;  
                     for(int j=0;j<8;j++){
                         int xdd=xd+deviaX[j];
                         int ydd=yd+deviaY[j];
                         MyTool::Coordiate c2(xdd,ydd);
                         if(gridPoints.count(c2)!=0){
-                            count1++;
-                            sortedNums.push_back(gridPoints.find(c2)->second);
+                            if(j%2==0){
+                                countcorner++;
+                            }else{
+                                countborder++;
+                            }
+                            if(gridPoints.find(c2)->second>=param.threshold){
+                                countwall++;
+                                sortedNums.push_back(gridPoints.find(c2)->second);
+                            }else{
+                                countfloor++;
+                            }
+                            
                         }else{
 
                         }
                     }
-                    cout<<"count1:"<<count1<<"   ";
+                    //cout<<"count1:"<<count1<<"   ";
                     
-                    if(count1>=5){
-                        std::sort(sortedNums.begin(), sortedNums.end());
+                    if(countwall>=4&&(countborder>=3||countcorner>=3)){
+                        //std::sort(sortedNums.begin(), sortedNums.end());
                         cout<<"ADD!!!!"<<endl;
                         cout<<"ADD!!!!"<<endl;
                         cout<<"ADD!!!!"<<endl;
                         int ret;
-                        if (count1 % 2 == 0) {  
+                        
+                        if (countwall % 2 == 0) {  
                             // 偶数长度，取中间两个数的平均值  
-                            ret= (sortedNums[count1 / 2 - 1] + sortedNums[count1 / 2]) / 2;  
+                            ret= (sortedNums[countwall / 2 - 1] + sortedNums[countwall / 2]) / 2;  
                         }else {  
                             // 奇数长度，直接取中间的数  
-                            ret= sortedNums[count1 / 2];  
+                            ret= sortedNums[countwall / 2];  
                         } 
                         gridPoints.insert(std::pair<Coordiate, int>(c,ret));
                         pointsInDeque.push_back(std::pair<Coordiate, int>(c,ret));
                         PointsAdded++;
+                    }else if(countfloor>=5){
+                        gridPoints.insert(std::pair<Coordiate,int>(c,0));
+                        pointsInDeque.push_back(std::pair<Coordiate, int>(c,0));
+                        PointsAdded++;
                     }else{
-                        count1=0;countpoints=0;
+                        countwall=0;countpoints=0;countfloor=0;
                     }
 
                 }
@@ -382,8 +401,67 @@ namespace MyTool {
             // 删除首元素  
             pointsInDeque.pop_front();  
         }  
-        cout<<"finish repatch"<<endl;
+        //cout<<"finish repatch"<<endl;
        
+    }
+    void MyGrid::generateFloor(Eigen::MatrixXd SE3transform){
+        // 小车的位置  
+        double xcar = -1.0*SE3transform(0,3);  
+        double ycar = -1.0*SE3transform(1,3);  
+        // 小车的方向（通过cos(theta)和sin(theta)给出）  
+        double cosTheta = (SE3transform(0,0)+SE3transform(1,1))/2.0; // 假设小车初始面向正X轴方向  
+        double sinTheta = (SE3transform(0,1)-1.0*SE3transform(1,0))/2.0;  
+        // 遍历所有射线  
+        double coslist[19];
+        double sinlist[19];
+        for(int i=0;i<10;i++){
+             double angle = -i * 5 * M_PI / 180.0; // 将角度转换为弧度，并且因为是向左旋转，所以是负值  
+  
+            // 计算当前射线的方向向量  
+            double cosCurrentTheta = cosTheta * std::cos(angle) - sinTheta * std::sin(angle);  
+            double sinCurrentTheta = sinTheta * std::cos(angle) + cosTheta * std::sin(angle); 
+            coslist[i]=cosCurrentTheta;
+            sinlist[i]=sinCurrentTheta;
+        }
+        for(int j=1;j<10;j++){
+             double angle = j * 5 * M_PI / 180.0; // 将角度转换为弧度，并且因为是向you旋转，所以是zheng值  
+  
+            // 计算当前射线的方向向量  
+            double cosCurrentTheta = cosTheta * std::cos(angle) - sinTheta * std::sin(angle);  
+            double sinCurrentTheta = sinTheta * std::cos(angle) + cosTheta * std::sin(angle); 
+            coslist[j+9]=cosCurrentTheta;
+            sinlist[j+9]=sinCurrentTheta;
+        }
+        
+        int blockcount=0;
+        //bool cancontinue=true;
+        for(int j=0;j<60;j++){
+            for(int i=0;i<19;i++){
+                double xfloor=xcar+j*coslist[i]*0.05;
+                double yfloor=ycar+j*sinlist[i]*0.05;
+                int xf=xfloor/param.cellResolution;
+                int yf=yfloor/param.cellResolution;
+                int xc=xcar/param.cellResolution;
+                int yc=ycar/param.cellResolution;
+                MyTool::Coordiate cf(xf,yf);
+                if(gridPoints.count(cf)>0){
+                    if(gridPoints.find(cf)->second>=param.threshold){
+                        //cout<<"stop!!At:"<<xf<<","<<yf<<""<<endl;
+                        //cout<<"carpos:"<<xc<<","<<yc<<endl;
+                        //cout<<"finishgeneratefloor"<<endl;
+                        //cancontinue=false;
+                        return;
+                    }
+                }else{
+                    gridPoints.insert(std::pair<Coordiate, int>(cf,0));
+                    //cout<<"ins:"<<xfloor<<","<<yfloor<<" "; 
+                }
+            }
+        }
+    //cout<<"carpos:"<<xcar<<","<<ycar<<endl;
+    //cout<<"finishgeneratefloor"<<endl;
+
+         
     }
 
     void MyGrid::scoreFun(double normal_z, double z, double &score) {
@@ -451,6 +529,7 @@ namespace MyTool {
         
         updateSE3(SE3);
         repatchGrid();
+        generateFloor(SE3transform);
         getMapMetadata(data);
     }
     void MyGrid::updateSE3(double (&SE3)[16])
@@ -463,6 +542,8 @@ namespace MyTool {
                       -SE3[9],SE3[1],SE3[5],-SE3[13],
                       SE3[11],-SE3[3],SE3[-7],SE3[15];
         //Eigen
+        cout<<SE3transform<<endl;
+        cout<<endl;
 #ifdef DEBUG
         cout<<SE3transform<<endl;
 #endif
