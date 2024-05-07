@@ -237,7 +237,7 @@ namespace MyTool {
         // //去除无用的点
         // RemoveUnusedPoint(cloud);
 
-        // updateAccPointCloud(cloud,SE3transform);
+        updateAccPointCloud(cloud,SE3transform);
         
         //更新grid
         for (decltype(cloud->size()) i = 0; i < cloud->size(); i++) {
@@ -412,10 +412,10 @@ namespace MyTool {
         double cosTheta = (SE3transform(0,0)+SE3transform(1,1))/2.0; // 假设小车初始面向正X轴方向  
         double sinTheta = (SE3transform(0,1)-1.0*SE3transform(1,0))/2.0;  
         // 遍历所有射线  
-        double coslist[19];
-        double sinlist[19];
-        for(int i=0;i<10;i++){
-             double angle = -i * 5 * M_PI / 180.0; // 将角度转换为弧度，并且因为是向左旋转，所以是负值  
+        double coslist[45];
+        double sinlist[45];
+        for(int i=0;i<23;i++){
+             double angle = -i * 2 * M_PI / 180.0; // 将角度转换为弧度，并且因为是向左旋转，所以是负值  
   
             // 计算当前射线的方向向量  
             double cosCurrentTheta = cosTheta * std::cos(angle) - sinTheta * std::sin(angle);  
@@ -423,40 +423,87 @@ namespace MyTool {
             coslist[i]=cosCurrentTheta;
             sinlist[i]=sinCurrentTheta;
         }
-        for(int j=1;j<10;j++){
-             double angle = j * 5 * M_PI / 180.0; // 将角度转换为弧度，并且因为是向you旋转，所以是zheng值  
+        for(int j=1;j<22;j++){
+             double angle = j * 2 * M_PI / 180.0; // 将角度转换为弧度，并且因为是向you旋转，所以是zheng值  
   
             // 计算当前射线的方向向量  
             double cosCurrentTheta = cosTheta * std::cos(angle) - sinTheta * std::sin(angle);  
             double sinCurrentTheta = sinTheta * std::cos(angle) + cosTheta * std::sin(angle); 
-            coslist[j+9]=cosCurrentTheta;
-            sinlist[j+9]=sinCurrentTheta;
+            coslist[j+22]=cosCurrentTheta;
+            sinlist[j+22]=sinCurrentTheta;
         }
         
         int blockcount=0;
         //bool cancontinue=true;
         for(int j=0;j<60;j++){
-            for(int i=0;i<19;i++){
-                double xfloor=xcar+j*coslist[i]*0.05;
-                double yfloor=ycar+j*sinlist[i]*0.05;
-                int xf=xfloor/param.cellResolution;
-                int yf=yfloor/param.cellResolution;
-                int xc=xcar/param.cellResolution;
-                int yc=ycar/param.cellResolution;
-                MyTool::Coordiate cf(xf,yf);
-                if(gridPoints.count(cf)>0){
-                    if(gridPoints.find(cf)->second>=param.threshold){
-                        //cout<<"stop!!At:"<<xf<<","<<yf<<""<<endl;
-                        //cout<<"carpos:"<<xc<<","<<yc<<endl;
-                        //cout<<"finishgeneratefloor"<<endl;
-                        //cancontinue=false;
-                        return;
-                    }
-                }else{
+            if(j<15){
+                for(int i=0;i<45;i+=4){
+                    double xfloor=xcar+j*coslist[i]*0.05;
+                    double yfloor=ycar+j*sinlist[i]*0.05;
+                    int xf=xfloor/param.cellResolution;
+                    int yf=yfloor/param.cellResolution;
+                    int xc=xcar/param.cellResolution;
+                    int yc=ycar/param.cellResolution;
+                    MyTool::Coordiate cf(xf,yf);
+                    if(gridPoints.count(cf)>0){
+                        if(gridPoints.find(cf)->second>=param.threshold){
+                            //cout<<"stop!!At:"<<xf<<","<<yf<<""<<endl;
+                            //cout<<"carpos:"<<xc<<","<<yc<<endl;
+                            //cout<<"finishgeneratefloor"<<endl;
+                            //cancontinue=false;
+                            return;
+                        }
+                    }else{
                     gridPoints.insert(std::pair<Coordiate, int>(cf,0));
                     //cout<<"ins:"<<xfloor<<","<<yfloor<<" "; 
+                    }
+                }
+            }else if(j<35){
+                for(int i=0;i<45;i+=2){
+                    double xfloor=xcar+j*coslist[i]*0.05;
+                    double yfloor=ycar+j*sinlist[i]*0.05;
+                    int xf=xfloor/param.cellResolution;
+                    int yf=yfloor/param.cellResolution;
+                    int xc=xcar/param.cellResolution;
+                    int yc=ycar/param.cellResolution;
+                    MyTool::Coordiate cf(xf,yf);
+                    if(gridPoints.count(cf)>0){
+                        if(gridPoints.find(cf)->second>=param.threshold){
+                            //cout<<"stop!!At:"<<xf<<","<<yf<<""<<endl;
+                            //cout<<"carpos:"<<xc<<","<<yc<<endl;
+                            //cout<<"finishgeneratefloor"<<endl;
+                            //cancontinue=false;
+                            return;
+                        }
+                    }else{
+                    gridPoints.insert(std::pair<Coordiate, int>(cf,0));
+                    //cout<<"ins:"<<xfloor<<","<<yfloor<<" "; 
+                    }
+                }
+            }else{
+                for(int i=0;i<45;i++){
+                    double xfloor=xcar+j*coslist[i]*0.05;
+                    double yfloor=ycar+j*sinlist[i]*0.05;
+                    int xf=xfloor/param.cellResolution;
+                    int yf=yfloor/param.cellResolution;
+                    int xc=xcar/param.cellResolution;
+                    int yc=ycar/param.cellResolution;
+                    MyTool::Coordiate cf(xf,yf);
+                    if(gridPoints.count(cf)>0){
+                        if(gridPoints.find(cf)->second>=param.threshold){
+                            //cout<<"stop!!At:"<<xf<<","<<yf<<""<<endl;
+                            //cout<<"carpos:"<<xc<<","<<yc<<endl;
+                            //cout<<"finishgeneratefloor"<<endl;
+                            //cancontinue=false;
+                            return;
+                        }
+                    }else{
+                    gridPoints.insert(std::pair<Coordiate, int>(cf,0));
+                    //cout<<"ins:"<<xfloor<<","<<yfloor<<" "; 
+                    }
                 }
             }
+            
         }
     //cout<<"carpos:"<<xcar<<","<<ycar<<endl;
     //cout<<"finishgeneratefloor"<<endl;
@@ -556,9 +603,10 @@ namespace MyTool {
         cout<<SE3transform<<endl;
         accPointCloud.clear();
         while (it != cloud->points.end()) {
-            float x = it->x;
-            float y = it->y;
-            float z = it->z;
+            double x=it->z;
+            double y=-1.0*it->x;
+            double z=-1.0*it->y;
+
             //使accpointcloud里面存储的是点云的局部坐标数据（相对于摄像头）
             std::vector<double> localCoor=getLocalCoor(x,y,z,SE3transform);
 

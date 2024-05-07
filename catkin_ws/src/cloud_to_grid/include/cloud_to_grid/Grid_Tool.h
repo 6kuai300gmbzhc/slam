@@ -23,7 +23,7 @@
 #include <utility>
 
 //#define DEBUG
-//#define DEBUG_PCL
+#define DEBUG_PCL
 #define DEBUG_MAP
 using namespace std;
 namespace MyTool
