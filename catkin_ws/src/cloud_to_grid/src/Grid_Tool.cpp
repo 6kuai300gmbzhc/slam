@@ -584,9 +584,16 @@ namespace MyTool {
 #ifdef DEBUG
         cout<<"updateSE3"<<endl;
 #endif
-        SE3transform<<SE3[10],-SE3[2],-SE3[6],SE3[14],
-                      -SE3[8],SE3[0],SE3[4],-SE3[12],
-                      -SE3[9],SE3[1],SE3[5],-SE3[13],
+        Eigen::MatrixXd SO3=Eigen::MatrixXd(3,3);
+        SO3<<SE3[10],-SE3[2],-SE3[6],
+             -SE3[8],SE3[0],SE3[4],
+             -SE3[9],SE3[1],SE3[5];
+        Eigen::Vector3d sft(3);
+        sft<<SE3[14],-SE3[12],-SE3[13];
+        sft=SO3.inverse()*sft;
+        SE3transform<<SE3[10],-SE3[2],-SE3[6],sft[0],
+                      -SE3[8],SE3[0],SE3[4],sft[1],
+                      -SE3[9],SE3[1],SE3[5],sft[2],
                       SE3[11],-SE3[3],SE3[-7],SE3[15];
         //Eigen
         cout<<SE3transform<<endl;
