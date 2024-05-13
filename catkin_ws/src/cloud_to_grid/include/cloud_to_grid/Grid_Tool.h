@@ -27,6 +27,7 @@
 //#define DEBUG
 #define DEBUG_PCL
 #define DEBUG_MAP
+//#define gen_floor
 using namespace std;
 namespace MyTool
 {
@@ -39,9 +40,9 @@ namespace MyTool
         bool mode=false; //false global;true increasing
         int project_direction = 2;//0 x;1 y;2 z
         double searchRadius=0.1;
-        double deviation=0.5;
+        double deviation=0.1;
         double sigma=0.5;
-        int threshold=5;
+        int threshold=1;
         double cellResolution=0.05;
         double clip_max=1.0;
         double clip_min=-1.0;

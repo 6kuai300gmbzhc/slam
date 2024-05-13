@@ -293,7 +293,7 @@ namespace MyTool {
             if (count > 0) {
                 int &gridPointCount = gridPoints.find(key)->second;
                 if (score >= param.deviation/*height >= -1.0*/) {
-                    gridPointCount = max(gridPointCount+2,15);
+                    gridPointCount = max(gridPointCount+100,100000);
                     //gridPointCount++;
                 } else {
                     gridPointCount = min(gridPointCount-1,0);
@@ -302,7 +302,7 @@ namespace MyTool {
             } else {
                gridPoints.insert(std::pair<Coordiate, int>(key, 0));
                 if (score >= param.deviation)
-                    gridPoints[key]++;
+                    gridPoints[key]+=100;
                 //if (height >= 0.01)
                  //   gridPoints[key]++;
             }
@@ -579,13 +579,10 @@ namespace MyTool {
             searchedGrids.clear();
             isGlobalUpdate = true;
         }
-        
-        updateGrid(cloud); 
-        
         updateSE3(SE3);
+        updateGrid(cloud); 
         generateFloor(SE3transform);
         repatchGrid();
-        
         getMapMetadata(data);
     }
     void MyGrid::updateSE3(double (&SE3)[16])
