@@ -21,6 +21,8 @@
 #include <cmath>
 #include <deque>
 #include <utility>
+#include <vector>
+#include <algorithm>
 
 //#define DEBUG
 #define DEBUG_PCL
@@ -57,6 +59,11 @@ namespace MyTool
         {
             return (x < coord.x) || (x == coord.x && y < coord.y) ;
         }
+        bool operator==(const Coordiate &other) const
+    {
+        return (this->x==other.x&&this->y==other.y);
+    }
+
     };
     struct MapMetaData{
         int width=0;
@@ -90,8 +97,9 @@ namespace MyTool
           MapMetaData mapMetaData;
           Eigen::MatrixXd SE3transform;
           pcl::PointCloud<PointType> accPointCloud;
+          std::vector<Coordiate> searchedGrids;
           
-          void scoreFun(double normal_value,double height,double &score);
+          void scoreFun(double normal_value,double height,double &score,Eigen::MatrixXd SE3transform);
           void getMinMaxXY(std::map<Coordiate, int> &tmp_gridPoints,int &min_x,int &max_x,int &min_y,int &max_y);
           void calcSurfaceNormals(PointCloud::Ptr& cloud);
           void updateGrid(PointCloud::Ptr& cloud);

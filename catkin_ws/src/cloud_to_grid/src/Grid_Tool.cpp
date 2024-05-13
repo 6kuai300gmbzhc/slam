@@ -98,7 +98,7 @@ namespace MyTool {
         pcl::RadiusOutlierRemoval<PointType> ror;	//创建滤波器对象
 	    ror.setInputCloud(cloud);						//设置待滤波点云
 	    ror.setRadiusSearch(0.05);						//设置查询点的半径范围
-	    ror.setMinNeighborsInRadius(3);	//设置判断是否为离群点的阈值，即半径内至少包括的点数
+	    ror.setMinNeighborsInRadius(4);	//设置判断是否为离群点的阈值，即半径内至少包括的点数
 	    //ror.setNegative(true);	//默认false，保存内点；true，保存滤掉的外点
 	    ror.filter(*cloud_filtered);	//执行滤波，保存滤波结果于cloud_filtered
         cloud.reset();
@@ -284,7 +284,7 @@ namespace MyTool {
             axis_2 = newy;
 
             double score;
-            scoreFun(normal_value, height, score);
+            scoreFun(normal_value, height, score,SE3transform);
 
             int grid_x, grid_y;
             GetGridCoord(axis_1, axis_2, grid_x, grid_y);
@@ -293,7 +293,7 @@ namespace MyTool {
             if (count > 0) {
                 int &gridPointCount = gridPoints.find(key)->second;
                 if (score >= param.deviation/*height >= -1.0*/) {
-                    gridPointCount = max(gridPointCount+1,15);
+                    gridPointCount = max(gridPointCount+2,15);
                     //gridPointCount++;
                 } else {
                     gridPointCount = min(gridPointCount-1,0);
@@ -328,7 +328,13 @@ namespace MyTool {
         while (!pointsInDeque.empty()) {  
             // 获取首元素  
             //cout<<"pointssearched:"<<searched<<"|||||PointsAdded:"<<PointsAdded<<endl;
-            const std::pair<Coordiate, int>& headPoint = pointsInDeque.front();  
+            const std::pair<Coordiate, int>& headPoint = pointsInDeque.front();
+
+            if(find(searchedGrids.begin(),searchedGrids.end(),headPoint.first)!=searchedGrids.end()||headPoint.second<param.threshold){
+                pointsInDeque.pop_front(); 
+                continue;
+            }
+            searchedGrids.push_back(headPoint.first);  
             searched++;
             int x=headPoint.first.x;
             int y=headPoint.first.y;
@@ -337,7 +343,7 @@ namespace MyTool {
                 int xd =x+deviaX[i];
                 int yd =y+deviaY[i];
                 MyTool::Coordiate c(xd,yd);
-                if(gridPoints.count(c)==0){//确认没有该点的数据
+                if(gridPoints.count(c)<=1){//
                     //cout<<"=find=";
                     //计算该点周围已被识别的点的数量，以及该点周围的point的数量
                     int countwall=0;
@@ -372,25 +378,25 @@ namespace MyTool {
                     
                     if(countwall>=4&&(countborder>=3||countcorner>=3)){
                         //std::sort(sortedNums.begin(), sortedNums.end());
-                        cout<<"ADD!!!!"<<endl;
-                        cout<<"ADD!!!!"<<endl;
-                        cout<<"ADD!!!!"<<endl;
+                        //cout<<"ADD!!!!"<<endl;
+                        //cout<<"ADD!!!!"<<endl;
+                        //cout<<"ADD!!!!"<<endl;
                         int ret;
+                        ret=param.threshold+1;
+                        if(gridPoints.count(c)==0){
+                            gridPoints.insert(std::pair<Coordiate, int>(c,ret));
+                            pointsInDeque.push_back(std::pair<Coordiate, int>(c,ret));
+                            PointsAdded++;
+                        }else{
+                            gridPoints[c]=ret;
+                            //pointsInDeque.push_back(std::pair<Coordiate, int>(c,ret));
+                            //PointsAdded++;
+                        }
                         
-                        if (countwall % 2 == 0) {  
-                            // 偶数长度，取中间两个数的平均值  
-                            ret= (sortedNums[countwall / 2 - 1] + sortedNums[countwall / 2]) / 2;  
-                        }else {  
-                            // 奇数长度，直接取中间的数  
-                            ret= sortedNums[countwall / 2];  
-                        } 
-                        gridPoints.insert(std::pair<Coordiate, int>(c,ret));
-                        pointsInDeque.push_back(std::pair<Coordiate, int>(c,ret));
-                        PointsAdded++;
-                    }else if(countfloor>=5){
-                        gridPoints.insert(std::pair<Coordiate,int>(c,0));
-                        pointsInDeque.push_back(std::pair<Coordiate, int>(c,0));
-                        PointsAdded++;
+                    //}else if(countfloor>=5){
+                    //    gridPoints.insert(std::pair<Coordiate,int>(c,0));
+                    //    pointsInDeque.push_back(std::pair<Coordiate, int>(c,0));
+                    //    PointsAdded++;
                     }else{
                         countwall=0;countpoints=0;countfloor=0;
                     }
@@ -435,7 +441,7 @@ namespace MyTool {
         
         int blockcount=0;
         //bool cancontinue=true;
-        for(int j=0;j<60;j++){
+        for(int j=0;j<40;j++){
             if(j<15){
                 for(int i=0;i<45;i+=4){
                     double xfloor=xcar+j*coslist[i]*0.05;
@@ -458,7 +464,7 @@ namespace MyTool {
                     //cout<<"ins:"<<xfloor<<","<<yfloor<<" "; 
                     }
                 }
-            }else if(j<35){
+            }else if(j<30){
                 for(int i=0;i<45;i+=2){
                     double xfloor=xcar+j*coslist[i]*0.05;
                     double yfloor=ycar+j*sinlist[i]*0.05;
@@ -511,9 +517,10 @@ namespace MyTool {
          
     }
 
-    void MyGrid::scoreFun(double normal_z, double z, double &score) {
+    void MyGrid::scoreFun(double normal_z, double z, double &score,Eigen::MatrixXd SE3transform) {
         double part_nomal = 1 - fabs(normal_z);
-        double part_z = 1 - exp(-fabs(z));
+        double nz=z-SE3transform(2,3);
+        double part_z = 1 - exp(-fabs(nz));
         score = param.sigma * part_nomal + (1.0 - param.sigma) * part_z;
     }
 
@@ -569,14 +576,16 @@ namespace MyTool {
         if(isUpdateGrid ||(!param.mode&&isGlobalUpdate)){return;}
         if(!param.mode){
             gridPoints.clear();
+            searchedGrids.clear();
             isGlobalUpdate = true;
         }
         
         updateGrid(cloud); 
         
         updateSE3(SE3);
-        repatchGrid();
         generateFloor(SE3transform);
+        repatchGrid();
+        
         getMapMetadata(data);
     }
     void MyGrid::updateSE3(double (&SE3)[16])
