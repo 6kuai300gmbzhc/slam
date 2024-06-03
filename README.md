@@ -1,4 +1,6 @@
-
+依赖：Eigen3 Pangolin opencv4.2 boost
+其中catkin_Ws目录下是需要ROS的模块，需要ros的工作空间
+orbslam3不用，但是它和catkin_ws应该放到同一个目录下面，要不然启动不了
 终端1：
 cd catkin_ws
 source devel/setup.bash
@@ -17,9 +19,3 @@ ROS_NAMESPACE=robot2 rosrun ORB_SLAM3 RGBD Vocabulary/ORBvoc.txt Examples_old/RG
 cd catkin_ws
 source devel/setup.bash
 roslaunch robot_sim_demo cloud_to_grid.launch
-
-
-rqt_graph 看topic
-rostopic echo 看topic内容
-rostopic type 看topic类型
-rosnode list 看topic 都有那些
